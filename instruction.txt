@@ -1,0 +1,12 @@
+git clone "git path.git"  # clone repo
+
+git pull  # update local repo from net
+git branch "your branchName"  # create branch
+git checkout "your branchName"  # switch branch
+git add [-A] "your fileName"  # add file to git
+git commit [-a] [-m "your message"]  # commit with message
+git push -u origin "branch name"  # push to network repo
+
+git branch -d "branch name"  # delete branch if branch merged
+git branch -D "branch name"  # delete branch anyway
+git branch  # about brunches
