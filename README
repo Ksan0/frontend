@@ -1,0 +1,4 @@
+install: npm install[D[D[D[D[D[D[D[D[D[D[D[C[D[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[D[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cinstall:
+git clone path_to_this_repo
+cd this_repo
+npm install
