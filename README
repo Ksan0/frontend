@@ -1,3 +1,8 @@
+authors:
+Ksan
+Elya
+Ivan
+
 install:
 git clone path_to_this_repo
 cd this_repo
