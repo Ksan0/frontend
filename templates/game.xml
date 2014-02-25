@@ -1,0 +1,11 @@
+<fest:template xmlns:fest="http://fest.mail.ru"
+    context_name="json">
+
+    <div class="content">
+    	<canvas id="game">Не</canvas>
+    	<br/>
+        <DL>
+        	<DT><a href="#main" class="content__list">Back</a></DT>
+        </DL>
+    </div>
+</fest:template>

@@ -1,0 +1,89 @@
+body {
+margin: 0 0 0 0;
+/*background-image: url(images/backgr.jpg);*/
+background-color: black;
+}
+
+
+.content {
+	background-image: url(images/bg.jpg);
+	margin: 20px auto 0 auto;
+	text-align: center;
+	font-family: cursive;
+	font-size: 20px;
+	height: 700px;
+	width: 600px;
+	
+}
+
+
+
+.content__title {
+	margin: 0 auto;
+	background-image: url(images/arc.gif);
+	background-repeat: no-repeat;
+	background-position: center;
+	font-size: 30px;
+}
+
+.content__main {
+	font-size: 30px;
+}
+
+
+.content__list {
+	-moz-box-shadow:inset 0px 1px 0px 0px #cae3fc;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #cae3fc;
+	box-shadow:inset 0px 1px 0px 0px #cae3fc;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #79bbff), color-stop(1, #02060a) );
+	background:-moz-linear-gradient( center top, #79bbff 5%, #02060a 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#79bbff', endColorstr='#02060a');
+	background-color:#79bbff;
+	-webkit-border-top-left-radius:20px;
+	-moz-border-radius-topleft:20px;
+	border-top-left-radius:20px;
+	-webkit-border-top-right-radius:20px;
+	-moz-border-radius-topright:20px;
+	border-top-right-radius:20px;
+	-webkit-border-bottom-right-radius:20px;
+	-moz-border-radius-bottomright:20px;
+	border-bottom-right-radius:20px;
+	-webkit-border-bottom-left-radius:20px;
+	-moz-border-radius-bottomleft:20px;
+	border-bottom-left-radius:20px;
+	text-indent:0;
+	border:1px solid #469df5;
+	display:inline-block;
+	color:#ffffff;
+	font-family:Comic Sans MS;
+	font-size:21px;
+	font-weight:bold;
+	font-style:normal;
+	height:50px;
+	line-height:50px;
+	width:195px;
+	text-decoration:none;
+	text-align:center;
+	text-shadow:1px 1px 0px #287ace;
+}
+.content__list:hover {
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #02060a), color-stop(1, #79bbff) );
+	background:-moz-linear-gradient( center top, #02060a 5%, #79bbff 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#02060a', endColorstr='#79bbff');
+	background-color:#02060a;
+}.content__list:active {
+	position:relative;
+	top:1px;
+}
+
+.boarder {
+
+	margin: auto auto auto 215px;
+}
+.border__d {
+
+	border: solid;
+	border: 1px, 1px, 1px, 0px;
+}
+
+
