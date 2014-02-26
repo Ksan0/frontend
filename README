@@ -6,8 +6,8 @@ events -> hide, show
 canvas init one time
 
 install:
-git clone path_to_this_repo
-cd this_repo
+git clone https://github.com/ksan0/frontend.git
+cd frontend
 npm install
 
 authors:
