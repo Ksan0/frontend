@@ -5,12 +5,12 @@ no id -> class
 events -> hide, show
 canvas init one time
 
-authors:
-Ksan
-Elya
-Ivan
-
 install:
 git clone path_to_this_repo
 cd this_repo
 npm install
+
+authors:
+Ksan
+Elya
+Ivan
