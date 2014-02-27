@@ -7,13 +7,13 @@ define([
 ){
 
     var View = Backbone.View.extend({
-
         template: tmpl,
-        el: '#page',
         initialize: function () {
             
         },
         render: function () {
+            $('body').append(this.$el);
+            this.$el.html(this.template());
             var canvas  = document.getElementById('game');
             if (canvas) {
                 context = canvas.getContext('2d');
@@ -23,12 +23,14 @@ define([
                 context.strokeStyle = '#0f0';
                 context.stroke();
             }
+            return this;
         },
         show: function () {
-            this.$el.html(this.template());
+            this.render();
+            this.$el.show();
         },
         hide: function () {
-            // TODO
+            this.$el.hide();
         }
 
     });
