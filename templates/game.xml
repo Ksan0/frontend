@@ -1,8 +1,6 @@
 <fest:template xmlns:fest="http://fest.mail.ru"
     context_name="json">
     <div class="content">
-    	
-        	<a href="#main" class="content__list">Back</a></DT>
-       
+        <a href="#main" class="content__list">Back</a>       
     </div>
 </fest:template>
