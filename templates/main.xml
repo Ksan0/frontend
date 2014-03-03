@@ -4,8 +4,8 @@
             <div class="content__title">_</div>
             <div class="content__main">Main menu</div>
             <form>
-                <a href="#scoreboard" class="content__list" >Score board</a></DT>
-                <a href="#game" class="content__list">Start game</a></DT>
+                <a href="#scoreboard" class="content__list" >Score board</a>
+                <a href="#game" class="content__list">Start game</a>
             </form>
            
         </div>   
