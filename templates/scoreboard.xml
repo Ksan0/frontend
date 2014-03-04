@@ -1,7 +1,7 @@
 <fest:template xmlns:fest="http://fest.mail.ru"
     context_name="json">
-	<div class="content">
-        <div class="content__title">_</div>
+    <div class="content">
+        <div class="content__title">ARCANOID</div>
         <div class="boarder">
             <table class="border__table">
                 <th class="border__desk">№</th>
@@ -15,7 +15,7 @@
                     </tr>
                 </fest:for>
             </table>
-         </div>
-         <a href="#main" class="content__list">Back</a>
+        </div>
+        <a href="#main" class="content__list">Back</a>
     </div>
- </fest:template>
+</fest:template>

@@ -1,21 +1,27 @@
+body {
+	margin: 0;
+}
+
 .content {
-	background-image: url(images/bg.jpg);
 	position: absolute;
 	top: 0;
 	bottom: 0;
 	left: 0;
 	right: 0;
-	width: 100%;
+	background-image: url(images/bg.jpg);
+	margin: 0 auto;
+	height: 620px;
+	width: 360px;
 	text-align: center;
 	font-family: cursive;
+	color: #F5F5F5;
+	text-shadow: 1px 1px 2px black, 0 0 1em red;
 	font-size: 20px;
 	z-index: 10000;
 }
 
 .content__title {
-	
-	margin: 20px auto;
-	background-image: url(images/arc.gif);
+	margin: 20px auto;	
 	background-repeat: no-repeat;
 	background-position: center;
 	font-size: 30px;
@@ -28,6 +34,7 @@
 }
 
 .content__list {
+	margin: 10px;
 	-moz-box-shadow:inset 0px 1px 0px 0px #cae3fc;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #cae3fc;
 	box-shadow:inset 0px 1px 0px 0px #cae3fc;
@@ -87,10 +94,10 @@
 	text-align: center;
 }
 .border__table {
-		margin: 20px auto;
+	color: #DCDCDC;
+	margin: 20px auto;
 }
 .border__desk {
-
 	border: solid;
 	border: 1px, 1px, 1px, 0px;
 }
