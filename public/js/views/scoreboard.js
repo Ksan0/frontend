@@ -7,15 +7,15 @@ define([
     tmpl,
     scores
 ){
-
     var View = Backbone.View.extend({
-        template: tmpl,
+        
         initialize: function () {
-            // TODO
+            this.template = tmpl;
+            this.$el.html(this.template({scores: scores.toJSON()}));
         },
         render: function () {
-            $('body').append(this.$el);
             this.$el.html(this.template({scores: scores.toJSON()}));
+            $('body').append(this.$el);
             return this;
         },
         show: function () {
@@ -25,7 +25,6 @@ define([
         hide: function () {
             this.$el.hide();
         }
-
     });
     return new View();
 });

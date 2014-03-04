@@ -1,28 +1,33 @@
 define([
     'backbone',
-    'tmpl/game'
+    'tmpl/game',
+    'models/game',
+    'views/padding'
 ], function(
     Backbone,
-    tmpl
+    tmpl,
+    Game,
+    PaddingView
 ){
 
     var View = Backbone.View.extend({
-        template: tmpl,
+        bgImagePath: 'css/images/bgImage.jpg',
+
         initialize: function () {
-            
+            this.template = tmpl;
+            this.$el.html(this.template());
+            this.canvas = this.$el.find(".gameCanvas")[0];
+            this.context = this.canvas.getContext("2d");
+            this.width = this.canvas.width;
+            this.height = this.canvas.height;
+            this.bgImage = new Image();
+            this.bgImage.src = this.bgImagePath;
+            this.context.setTransform(1, 0, 0, -1, this.canvas.width/2, this.canvas.height);
+            this.game = new Game(this.width, this.height);
         },
         render: function () {
             $('body').append(this.$el);
-            this.$el.html(this.template());
-            var canvas  = document.getElementById('game');
-            if (canvas) {
-                context = canvas.getContext('2d');
-                context.beginPath();
-                context.arc(150, 75, 50, 0, 2 * Math.PI, false);
-                context.lineWidth = 15;
-                context.strokeStyle = '#0f0';
-                context.stroke();
-            }
+            this.drawBackground();
             return this;
         },
         show: function () {
@@ -31,8 +36,10 @@ define([
         },
         hide: function () {
             this.$el.hide();
+        },
+        drawBackground: function() {
+            this.context.drawImage(this.bgImage, -this.width/2, 0, this.width, this.height);
         }
-
     });
 
     return new View();
