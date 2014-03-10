@@ -1,21 +1,23 @@
 <fest:template xmlns:fest="http://fest.mail.ru"
     context_name="json">
-    <div class="content">
-        <div class="content__title">ARCANOID</div>
-        <div class="boarder">
-            <table class="border__table">
-                <th class="border__desk">№</th>
-                <th class="border__desk">player</th>
-                <th class="border__desk">score</th>
-                <fest:for iterate="json.scores" index="i">       
-                    <tr>
-                        <td class="border__desk"><fest:value>i+1</fest:value></td>
-                        <td class="border__desk"><fest:value>json.scores[i].name</fest:value></td> 
-                  	    <td class="border__desk"><fest:value>json.scores[i].score</fest:value></td>
-                    </tr>
-                </fest:for>
-            </table>
+    <div class="content_wrapper">
+        <div class="content font_type">
+            <div class="content__title">ARCANOID</div>
+            <div class="scoreboard">
+                <table class="scoreboard__table">
+                    <th class="scoreboard__desk">№</th>
+                    <th class="scoreboard__desk">player</th>
+                    <th class="scoreboard__desk">score</th>
+                    <fest:for iterate="json.scores" index="i">       
+                        <tr>
+                            <td class="scoreboard__desk"><fest:value>i+1</fest:value></td>
+                            <td class="scoreboard__desk"><fest:value>json.scores[i].name</fest:value></td> 
+                      	    <td class="scoreboard__desk"><fest:value>json.scores[i].score</fest:value></td>
+                        </tr>
+                    </fest:for>
+                </table>
+            </div>
+            <a href="#main" class="content__button">Back</a>
         </div>
-        <a href="#main" class="content__list">Back</a>
-    </div>
+    </div>    
 </fest:template>

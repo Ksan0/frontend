@@ -1,12 +1,13 @@
 <fest:template xmlns:fest="http://fest.mail.ru"
     context_name="json">
-        <div class="content">
-            <div class="content__title">_</div>
-            <div class="content__main">Main menu</div>
-            <form>
-                <a href="#scoreboard" class="content__list">Score board</a>
-                <a href="#game" class="content__list">Start game</a>
-            </form>
-
-        </div>
+        <div class="content_wrapper">
+	        <div class="content font_type">
+	            <div class="content__title">ARCANOID</div>
+	            <div class="content__main">Main menu</div>
+	            <form>
+	                <a href="#scoreboard" class="content__button">Score board</a>
+	                <a href="#game" class="content__button">Start game</a>
+	            </form>
+	        </div>
+	    </div>
 </fest:template>
