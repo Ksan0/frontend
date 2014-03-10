@@ -2,45 +2,112 @@ define([
     'backbone',
     'tmpl/game',
     'models/game',
-    'views/padding'
+    'models/padding',
+    'views/padding',
+    'models/ball',
+    'views/ball'
 ], function(
     Backbone,
     tmpl,
     Game,
-    PaddingView
+    PaddingModel,
+    PaddingView,
+    BallModel,
+    BallView
 ){
 
     var View = Backbone.View.extend({
+        template: tmpl,
         bgImagePath: 'css/images/bgImage.jpg',
+        basePaddingWidth: 80,
+        basePaddingHeight: 20,
+        baseGameWidth: 360,
+        baseGameHeight: 640,
+        baseBottomOffset: 40,
+        baseLeftOffset: 20,
+        baseRightOffset: 20,
+        baseTopOffset: 20,
+        baseBallRadius: 10,
+        game: null,
+        canvas: null,
+        context: null,
+        paddingModel: null,
+        paddingView: null,
+        ballModel: null,
+        ballView: null,
+        FPS: 50,
 
         initialize: function () {
-            this.template = tmpl;
             this.$el.html(this.template());
+            $('body').append(this.$el);
             this.canvas = this.$el.find(".gameCanvas")[0];
             this.context = this.canvas.getContext("2d");
-            this.width = this.canvas.width;
-            this.height = this.canvas.height;
-            this.bgImage = new Image();
-            this.bgImage.src = this.bgImagePath;
-            this.context.setTransform(1, 0, 0, -1, this.canvas.width/2, this.canvas.height);
-            this.game = new Game(this.width, this.height);
+            this.canvas.width = this.baseGameWidth;
+            this.canvas.height = this.baseGameHeight;
+            this.context.setTransform(1, 0, 0, -1, this.canvas.width/2, this.canvas.height - this.baseBottomOffset);
+            
+            this.game = new Game({
+                width: this.canvas.width,
+                height: this.canvas.height,
+                topOffset: this.baseTopOffset,
+                rightOffset: this.baseRightOffset,
+                leftOffset: this.baseLeftOffset,
+                bottomOffset: this.baseBottomOffset
+            });
+            this.paddingModel = new PaddingModel({
+                width: this.basePaddingWidth,
+                height: this.basePaddingHeight,
+                "game": this.game
+            });
+            this.paddingView = new PaddingView ({
+                "context": this.context,
+                model: this.paddingModel
+            });
+            this.ballModel = new BallModel({
+                x: 0,
+                y: this.baseBallRadius,
+                radius: this.baseBallRadius,
+                "game": this.game,
+                velocity: 5,
+                angle: Math.PI/4
+            });
+            this.ballView = new BallView({
+                "context": this.context,
+                model: this.ballModel
+            });
+            $(document).on('keydown', this.keypressed.bind(this));
+            var self = this;
+            setInterval(function(){self.step()}, 1000/this.FPS);
         },
         render: function () {
-            $('body').append(this.$el);
-            this.drawBackground();
             return this;
         },
         show: function () {
-            this.render();
+            //this.render();
             this.$el.show();
         },
         hide: function () {
             this.$el.hide();
         },
-        drawBackground: function() {
-            this.context.drawImage(this.bgImage, -this.width/2, 0, this.width, this.height);
-        }
-    });
+        keypressed: function(e) {
+            switch(e.keyCode) {
+                case 37:
+                    this.paddingModel.set("position", this.paddingModel.get("position") - 5);
+                    break;
+                case 39:
+                    this.paddingModel.set("position", this.paddingModel.get("position") + 5);
+                    break;
+                default:
+                    alert("NO");
+                    break;
+            }
+        },
 
+        step: function() {
+            this.ballModel.step();
+        }
+
+
+    });
     return new View();
 });

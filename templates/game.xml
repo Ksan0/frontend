@@ -1,9 +1,8 @@
-<fest:template xmlns:fest="http://fest.mail.ru"
-    context_name="json">
-    
-    <div class="content">
-    	<canvas class="gameCanvas" height="640" width="360">Не буду открываться</canvas>
-        <a href="#main" class="content__list">Back</a>       
-    </div>
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="json">
+	<canvas class="gameCanvas">Не буду открываться</canvas>
+	<div class="content">
+		
+		<a href="#main" class="content__list">Back</a>
 
+	</div>
 </fest:template>

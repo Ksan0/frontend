@@ -10,13 +10,12 @@ define([
         initialize: function () {
             this.template = tmpl;
             this.$el.html(this.template());
+            $('body').append(this.$el);
         },
         render: function () {
-            $('body').append(this.$el);
             return this;
         },
         show: function () {
-            this.render();
             this.$el.show();
         },
         hide: function () {

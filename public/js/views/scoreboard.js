@@ -8,14 +8,14 @@ define([
     scores
 ){
     var View = Backbone.View.extend({
-        
+        template: tmpl,
         initialize: function () {
-            this.template = tmpl;
             this.$el.html(this.template({scores: scores.toJSON()}));
+            $('body').append(this.$el);
+            this.hide();
         },
         render: function () {
             this.$el.html(this.template({scores: scores.toJSON()}));
-            $('body').append(this.$el);
             return this;
         },
         show: function () {

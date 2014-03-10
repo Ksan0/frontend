@@ -1,7 +1,6 @@
-<fest:template xmlns:fest="http://fest.mail.ru"
-    context_name="json">
-	<div class="content">
-        <div class="content__title">_</div>
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="json">
+    <div class="content">
+        <div class="content__title">ARCANOID</div>
         <div class="boarder">
             <table class="border__table">
                 <th class="border__desk">№</th>
@@ -11,11 +10,11 @@
                     <tr>
                         <td class="border__desk"><fest:value>i+1</fest:value></td>
                         <td class="border__desk"><fest:value>json.scores[i].name</fest:value></td> 
-                  	    <td class="border__desk"><fest:value>json.scores[i].score</fest:value></td>
+                        <td class="border__desk"><fest:value>json.scores[i].score</fest:value></td>
                     </tr>
                 </fest:for>
             </table>
-         </div>
-         <a href="#main" class="content__list">Back</a>
+        </div>
+        <a href="#main" class="content__list">Back</a>
     </div>
- </fest:template>
+</fest:template>
