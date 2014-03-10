@@ -35,7 +35,7 @@ body {
 
 .content__button {
 	margin: 6%;
-	opacity: 0.8;
+	opacity: 0.9;
 	-moz-box-shadow:inset 3px -10px 25px -5px #0d0304;
 	-webkit-box-shadow:inset 3px -10px 25px -5px #0d0304;
 	box-shadow:inset 3px -10px 25px -5px #0d0304;
@@ -122,10 +122,10 @@ body {
 	-moz-box-shadow:inset 3px 0px 0px -45px #e6cafc;
 	-webkit-box-shadow:inset 3px 0px 0px -45px #e6cafc;
 	box-shadow:inset 3px 0px 0px -45px #e6cafc;
-	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ff7a7a), color-stop(1, #1f0707) );
-	background:-moz-linear-gradient( center top, #ff7a7a 5%, #1f0707 100% );
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff7a7a', endColorstr='#1f0707');
-	background-color:#ff7a7a;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #fa0000), color-stop(1, #1f0707) );
+	background:-moz-linear-gradient( center top, #fa0000 5%, #1f0707 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fa0000', endColorstr='#1f0707');
+	background-color:#fa0000;
 	-webkit-border-top-left-radius:41px;
 	-moz-border-radius-topleft:41px;
 	border-top-left-radius:41px;
@@ -150,7 +150,7 @@ body {
 	width:49px;
 	text-decoration:none;
 	text-align:center;
-	text-shadow:2px 3px 45px #5e0707;
+	text-shadow:2px 3px 45px #ff0808;
 }
 .game__button:hover {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #030101), color-stop(1, #ff7a7a) );
