@@ -1,8 +1,15 @@
-<fest:template xmlns:fest="http://fest.mail.ru" context_name="json">
-	<canvas class="gameCanvas">Не буду открываться</canvas>
-	<div class="content">
-		
-		<a href="#main" class="content__list">Back</a>
-
+﻿<fest:template xmlns:fest="http://fest.mail.ru" context_name="json">
+    <div class="content_wrapper">
+    	<div class="content"></div>
+		<canvas id="myCanvas" class="game__position" width="500" height="500"></canvas>
+	    <div class="game">
+	    	<div class="game__navbar">
+		        <a href="#main" class="game__button">&#8656;</a>
+		        <div class="game__info">User</div>
+		        <div class="game__info">Score</div>
+		        <div class="game__button">ll</div>
+		        <div class="game__button">&#9658;</div>   
+		    </div>           
+	    </div>
 	</div>
 </fest:template>
