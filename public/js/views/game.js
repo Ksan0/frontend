@@ -78,7 +78,8 @@ define([
                 model: this.ballModel
             });
             $(document).on('keydown', this.keypressed.bind(this));
-            setInterval(function(){this.step()}.bind(this), 1000/this.FPS);
+            setInterval(
+            function(){this.step()}.bind(this), 1000/this.FPS);
         },
         render: function () {
             return this;
