@@ -1,4 +1,4 @@
-﻿<fest:template xmlns:fest="http://fest.mail.ru" context_name="json">
+<fest:template xmlns:fest="http://fest.mail.ru" context_name="json">
         <div class="content font_type">
             <div class="content__title">ARCANOID</div>
             <div class="scoreboard">
@@ -10,7 +10,7 @@
                         <tr>
                             <td class="scoreboard__desk"><fest:value>i+1</fest:value></td>
                             <td class="scoreboard__desk"><fest:value>json.scores[i].name</fest:value></td> 
-                      	    <td class="scoreboard__desk"><fest:value>json.scores[i].score</fest:value></td>
+                            <td class="scoreboard__desk"><fest:value>json.scores[i].score</fest:value></td>
                         </tr>
                     </fest:for>
                 </table>
