@@ -39,8 +39,8 @@ define([
 
         initialize: function () {
             this.$el.html(this.template());
-            $('body').append(this.$el);
-            this.canvas = this.$el.find(".gameCanvas")[0];
+            $('.content_wrapper').append(this.$el);
+            this.canvas = this.$el.find(".game__position")[0];
             this.context = this.canvas.getContext("2d");
             this.canvas.width = this.baseGameWidth;
             this.canvas.height = this.baseGameHeight;
@@ -57,8 +57,9 @@ define([
             this.paddingModel = new PaddingModel({
                 width: this.basePaddingWidth,
                 height: this.basePaddingHeight,
-                "game": this.game
+                game: this.game
             });
+            alert(this.paddingModel.get("game"));
             this.paddingView = new PaddingView ({
                 "context": this.context,
                 model: this.paddingModel
@@ -72,12 +73,12 @@ define([
                 angle: Math.PI/4
             });
             this.ballView = new BallView({
-                "context": this.context,
+                
+                context: this.context,
                 model: this.ballModel
             });
             $(document).on('keydown', this.keypressed.bind(this));
-            var self = this;
-            setInterval(function(){self.step()}, 1000/this.FPS);
+            setInterval(function(){this.step()}.bind(this), 1000/this.FPS);
         },
         render: function () {
             return this;
@@ -104,6 +105,7 @@ define([
         },
 
         step: function() {
+            console.log("z");
             this.ballModel.step();
         }
 

@@ -1,5 +1,5 @@
-﻿<fest:template xmlns:fest="http://fest.mail.ru" context_name="json">
-    <div class="content_wrapper">
+<fest:template xmlns:fest="http://fest.mail.ru"
+    context_name="json">
     	<div class="content"></div>
 		<canvas id="myCanvas" class="game__position" width="500" height="500"></canvas>
 	    <div class="game">
@@ -11,5 +11,4 @@
 		        <div class="game__button">&#9658;</div>   
 		    </div>           
 	    </div>
-	</div>
 </fest:template>

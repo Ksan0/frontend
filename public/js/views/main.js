@@ -10,7 +10,7 @@ define([
         initialize: function () {
             this.template = tmpl;
             this.$el.html(this.template());
-            $('body').append(this.$el);
+            $('.content_wrapper').append(this.$el);
         },
         render: function () {
             return this;

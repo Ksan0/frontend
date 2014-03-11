@@ -11,7 +11,7 @@ define([
         template: tmpl,
         initialize: function () {
             this.$el.html(this.template({scores: scores.toJSON()}));
-            $('body').append(this.$el);
+            $('.content_wrapper').append(this.$el);
             this.hide();
         },
         render: function () {
