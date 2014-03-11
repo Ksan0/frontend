@@ -1,4 +1,4 @@
-﻿module.exports = function (grunt) {
+module.exports = function (grunt) {
 
     grunt.initConfig({
         watch: {
@@ -7,6 +7,16 @@
                 tasks: ['fest'],
                 options: {
                     atBegin: true
+                }
+            },
+            express: {
+                files:  [
+                    'routes/**/*.js',
+                    'app.js'
+                ],
+                tasks:  [ 'express' ],
+                options: {
+                    spawn: false
                 }
             },
             server: {
@@ -20,12 +30,12 @@
                 }
             }
         },
-        connect: {
+        express: {
             server: {
                 options: {
                     livereload: true,
                     port: 8000,
-                    base: 'public'
+                    script: 'app.js'
                 }
             }
         },
@@ -52,7 +62,8 @@
     grunt.loadNpmTasks('grunt-fest');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-livereload');
+    grunt.loadNpmTasks('grunt-express-server');
 
-    grunt.registerTask('default', ['connect', 'watch']);
+    grunt.registerTask('default', ['express', 'watch']);
 
 };
