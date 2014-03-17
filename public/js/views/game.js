@@ -5,7 +5,8 @@ define([
     'models/padding',
     'views/padding',
     'models/ball',
-    'views/ball'
+    'views/ball',
+    'views/game_over'
 ], function(
     Backbone,
     tmpl,
@@ -13,7 +14,8 @@ define([
     PaddingModel,
     PaddingView,
     BallModel,
-    BallView
+    BallView,
+    GameOverView
 ){
 
     var View = Backbone.View.extend({
@@ -78,12 +80,15 @@ define([
                 context: this.context,
                 model: this.ballModel
             });
+            this.gameOverView = new GameOverView();
             console.log(this.ballModel);
             console.log(this.ballView);
             console.log(this.paddingModel);
             console.log(this.paddingView);
             $(document).on('keydown', this.keydown.bind(this));
             $(document).on('keyup', this.keyup.bind(this));
+            $(document).on('keydown', this.keydown.bind(this));
+            this.game.on('gameOver', this.gameOver.bind(this));
             setInterval(
             function(){this.step()}.bind(this), 1000/this.FPS);
         },
@@ -104,6 +109,9 @@ define([
                 case 39:
                     this.rigthButtonPressed = true;
                     break;
+                case 32:
+                    this.game.start();
+                    break;
                 default:
                     alert("NO");
                     break;
@@ -122,11 +130,19 @@ define([
             }
         },
         step: function() {
-            if (this.leftButtonPressed)
-                this.paddingModel.moveLeft();
-            if (this.rigthButtonPressed)
-                this.paddingModel.moveRight();
-            this.ballModel.move();
+            var stopped = this.game.get('stop');
+            if (!stopped) {
+                if (this.leftButtonPressed)
+                    this.paddingModel.moveLeft();
+                if (this.rigthButtonPressed)
+                    this.paddingModel.moveRight();
+                this.ballModel.move();
+            }
+        },
+        gameOver: function(e) {
+            console.log(this.gameOverView);
+            this.game.stop();
+            this.gameOverView.show(1000);
         }
 
 

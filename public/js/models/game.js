@@ -8,20 +8,23 @@ define([
 
     var Model = Backbone.Model.extend({
         defaults: {
-            pause: true,
+            stop: true,
         	stage: 1,
         	score: 0,
         },
         initialize: function() {
         },
         start: function() {
-            this.set('pause', false);
+            this.set('stop', false);
         },
-        pause: function() {
-            this.set('pause', true);
+        stop: function() {
+            this.set('stop', true);
         },
         over: function() {
-
+            this.trigger("gameOver");
+        },
+        stopped: function() {
+            return stop;
         }
     });
 

@@ -51,7 +51,7 @@ define([
                 ny = py + pvelocity*Math.sin(nangle);
             }
             if (ny + radius < 0) {
-                console.log('lives');
+                this.game.over();
             }
             this.set('prevx', px);
             this.set('prevy', py);
