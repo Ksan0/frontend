@@ -36,6 +36,8 @@ define([
         ballModel: null,
         ballView: null,
         FPS: 50,
+        leftButtonPressed: false,
+        rigthButtonPressed: false,
 
         initialize: function () {
             this.$el.html(this.template());
@@ -69,7 +71,8 @@ define([
                 radius: this.baseBallRadius,
                 game: this.game,
                 velocity: 5,
-                angle: Math.PI/4
+                angle: Math.PI/4,
+                padding: this.paddingModel
             });
             this.ballView = new BallView({
                 context: this.context,
@@ -79,9 +82,10 @@ define([
             console.log(this.ballView);
             console.log(this.paddingModel);
             console.log(this.paddingView);
-            $(document).on('keydown', this.keypressed.bind(this));
+            $(document).on('keydown', this.keydown.bind(this));
+            $(document).on('keyup', this.keyup.bind(this));
             setInterval(
-            function(){this.step()}.bind(this), 10000/this.FPS);
+            function(){this.step()}.bind(this), 1000/this.FPS);
         },
         render: function () {
             return this;
@@ -92,22 +96,37 @@ define([
         hide: function () {
             this.$el.hide();
         },
-        keypressed: function(e) {
+        keydown: function(e) {
             switch(e.keyCode) {
                 case 37:
-                    this.paddingModel.set("position", this.paddingModel.get("position") - 5);
+                    this.leftButtonPressed = true;
                     break;
                 case 39:
-                    this.paddingModel.set("position", this.paddingModel.get("position") + 5);
+                    this.rigthButtonPressed = true;
                     break;
                 default:
                     alert("NO");
                     break;
             }
         },
-
+        keyup: function(e) {
+            switch(e.keyCode) {
+                case 37:
+                    this.leftButtonPressed = false;
+                    break;
+                case 39:
+                    this.rigthButtonPressed = false;
+                    break;
+                default:
+                    break;
+            }
+        },
         step: function() {
-            this.ballModel.step();
+            if (this.leftButtonPressed)
+                this.paddingModel.moveLeft();
+            if (this.rigthButtonPressed)
+                this.paddingModel.moveRight();
+            this.ballModel.move();
         }
 
 

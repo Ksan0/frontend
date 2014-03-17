@@ -4,24 +4,15 @@ define([
     Backbone
 ){
     var Model = Backbone.Model.extend({
-        defaults: {
-            x: 1,
-            y: 2,
-            prevx: 0,
-            prevy: 20,
-            velocity: 0,
-            angle: 0,
-            radius: 10,
-
-            game: null
-        },
+        
         initialize: function (options) {
             this.game = options.game;
         },
 
-        step: function () {
+        move: function () {
             var px = this.get('x');
             var py = this.get('y');
+            var radius = this.get('radius');
             var pvelocity = this.get('velocity');
             var pangle = this.get('angle');
             var game = this.get('game');
@@ -34,25 +25,36 @@ define([
             var gameBottomOffset = game.get('bottomOffset');
             var nx = px + pvelocity*Math.cos(pangle);
             var ny = py + pvelocity*Math.sin(pangle);
+
+            var padding = this.get('padding')
+            var paddingX = padding.get('x');
+            var paddingWidth = padding.get('width');
             var nangle = pangle;
-            if (nx < - gameWidth/2 + gameLeftOffset) {
+            if (nx-radius < - gameWidth/2 + gameLeftOffset) {
                 nangle = -pangle + Math.PI;
                 nx = px + pvelocity*Math.cos(nangle);
                 ny = py + pvelocity*Math.sin(nangle);
             }
-            if (nx > gameWidth/2 - gameRightOffset) {
+            if (nx+radius > gameWidth/2 - gameRightOffset) {
                 nangle = -pangle + Math.PI;
                 nx = px + pvelocity*Math.cos(nangle);
                 ny = py + pvelocity*Math.sin(nangle);
             }
-            if (ny > gameHeight - gameTopOffset - gameBottomOffset) {
+            if (ny+radius > gameHeight - gameTopOffset - gameBottomOffset) {
                 nangle = -pangle;
                 nx = px + pvelocity*Math.cos(nangle);
                 ny = py + pvelocity*Math.sin(nangle);
             }
-            if (ny < 0) {
+            if (py - radius > 0 && ny - radius < 0 && nx > paddingX - paddingWidth && nx < paddingX + paddingWidth) {
+                nangle = -pangle;
+                nx = px + pvelocity*Math.cos(nangle);
+                ny = py + pvelocity*Math.sin(nangle);
+            }
+            if (ny + radius < 0) {
                 console.log('lives');
             }
+            this.set('prevx', px);
+            this.set('prevy', py);
             this.set('x', nx);
             this.set('y', ny);
             this.set('angle', nangle);

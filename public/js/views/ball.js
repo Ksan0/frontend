@@ -4,10 +4,6 @@ define([
     Backbone
 ){
     var View = Backbone.View.extend({
-        defaults: {
-            context: null,
-            game: null
-        },
         initialize: function (options) {
             this.model.on("change:x change:y", this.render, this);
             this.context = options.context;
@@ -19,8 +15,9 @@ define([
             var y = this.model.get('y');
             var prevx = this.model.get('prevx');
             var prevy = this.model.get('prevy');
+            this.context.clearRect(prevx - radius, prevy - radius, 2*radius, 2*radius);
             this.context.beginPath();
-            this.context.arc(x, y, radius, 0, 2*Math.PI, false);
+            this.context.arc(x, y, radius, 0, 2*Math.PI, true);
             this.context.fillStyle = 'red';
             this.context.fill();
         },

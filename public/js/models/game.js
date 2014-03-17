@@ -7,28 +7,21 @@ define([
 ){
 
     var Model = Backbone.Model.extend({
-        
         defaults: {
-            width: 360,
-            height: 640,
+            pause: true,
         	stage: 1,
         	score: 0,
-            bottomOffset: 20,
-            leftOffset: 20,
-            rightOffset: 20,
-            topOffset: 20
         },
         initialize: function() {
-
-        }
+        },
         start: function() {
-
-        }
+            this.set('pause', false);
+        },
         pause: function() {
-
-        }
+            this.set('pause', true);
+        },
         over: function() {
-            
+
         }
     });
 
