@@ -19,6 +19,16 @@ define([
             topOffset: 20
         },
         initialize: function() {
+
+        }
+        start: function() {
+
+        }
+        pause: function() {
+
+        }
+        over: function() {
+            
         }
     });
 

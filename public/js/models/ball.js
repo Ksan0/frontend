@@ -5,8 +5,8 @@ define([
 ){
     var Model = Backbone.Model.extend({
         defaults: {
-            xx: 0,
-            yy: 20,
+            x: 1,
+            y: 2,
             prevx: 0,
             prevy: 20,
             velocity: 0,
@@ -20,34 +20,42 @@ define([
         },
 
         step: function () {
-            var px = this.xx;
-            var py = this.yy;
-            var pangle = this.angle;
-            var nx = px + this.velocity*Math.cos(this.angle);
-            var ny = py + this.velocity*Math.cos(this.angle);
-            var nangle;
+            var px = this.get('x');
+            var py = this.get('y');
+            var pvelocity = this.get('velocity');
+            var pangle = this.get('angle');
+            var game = this.get('game');
 
-            if (nx < - this.game.width/2 + this.game.leftOffset) {
+            var gameWidth = game.get('width');
+            var gameHeight = game.get('height');
+            var gameLeftOffset = game.get('leftOffset');
+            var gameRightOffset = game.get('rightOffset');
+            var gameTopOffset = game.get('topOffset');
+            var gameBottomOffset = game.get('bottomOffset');
+            var nx = px + pvelocity*Math.cos(pangle);
+            var ny = py + pvelocity*Math.sin(pangle);
+            var nangle = pangle;
+            if (nx < - gameWidth/2 + gameLeftOffset) {
                 nangle = -pangle + Math.PI;
-                nx = px + this.velocity*Math.cos(nangle);
-                ny = py + this.velocity*Math.sin(nangle);
+                nx = px + pvelocity*Math.cos(nangle);
+                ny = py + pvelocity*Math.sin(nangle);
             }
-            if (nx > this.game.width/2 - this.game.rightOffset) {
+            if (nx > gameWidth/2 - gameRightOffset) {
                 nangle = -pangle + Math.PI;
-                nx = px + this.velocity*Math.cos(nangle);
-                ny = py + this.velocity*Math.sin(nangle);
+                nx = px + pvelocity*Math.cos(nangle);
+                ny = py + pvelocity*Math.sin(nangle);
             }
-            if (ny > this.game.height - this.game.topOffset) {
+            if (ny > gameHeight - gameTopOffset - gameBottomOffset) {
                 nangle = -pangle;
-                nx = px + this.velocity*Math.cos(nangle);
-                ny = py + this.velocity*Math.sin(nangle);
+                nx = px + pvelocity*Math.cos(nangle);
+                ny = py + pvelocity*Math.sin(nangle);
             }
             if (ny < 0) {
-                alert("lives");
+                console.log('lives');
             }
-            this.xx = nx;
-            this.yy = ny;
-            this.angle = pangle;
+            this.set('x', nx);
+            this.set('y', ny);
+            this.set('angle', nangle);
         }
     });
     return Model;

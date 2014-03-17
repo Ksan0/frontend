@@ -9,7 +9,7 @@ define([
             game: null
         },
         initialize: function (options) {
-            //this.model.on("change:xx yy", this.render, this);
+            this.model.on("change:x change:y", this.render, this);
             this.context = options.context;
             this.render();
         },
