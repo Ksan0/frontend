@@ -1,31 +1,32 @@
 define(['backbone',
+    'view_manager',
     'views/main',
     'views/scoreboard',
     'views/game'
 ], function(
-Backbone, MainView, ScoreboardView, GameView){
-
+Backbone, ViewManager, MainView, ScoreboardView, GameView){
+    var args = arguments;
     var Router = Backbone.Router.extend({
+        
         routes: {
             'scoreboard': 'scoreboardAction',
             'game': 'gameAction',
             '*default': 'defaultActions'
         },
+        initialize : function() {
+            for (var i = 2; i < args.length; i++) {
+                ViewManager.views.push(args[i]);
+            }
+            ViewManager.addListeners();
+        },
         defaultActions: function () {
-            ScoreboardView.hide();
-            GameView.hide();
             MainView.show();
         },
         scoreboardAction: function () {
-            MainView.hide();
-            GameView.hide();
             ScoreboardView.show();
         },
         gameAction: function () {
-            MainView.hide();
-            ScoreboardView.hide();
             GameView.show();
-            GameView.render();
         }
     });
 

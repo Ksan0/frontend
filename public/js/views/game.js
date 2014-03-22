@@ -80,7 +80,10 @@ define([
                 context: this.context,
                 model: this.ballModel
             });
-            this.gameOverView = new GameOverView();
+            this.gameOverView = new GameOverView({
+                score: 2000
+            });
+            console.log(this.gameOverView);
             console.log(this.ballModel);
             console.log(this.ballView);
             console.log(this.paddingModel);
@@ -97,6 +100,7 @@ define([
         },
         show: function () {
             this.$el.show();
+            this.trigger('show', this);
         },
         hide: function () {
             this.$el.hide();
@@ -113,7 +117,6 @@ define([
                     this.game.start();
                     break;
                 default:
-                    alert("NO");
                     break;
             }
         },
@@ -142,7 +145,7 @@ define([
         gameOver: function(e) {
             console.log(this.gameOverView);
             this.game.stop();
-            this.gameOverView.show(1000);
+            this.gameOverView.show(2000);
         }
 
 

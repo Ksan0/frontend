@@ -5,6 +5,7 @@ define([
 ){
 
     var Model = Backbone.Model.extend({
+    	urlRoot: '/scores',
         defaults: {
         	name: '',
         	score: 0
