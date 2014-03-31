@@ -5,8 +5,8 @@
 	            <div class="content__main">Game Over</div>
 	            <div class="content__main">Your Score: <fest:value>json.score</fest:value></div>
 	            <form id="gameOverForm">
-	            	<input type="text" id="username" />
-	            	<input type="submit" />
+	            	<input type="text" class="scoreform " id="username" />
+	            	<input type="submit" class="content__button" />
 	            </form>
 	        </div>
 </fest:template>
