@@ -10,23 +10,27 @@ define([
     tmpl_loading,
     tmpl_loading_failed,
     scores
-){
+) {
     var View = Backbone.View.extend({
         template: tmpl,
         template_loading: tmpl_loading,
         template_loading_failed: tmpl_loading_failed,
-        initialize: function () {
-            this.$el.html(this.template({scores: scores.toJSON()}));
+        initialize: function() {
+            this.$el.html(this.template({
+                scores: scores.toJSON()
+            }));
             $('.content_wrapper').append(this.$el);
             this.hide();
         },
-        renderLoading: function () {
+        renderLoading: function() {
             this.$el.html(this.template_loading());
             console.log("ЗАГРУЗКА");
             return this;
         },
-        renderScoreboard: function () {
-            this.$el.html(this.template({scores: scores.toJSON()}));
+        renderScoreboard: function() {
+            this.$el.html(this.template({
+                scores: scores.toJSON()
+            }));
             console.log("ТАБЛИЦА ЗАГРУЖЕНА");
             return this;
         },
@@ -35,16 +39,19 @@ define([
             console.log("ТАБЛИЦА НЕ ЗАГРУЖЕНА");
             return this;
         },
-        show: function () {
+        show: function() {
+            this.checkModelsInLocalStorage();
             scores.fetch({
-                data:{limit:10},
+                data: {
+                    limit: 10
+                },
                 success: this.showScoreboard.bind(this),
                 error: this.showErrorMessage.bind(this)
             });
             this.showLoading();
             this.trigger('show', this);
         },
-        showScoreboard: function (collection, response, options) {
+        showScoreboard: function(collection, response, options) {
             this.renderScoreboard();
             this.$el.show();
         },
@@ -52,12 +59,28 @@ define([
             this.renderError();
             this.$el.show();
         },
-        showLoading: function () {
+        showLoading: function() {
             this.renderLoading();
             this.$el.show();
         },
-        hide: function () {
+        hide: function() {
             this.$el.hide();
+        },
+        checkModelsInLocalStorage: function() {
+            var localScores;
+            if (localStorage["arcanoid.scores"]) {
+                localScores = JSON.parse(localStorage["arcanoid.scores"]);
+            } else {
+                localScores = [];
+            }
+            console.log(localScores);
+            localStorage.removeItem("arcanoid.scores");
+            localScores.forEach(function(element, index, array) {
+                scores.add({
+                    name: element["name"],
+                    score: element["score"]
+                })
+            });
         }
     });
     return new View();

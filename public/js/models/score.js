@@ -2,13 +2,13 @@ define([
     'backbone'
 ], function(
     Backbone
-){
+) {
 
     var Model = Backbone.Model.extend({
-    	urlRoot: '/scores',
+        urlRoot: '/scores',
         defaults: {
-        	name: '',
-        	score: 0
+            name: '',
+            score: 0
         }
     });
 

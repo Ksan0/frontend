@@ -4,22 +4,22 @@ define([
 ], function(
     Backbone,
     tmpl
-){
+) {
 
     var View = Backbone.View.extend({
         template: tmpl,
-        initialize: function () {
+        initialize: function() {
             this.$el.html(this.template());
             $('.content_wrapper').append(this.$el);
         },
-        render: function () {
+        render: function() {
             return this;
         },
-        show: function () {
+        show: function() {
             this.$el.show();
             this.trigger('show', this);
         },
-        hide: function () {
+        hide: function() {
             this.$el.hide();
         }
 
