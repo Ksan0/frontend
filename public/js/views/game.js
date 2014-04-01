@@ -28,7 +28,7 @@ define([
         baseBottomOffset: 40,
         baseLeftOffset: 20,
         baseRightOffset: 20,
-        baseTopOffset: 20,
+        baseTopOffset: 100,
         baseBallRadius: 10,
         game: null,
         canvas: null,
@@ -113,7 +113,7 @@ define([
                     var stopped = this.game.get('stop');
                     if (stopped)
                         this.game.start();
-                    else 
+                    else
                         this.game.pause();
                     break;
                 default:
