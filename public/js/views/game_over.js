@@ -18,15 +18,16 @@ define([
 
             this.hide();
         },
-        render: function(score) {
+        render: function() {
             this.$el.html(this.template({
-                score: score
+                score: this.score
             }));
             $('#gameOverForm').on('submit', this.addResult.bind(this));
             return this;
         },
         show: function(score) {
-            this.render(score);
+            this.score = score;
+            this.render();
             this.$el.show();
         },
         hide: function() {
