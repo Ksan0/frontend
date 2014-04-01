@@ -29,6 +29,10 @@ define([
             this.stop = true;
             this.stage = 1;
             this.score = 0;
+        },
+        addScore: function(count) {
+            var score = this.get("score");
+            this.set("score", score + count);
         }
     });
     return Model;

@@ -81,14 +81,14 @@ define([
                 model: this.ballModel
             });
             this.gameOverView = new GameOverView({
-                score: 2000
+                score: 1 // this.game.get("score") ?
             });
             $(document).on('keydown', this.keydown.bind(this));
             $(document).on('keyup', this.keyup.bind(this));
             this.game.on('gameOver', this.gameOver.bind(this));
             setInterval(
                 function() {
-                    this.step()
+                    this.step();
                 }.bind(this), 1000 / this.FPS);
         },
         render: function() {

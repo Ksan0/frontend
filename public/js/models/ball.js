@@ -26,7 +26,7 @@ define([
             var nx = px + pvelocity * Math.cos(pangle);
             var ny = py + pvelocity * Math.sin(pangle);
 
-            var padding = this.get('padding')
+            var padding = this.get('padding');
             var paddingX = padding.get('x');
             var paddingWidth = padding.get('width');
             var nangle = pangle;
@@ -34,21 +34,25 @@ define([
                 nangle = -pangle + Math.PI;
                 nx = px + pvelocity * Math.cos(nangle);
                 ny = py + pvelocity * Math.sin(nangle);
+                this.game.addScore(1);
             }
             if (nx + radius > gameWidth / 2 - gameRightOffset) {
                 nangle = -pangle + Math.PI;
                 nx = px + pvelocity * Math.cos(nangle);
                 ny = py + pvelocity * Math.sin(nangle);
+                this.game.addScore(1);
             }
             if (ny + radius > gameHeight - gameTopOffset - gameBottomOffset) {
                 nangle = -pangle;
                 nx = px + pvelocity * Math.cos(nangle);
                 ny = py + pvelocity * Math.sin(nangle);
+                this.game.addScore(1);
             }
             if (py - radius > 0 && ny - radius < 0 && nx > paddingX - paddingWidth && nx < paddingX + paddingWidth) {
                 nangle = -pangle;
                 nx = px + pvelocity * Math.cos(nangle);
                 ny = py + pvelocity * Math.sin(nangle);
+                this.game.addScore(5);
             }
             if (ny + radius < 0) {
                 this.game.over();
