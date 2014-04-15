@@ -5,10 +5,6 @@
 	    <div class="game">
 	    	<div class="game__navbar">
 		        <a href="#main" class="game__button">&#8656;</a>
-		        <div class="game__info">User</div>
-		        <div class="game__info">Score</div>
-		        <div class="game__button">ll</div>
-		        <div class="game__button">&#9658;</div>   
 		    </div>           
 	    </div>
 </fest:template>

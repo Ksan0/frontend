@@ -7,16 +7,7 @@ define([
     'models/ball',
     'views/ball',
     'views/game_over'
-], function(
-    Backbone,
-    tmpl,
-    Game,
-    PaddingModel,
-    PaddingView,
-    BallModel,
-    BallView,
-    GameOverView
-) {
+], function (Backbone, tmpl, Game, PaddingModel, PaddingView, BallModel, BallView, GameOverView) {
 
     var View = Backbone.View.extend({
         template: tmpl,
@@ -41,7 +32,7 @@ define([
         leftButtonPressed: false,
         rigthButtonPressed: false,
 
-        initialize: function() {
+        initialize: function () {
             this.$el.html(this.template());
             $('.content_wrapper').append(this.$el);
             this.canvas = this.$el.find(".game__position")[0];
@@ -80,28 +71,27 @@ define([
                 context: this.context,
                 model: this.ballModel
             });
-            this.gameOverView = new GameOverView({
-                score: 1 // this.game.get("score") ?
-            });
+            this.gameOverView = new GameOverView();
             $(document).on('keydown', this.keydown.bind(this));
             $(document).on('keyup', this.keyup.bind(this));
             this.game.on('gameOver', this.gameOver.bind(this));
             setInterval(
-                function() {
+                function () {
                     this.step();
                 }.bind(this), 1000 / this.FPS);
         },
-        render: function() {
+        render: function () {
             return this;
         },
-        show: function() {
+        show: function () {
             this.$el.show();
+            console.log(this.ballModel);
             this.trigger('show', this);
         },
-        hide: function() {
+        hide: function () {
             this.$el.hide();
         },
-        keydown: function(e) {
+        keydown: function (e) {
             switch (e.keyCode) {
                 case 37:
                     this.leftButtonPressed = true;
@@ -120,7 +110,7 @@ define([
                     break;
             }
         },
-        keyup: function(e) {
+        keyup: function (e) {
             switch (e.keyCode) {
                 case 37:
                     this.leftButtonPressed = false;
@@ -132,7 +122,7 @@ define([
                     break;
             }
         },
-        step: function() {
+        step: function () {
             var stopped = this.game.get('stop');
             if (!stopped) {
                 if (this.leftButtonPressed)
@@ -142,7 +132,7 @@ define([
                 this.ballModel.move();
             }
         },
-        gameOver: function(e) {
+        gameOver: function (e) {
             this.game.stop();
             this.gameOverView.show(this.game.get("score"));
         }

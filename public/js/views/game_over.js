@@ -9,20 +9,21 @@ define([
 ) {
     var View = Backbone.View.extend({
         template: tmpl,
+        defaults: {
+            score: 0,
+        },
         initialize: function(options) {
             this.$el.html(this.template({
-                score: 0
+                score: this.score
             }));
-            this.score = options.score;
             $('.content_wrapper').append(this.$el);
-
             this.hide();
         },
         render: function() {
             this.$el.html(this.template({
                 score: this.score
             }));
-            $('#gameOverForm').on('submit', this.addResult.bind(this));
+            $('#gameOverForm', this.el).on('submit', this.addResult.bind(this));
             return this;
         },
         show: function(score) {
@@ -36,12 +37,14 @@ define([
         addResult: function(event) {
             event.preventDefault();
             var username = $('#username').val();
-            scores.add({
-                name: username,
-                score: this.score
-            });
-            window.location.hash = '#main';
-            this.hide();
+            if (username != "") {
+                scores.add({
+                    name: username,
+                    score: this.score
+                });
+                window.location.hash = '#main';
+                this.hide();
+            }
         }
     });
     return View;

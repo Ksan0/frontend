@@ -9,6 +9,15 @@ module.exports = function (grunt) {
                     atBegin: true
                 }
             },
+            sass: {
+                files: [
+                    'public/css/*.scss'
+                ],
+                tasks: ['sass'],
+                options: {
+                    atBegin: true
+                }
+            },
             express: {
                 files:  [
                     'routes/**/*.js',
@@ -56,6 +65,17 @@ module.exports = function (grunt) {
                     }
                 }
             }
+        },
+        sass: {
+            css: {
+                files: [{
+                    expand: true,
+                    cwd: 'public/css',
+                    src: '*.scss',
+                    dest: 'public/css',
+                    ext: '.css'
+                }]
+            }
         }
     });
     grunt.loadNpmTasks('grunt-contrib-connect');
@@ -63,7 +83,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-livereload');
     grunt.loadNpmTasks('grunt-express-server');
+    grunt.loadNpmTasks('grunt-contrib-sass');
 
-    grunt.registerTask('default', ['express', 'watch']);
+    grunt.registerTask('default', ['sass', 'express', 'watch']);
 
 };
