@@ -9,6 +9,7 @@ define([
     var View = Backbone.View.extend({
         template: tmpl,
         initialize: function() {
+            console.log (this.template)
             this.$el.html(this.template());
             $('.content_wrapper').append(this.$el);
         },
