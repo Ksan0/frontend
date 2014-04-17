@@ -73,12 +73,13 @@ module.exports = function(grunt) {
         requirejs: {
             build: {
                 options: {
-                almond: true,
-                baseUrl: "public/js",
-                mainConfigFile: "public/js/main.js",
-                name: "main",
-                optimize: "none",
-                out: "public/js/build/main.js" }
+                    almond: true,
+                    baseUrl: "public/js",
+                    mainConfigFile: "public/js/main.js",
+                    name: "main",
+                    optimize: "none",
+                    out: "public/js/build/main.js" 
+                }
             }
         },
         concat: {
