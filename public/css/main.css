@@ -169,7 +169,16 @@ body {
   margin: auto;
   color: black;
   font-weight: bold;
-  text-align: center; }
+  text-align: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: url(images/bg.jpg);
+  margin: 1% auto;
+  height: 620px;
+  width: 360px; }
 
 .scoreboard__table {
   color: #DCDCDC;
