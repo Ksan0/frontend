@@ -1,12 +1,12 @@
 <fest:template xmlns:fest="http://fest.mail.ru"
     context_name="json">
-	        <div class="content font_type">
-	            <div class="content__title">ARCANOID</div>
-	            <div class="content__main">Game Over</div>
-	            <div class="content__main">Your Score: <fest:value>json.score</fest:value></div>
-	            <form id="gameOverForm">
-	            	<input type="text" class="scoreform " id="username" />
-	            	<input type="submit" class="content__button" />
-	            </form>
-	        </div>
+            <div class="content font_type">
+                <div class="content__title">ARCANOID</div>
+                <div class="content__main">Game Over</div>
+                <div class="content__main">Your Score: <fest:value>json.score</fest:value></div>
+                <form id="gameOverForm">
+                    <input type="text" class="scoreform " id="username" />
+                    <input type="submit" class="content__button" />
+                </form>
+            </div>
 </fest:template>
