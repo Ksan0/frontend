@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+}
+
+.content_wrapper {
+  margin: 0;
+}
+
+.content {
+  @include window-size(0);
+  background-image: url(images/bg.jpg);
+  
+}
+
+.content__title {
+  background:{
+    repeat: no-repeat;
+    position: center;
+  }
+  margin: 20px auto;
+  font-size: 30px;
+}
+
+.content__main {
+  margin:20px 0;
+  font-size: 30px;
+  z-index: 10000;
+}

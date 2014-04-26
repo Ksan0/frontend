@@ -1,0 +1,78 @@
+
+.content__button {
+  border-shadow:inset 3px -10px 25px -5px #0d0304;
+  border-radius:24px;
+  margin: 6%;
+  opacity: 0.9;
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f70a39), color-stop(1, #ed0505) );
+  background:-moz-linear-gradient( center top, #f70a39 5%, #ed0505 100% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f70a39', endColorstr='#ed0505');
+  background-color:#f70a39;
+  border:2px solid #9e1e2b;
+  display:inline-block;
+  color:#f2f4ff;
+  height:34px;
+  line-height:34px;
+  width:165px;
+  font: {
+    size:19px;
+    weight:bold;
+    style:normal;
+    family:Comic Sans MS;
+  }
+  text: {
+    indent:3px;
+    decoration:none;
+    align:center;
+  }
+  &:hover {
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ed0505), color-stop(1, #f70a39) );
+    background:-moz-linear-gradient( center top, #ed0505 5%, #f70a39 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ed0505', endColorstr='#f70a39');
+    background-color:#ed0505;
+  }  
+  &:active {
+    position:relative;
+    top:1px;
+  }
+
+}
+
+
+.game__button {  
+  border-shadow:inset 3px -10px 25px -5px #0d0304;
+  border-radius:41px;
+  margin: 0 2%;
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #fa0000), color-stop(1, #1f0707) );
+  background:-moz-linear-gradient( center top, #fa0000 5%, #1f0707 100% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#fa0000', endColorstr='#1f0707');
+  background-color:#fa0000;
+  display:inline-block;
+  color:#eb9999;
+  height:51px;
+  line-height:51px;
+  width:49px;
+  font: {
+    size:35px;
+    weight:bold;
+    style:normal;
+    family:Arial;
+  }
+  text: {
+    indent:-1.06px;
+    decoration:none;
+    align:center;
+    shadow:2px 3px 45px #ff0808;
+  }
+  &:hover {
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #030101), color-stop(1, #ff7a7a) );
+    background:-moz-linear-gradient( center top, #030101 5%, #ff7a7a 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#030101', endColorstr='#ff7a7a');
+    background-color:#030101;
+  }
+  &:active {
+    position:relative;
+    top:1px;
+  }
+}
+

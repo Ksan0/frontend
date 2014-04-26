@@ -1,0 +1,16 @@
+@mixin border-shadow ($shadows...) {
+  -moz-box-shadow: $shadows;
+  -webkit-box-shadow: $shadows;
+  box-shadow:$shadows;
+}
+
+@mixin window-size ($pixels) {
+  position: absolute;
+  top: $pixels;
+  bottom: $pixels;
+  left: $pixels;
+  right: $pixels;
+  margin: 1% auto;
+  height: 620px;
+  width: 360px;  
+}
