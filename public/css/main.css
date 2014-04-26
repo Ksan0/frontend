@@ -1,7 +1,6 @@
 body {
   margin: 0; }
 
-/* general  style*/
 .content_wrapper {
   margin: 0; }
 
@@ -11,74 +10,21 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  background-image: url(images/bg.jpg);
   margin: 1% auto;
   height: 620px;
-  width: 360px; }
+  width: 360px;
+  background-image: url(images/bg.jpg); }
 
 .content__title {
-  margin: 20px auto;
   background-repeat: no-repeat;
   background-position: center;
+  margin: 20px auto;
   font-size: 30px; }
 
 .content__main {
   margin: 20px 0;
   font-size: 30px;
   z-index: 10000; }
-
-.content__button {
-  margin: 6%;
-  opacity: 0.9;
-  -moz-box-shadow: inset 3px -10px 25px -5px #0d0304;
-  -webkit-box-shadow: inset 3px -10px 25px -5px #0d0304;
-  box-shadow: inset 3px -10px 25px -5px #0d0304;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f70a39), color-stop(1, #ed0505));
-  background: -moz-linear-gradient(center top, #f70a39 5%, #ed0505 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f70a39', endColorstr='#ed0505');
-  background-color: #f70a39;
-  -webkit-border-top-left-radius: 24px;
-  -moz-border-radius-topleft: 24px;
-  border-top-left-radius: 24px;
-  -webkit-border-top-right-radius: 24px;
-  -moz-border-radius-topright: 24px;
-  border-top-right-radius: 24px;
-  -webkit-border-bottom-right-radius: 24px;
-  -moz-border-radius-bottomright: 24px;
-  border-bottom-right-radius: 24px;
-  -webkit-border-bottom-left-radius: 24px;
-  -moz-border-radius-bottomleft: 24px;
-  border-bottom-left-radius: 24px;
-  text-indent: 3px;
-  border: 2px solid #9e1e2b;
-  display: inline-block;
-  color: #f2f4ff;
-  font-family: Comic Sans MS;
-  font-size: 19px;
-  font-weight: bold;
-  font-style: normal;
-  height: 34px;
-  line-height: 34px;
-  width: 165px;
-  text-decoration: none;
-  text-align: center; }
-
-.content__button:hover {
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ed0505), color-stop(1, #f70a39));
-  background: -moz-linear-gradient(center top, #ed0505 5%, #f70a39 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ed0505', endColorstr='#f70a39');
-  background-color: #ed0505; }
-
-.content__button:active {
-  position: relative;
-  top: 1px; }
-
-.font_type {
-  text-align: center;
-  font-family: cursive;
-  color: #F5F5F5;
-  text-shadow: 1px 1px 2px black, 0 0 1em red;
-  font-size: 17px; }
 
 /* style for game.xml*/
 .game {
@@ -91,9 +37,9 @@ body {
   height: 620px;
   width: 360px;
   font-size: 250%;
+  font-weight: 900;
   text-shadow: 1px 1px 2px #e2bdbd, 0 0 1em white;
-  color: white;
-  font-weight: 900; }
+  color: white; }
 
 .game__position {
   position: absolute;
@@ -105,51 +51,6 @@ body {
   height: 620px;
   width: 360px; }
 
-.game__button {
-  margin: 0 2%;
-  -moz-box-shadow: inset 3px 0px 0px -45px #e6cafc;
-  -webkit-box-shadow: inset 3px 0px 0px -45px #e6cafc;
-  box-shadow: inset 3px 0px 0px -45px #e6cafc;
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fa0000), color-stop(1, #1f0707));
-  background: -moz-linear-gradient(center top, #fa0000 5%, #1f0707 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fa0000', endColorstr='#1f0707');
-  background-color: #fa0000;
-  -webkit-border-top-left-radius: 41px;
-  -moz-border-radius-topleft: 41px;
-  border-top-left-radius: 41px;
-  -webkit-border-top-right-radius: 41px;
-  -moz-border-radius-topright: 41px;
-  border-top-right-radius: 41px;
-  -webkit-border-bottom-right-radius: 41px;
-  -moz-border-radius-bottomright: 41px;
-  border-bottom-right-radius: 41px;
-  -webkit-border-bottom-left-radius: 41px;
-  -moz-border-radius-bottomleft: 41px;
-  border-bottom-left-radius: 41px;
-  text-indent: -1.06px;
-  display: inline-block;
-  color: #eb9999;
-  font-family: Arial;
-  font-size: 35px;
-  font-weight: bold;
-  font-style: normal;
-  height: 51px;
-  line-height: 51px;
-  width: 49px;
-  text-decoration: none;
-  text-align: center;
-  text-shadow: 2px 3px 45px #ff0808; }
-
-.game__button:hover {
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #030101), color-stop(1, #ff7a7a));
-  background: -moz-linear-gradient(center top, #030101 5%, #ff7a7a 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#030101', endColorstr='#ff7a7a');
-  background-color: #030101; }
-
-.game__button:active {
-  position: relative;
-  top: 1px; }
-
 .game__info {
   margin: 3% 4%;
   display: inline-block;
@@ -158,26 +59,6 @@ body {
 
 .game__navbar {
   margin: 4% 0 2% 4%; }
-
-/* style for scoreboard.xml */
-.scoreboard {
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  width: 360px;
-  margin: auto;
-  color: black;
-  font-weight: bold;
-  text-align: center; }
-
-.scoreboard__table {
-  color: #DCDCDC;
-  margin: 20px auto; }
-
-.scoreboard__desk {
-  border: solid;
-  border: 1px, 1px, 1px, 0px; }
 
 /* game_over style */
 .scoreform {
@@ -190,3 +71,85 @@ body {
   font-family: cursive;
   font-size: 18px;
   box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.2), 0 0 4px rgba(0, 0, 0, 0.1); }
+
+/* style for scoreboard.xml */
+.scoreboard {
+  color: black;
+  font-weight: bold;
+  text-align: center; }
+
+.scoreboard__table {
+  color: #DCDCDC;
+  margin: 20px auto; }
+
+.scoreboard__desk {
+  border: solid;
+  border: 1px, 1px, 1px, 0px; }
+
+.content__button {
+  border-shadow: inset 3px -10px 25px -5px #0d0304;
+  border-radius: 24px;
+  margin: 6%;
+  opacity: 0.9;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f70a39), color-stop(1, #ed0505));
+  background: -moz-linear-gradient(center top, #f70a39 5%, #ed0505 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f70a39', endColorstr='#ed0505');
+  background-color: #f70a39;
+  border: 2px solid #9e1e2b;
+  display: inline-block;
+  color: #f2f4ff;
+  height: 34px;
+  line-height: 34px;
+  width: 165px;
+  font-size: 19px;
+  font-weight: bold;
+  font-style: normal;
+  font-family: Comic Sans MS;
+  text-indent: 3px;
+  text-decoration: none;
+  text-align: center; }
+  .content__button:hover {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ed0505), color-stop(1, #f70a39));
+    background: -moz-linear-gradient(center top, #ed0505 5%, #f70a39 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ed0505', endColorstr='#f70a39');
+    background-color: #ed0505; }
+  .content__button:active {
+    position: relative;
+    top: 1px; }
+
+.game__button {
+  border-shadow: inset 3px -10px 25px -5px #0d0304;
+  border-radius: 41px;
+  margin: 0 2%;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fa0000), color-stop(1, #1f0707));
+  background: -moz-linear-gradient(center top, #fa0000 5%, #1f0707 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fa0000', endColorstr='#1f0707');
+  background-color: #fa0000;
+  display: inline-block;
+  color: #eb9999;
+  height: 51px;
+  line-height: 51px;
+  width: 49px;
+  font-size: 35px;
+  font-weight: bold;
+  font-style: normal;
+  font-family: Arial;
+  text-indent: -1.06px;
+  text-decoration: none;
+  text-align: center;
+  text-shadow: 2px 3px 45px #ff0808; }
+  .game__button:hover {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #030101), color-stop(1, #ff7a7a));
+    background: -moz-linear-gradient(center top, #030101 5%, #ff7a7a 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#030101', endColorstr='#ff7a7a');
+    background-color: #030101; }
+  .game__button:active {
+    position: relative;
+    top: 1px; }
+
+.font_type {
+  font-size: 17px;
+  font-family: cursive;
+  text-shadow: 1px 1px 2px black, 0 0 1em red;
+  text-align: center;
+  color: #F5F5F5; }

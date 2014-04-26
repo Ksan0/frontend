@@ -16,6 +16,13 @@ module.exports = function(grunt) {
                     atBegin: true
                 }
             },
+            autoprefixer: {
+                files: ['public/css/*.css'],
+                tasks: ['autoprefixer:dev'],
+                options: {
+                    atBegin: true
+                }
+            },
             express: {
                 files: ['routes/**/*.js', 'app.js'],
                 tasks: ['express'],
@@ -98,7 +105,23 @@ module.exports = function(grunt) {
                     dest: 'public/js/build.min.js'
                 }]
             }
-        }
+        },
+        autoprefixer: {
+            build:{
+                options: {
+                    browsers: ['last 2 version', 'ie 8', 'ie 9']
+                },
+                src: 'public/css/*.css',
+                dest: 'public/css/'
+            },
+            dev:{
+                options: {
+                    browsers: ['last 2 version', 'ie 8', 'ie 9']
+                },
+                src: 'public/css/main.css',
+                dest: 'public/css/main.css'
+            }
+        },
     });
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-fest');
@@ -109,6 +132,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-requirejs');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.registerTask('default', ['sass', 'express','watch']);
-    grunt.registerTask('build', ['fest', 'requirejs:build','concat:build', 'uglify:build']);
+    grunt.loadNpmTasks('grunt-autoprefixer');
+
+    grunt.registerTask('default', ['sass','express','watch']);
+    grunt.registerTask('build', ['fest', 'requirejs:build','concat:build', 'uglify:build', 'autoprefixer:build']);
 };

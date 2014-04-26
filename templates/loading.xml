@@ -1,6 +1,6 @@
 <fest:template xmlns:fest="http://fest.mail.ru"
     context_name="json">
-	        <div class="content font_type">
-	            <div class="content__title">ДАННЫЕ ЗАГРУЖАЮТСЯ...</div>
-	        </div>
+            <div class="content font_type">
+                <div class="content__title">ДАННЫЕ ЗАГРУЖАЮТСЯ...</div>
+            </div>
 </fest:template>

@@ -1,0 +1,27 @@
+
+/* style for game.xml*/
+.game {
+  @include window-size(0);
+  font:{
+    size: 250%;
+    weight: 900;
+  }
+  text-shadow: 1px 1px 2px rgb(226, 189, 189), 0 0 1em white;
+  color: white; 
+}
+
+.game__position {
+  @include window-size(0);
+}
+
+
+.game__info {
+  margin: 3% 4%;
+  display: inline-block;
+  font-size: 50%;
+  color: white;
+}
+
+.game__navbar {
+  margin: 4% 0 2% 4%;
+}

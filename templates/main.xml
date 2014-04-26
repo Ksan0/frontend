@@ -1,9 +1,9 @@
 <fest:template xmlns:fest="http://fest.mail.ru"
     context_name="json">
-	<div class="content font_type">
-		<div class="content__title">ARCANOID</div>
-		<div class="content__main">Main menu</div>
-		<a href="#scoreboard" class="content__button">Score board</a>
-		<a href="#game" class="content__button">Start game</a>
-	</div>
+    <div class="content font_type">
+        <div class="content__title">ARCANOID</div>
+        <div class="content__main">Main menu</div>
+        <a href="#scoreboard" class="content__button">Score board</a>
+        <a href="#game" class="content__button">Start game</a>
+    </div>
 </fest:template>
