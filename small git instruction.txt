@@ -10,3 +10,6 @@ git push -u origin "branch name"  # push to network repo
 git branch -d "branch name"  # delete branch if branch merged
 git branch -D "branch name"  # delete branch anyway
 git branch  # about brunches
+
+git diff "some" # diff between current brunch and some brunch
+git status # commited/tracked/untracked files
