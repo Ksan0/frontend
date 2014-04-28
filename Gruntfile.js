@@ -111,8 +111,8 @@ module.exports = function(grunt) {
                 options: {
                     browsers: ['last 2 version', 'ie 8', 'ie 9']
                 },
-                src: 'public/css/*.css',
-                dest: 'public/css/'
+                src: 'public/css/main.css',
+                dest: 'public/css/main.css'
             },
             dev:{
                 options: {
