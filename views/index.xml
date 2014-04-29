@@ -6,10 +6,17 @@
 		<title>
 			<fest:value>json.title</fest:value>
 		</title>
+		<style>
+			#loader {
+			}
+		</style>
 		<meta name="viewport" content="user-scalable=no, initial-scale=1.0" />
 		<link rel="stylesheet" type="text/css" href="css/main.css" />
 	</head>
 	<body>
+		<div id="loader">
+			<img src="/css/images/load_1.gif"/>
+		</div>
 		<div class="content_wrapper"></div>
 		<fest:if test="json.development">
 			<script data-main="js/main" src="js/lib/require.js"></script>
@@ -24,6 +31,7 @@
 					console.timeEnd('load');
 				});
 			</script>
+		
 		</fest:if>
 	</body>
 </html>
