@@ -1,15 +1,23 @@
 <fest:template xmlns:fest="http://fest.mail.ru" context_name="json">
+<link rel="stylesheet" type="text/css" href="css/joystick.css" />
 <fest:doctype>html</fest:doctype>
 <html>
-	<head>
-		<meta charset="utf-8" />
-		<title>
-			<fest:value>json.title</fest:value>
-		</title>
-		<meta name="viewport" content="..." />
-	</head>
-	<body>
-		Hello world!
-	</body>
+    <head>
+        <meta charset="utf-8" />
+        <title>
+            <fest:value>json.title</fest:value>
+        </title>
+        <meta name="viewport" content="
+            initial-scale=1.0,
+            user-scalable=no,
+            maximum-scale=1,
+            minimum-scale=1
+        "/>
+    </head>
+    <body>
+        <div class="btn-pause pause">
+            <div class="button__text">pause</div>
+        </div>
+    </body>
 </html>
 </fest:template>

@@ -1,97 +1,10 @@
-body {
-  margin: 0; }
-
-.content_wrapper {
-  margin: 0; }
-
-.content {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: 1% auto;
-  height: 620px;
-  width: 360px;
-  background-image: url(images/bg.jpg); }
-
-.content__title {
-  background-repeat: no-repeat;
-  background-position: center;
-  margin: 20px auto;
-  font-size: 30px; }
-
-.content__main {
-  margin: 20px 0;
-  font-size: 30px;
-  z-index: 10000; }
-
-/* style for game.xml*/
-.game {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: 1% auto;
-  height: 620px;
-  width: 360px;
-  font-size: 250%;
-  font-weight: 900;
-  text-shadow: 1px 1px 2px #e2bdbd, 0 0 1em white;
-  color: white; }
-
-.game__position {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  margin: 1% auto;
-  height: 620px;
-  width: 360px; }
-
-.game__info {
-  margin: 3% 4%;
-  display: inline-block;
-  font-size: 50%;
-  color: white; }
-
-.game__navbar {
-  margin: 4% 0 2% 4%; }
-
-/* game_over style */
-.scoreform {
-  border: 2px solid #ADED59;
-  border-radius: 4px;
-  background-color: #A9A9A9;
-  padding: 6px 16px 6px 20px;
-  margin: 0 0 6px 0;
-  color: white;
-  font-family: cursive;
-  font-size: 18px;
-  box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.2), 0 0 4px rgba(0, 0, 0, 0.1); }
-
-/* style for scoreboard.xml */
-.scoreboard {
-  color: black;
-  font-weight: bold;
-  text-align: center; }
-
-.scoreboard__table {
-  color: #DCDCDC;
-  margin: 20px auto; }
-
-.scoreboard__desk {
-  border: solid;
-  border: 1px, 1px, 1px, 0px; }
-
 .content__button {
   border-shadow: inset 3px -10px 25px -5px #0d0304;
   border-radius: 24px;
   margin: 6%;
   opacity: 0.9;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f70a39), color-stop(1, #ed0505));
+  background: -moz-linear-gradient(center top, #f70a39 5%, #ed0505 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f70a39', endColorstr='#ed0505');
   background-color: #f70a39;
   border: 2px solid #9e1e2b;
@@ -109,6 +22,7 @@ body {
   text-align: center; }
   .content__button:hover {
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ed0505), color-stop(1, #f70a39));
+    background: -moz-linear-gradient(center top, #ed0505 5%, #f70a39 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ed0505', endColorstr='#f70a39');
     background-color: #ed0505; }
   .content__button:active {
@@ -120,6 +34,7 @@ body {
   border-radius: 41px;
   margin: 0 2%;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fa0000), color-stop(1, #1f0707));
+  background: -moz-linear-gradient(center top, #fa0000 5%, #1f0707 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fa0000', endColorstr='#1f0707');
   background-color: #fa0000;
   display: inline-block;
@@ -137,6 +52,7 @@ body {
   text-shadow: 2px 3px 45px #ff0808; }
   .game__button:hover {
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #030101), color-stop(1, #ff7a7a));
+    background: -moz-linear-gradient(center top, #030101 5%, #ff7a7a 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#030101', endColorstr='#ff7a7a');
     background-color: #030101; }
   .game__button:active {
@@ -153,6 +69,8 @@ body {
   text-align: center;
   width: 50%;
   height: 50%;
+  -moz-box-shadow: 0px 0px 30px 3px black;
+  -webkit-box-shadow: 0px 0px 30px 3px black;
   box-shadow: 0px 0px 30px 3px black; }
   .btn-pause:hover {
     text-decoration: underline; }
@@ -165,12 +83,19 @@ body {
   position: relative;
   top: 50%;
   -webkit-transform: translate(0, -50%);
-  -ms-transform: translate(0, -50%);
+  -moz-transform: translate(0, -50%);
   transform: translate(0, -50%); }
 
-.font_type {
-  font-size: 17px;
-  font-family: cursive;
-  text-shadow: 1px 1px 2px black, 0 0 1em red;
-  text-align: center;
-  color: #F5F5F5; }
+body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #F08080;
+  text-align: center; }
+
+.pause {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translate(0 -50%);
+  -moz-transform: translate(0 -50%);
+  transform: translate(0 -50%); }

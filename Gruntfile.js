@@ -114,6 +114,12 @@ module.exports = function(grunt) {
                 src: 'public/css/main.css',
                 dest: 'public/css/main.css'
             },
+             multiple_files: {
+                expand: true,
+                flatten: true,
+                src: 'public/css/*.css',
+                dest: 'public/css/' 
+            },
             dev:{
                 options: {
                     browsers: ['last 2 version', 'ie 8', 'ie 9']

@@ -1,9 +1,3 @@
-@mixin border-shadow ($shadows...) {
-  -moz-box-shadow: $shadows;
-  -webkit-box-shadow: $shadows;
-  box-shadow:$shadows;
-}
-
 @mixin window-size ($pixels) {
   position: absolute;
   top: $pixels;
@@ -14,3 +8,17 @@
   height: 620px;
   width: 360px;  
 }
+
+@mixin transform($value...) {
+-webkit-transform: translate($value);
+-moz-transform: translate($value);
+transform: translate($value); 
+}
+
+@mixin shadow($val...) {
+-moz-box-shadow: $val;
+-webkit-box-shadow: $val;
+box-shadow: $val;
+}
+
+
