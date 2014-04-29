@@ -101,6 +101,9 @@ define([
                 function() {
                     this.step();
                 }.bind(this), 1000 / this.FPS);
+
+            var loader = $(document).find('.resources__loader')[0];
+            loader.style.display = 'none';
         },
         render: function() {
             return this;

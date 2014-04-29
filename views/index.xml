@@ -14,7 +14,7 @@
 		<link rel="stylesheet" type="text/css" href="css/main.css" />
 	</head>
 	<body>
-		<div id="loader">
+		<div id="loader" class="resources__loader">
 			<img src="/css/images/load_1.gif"/>
 		</div>
 		<div class="content_wrapper"></div>
