@@ -6,15 +6,11 @@
 		<title>
 			<fest:value>json.title</fest:value>
 		</title>
-		<style>
-			#loader {
-			}
-		</style>
 		<meta name="viewport" content="user-scalable=no, initial-scale=1.0" />
 		<link rel="stylesheet" type="text/css" href="css/main.css" />
 	</head>
 	<body>
-		<div id="loader" class="resources__loader">
+		<div class="resources__loader">
 			<img src="/css/images/load_1.gif"/>
 		</div>
 		<div class="content_wrapper"></div>
