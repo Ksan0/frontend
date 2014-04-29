@@ -15,7 +15,7 @@
         "/>
     </head>
     <body>
-        <div class="btn-pause pause">
+        <div class="btn__pause pause">
             <div class="button__text">pause</div>
         </div>
     </body>
