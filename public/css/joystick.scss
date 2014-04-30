@@ -1,7 +1,6 @@
 @import 'functions/mixins';
 @import 'blocks/buttons';
 
-
 body {
   margin: 0;
   height: 100%;
@@ -13,5 +12,6 @@ body {
 .pause {
   position: relative;
   top: 50%;
-  @include transform(0 -50%);
+  @include transform(0, -50%);
 }
+

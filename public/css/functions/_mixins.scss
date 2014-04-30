@@ -10,15 +10,13 @@
 }
 
 @mixin transform($value...) {
--webkit-transform: translate($value);
--moz-transform: translate($value);
-transform: translate($value); 
+  -webkit-transform: translate($value);
+  -moz-transform: translate($value);
+  transform: translate($value); 
 }
 
 @mixin shadow($val...) {
--moz-box-shadow: $val;
--webkit-box-shadow: $val;
-box-shadow: $val;
+  -moz-box-shadow: $val;
+  -webkit-box-shadow: $val;
+  box-shadow: $val;
 }
-
-

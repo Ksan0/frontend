@@ -11,6 +11,9 @@ define([
         },
         initialize: function(options) {
             this.game = options.game;
+            this.set("default_x", this.get("x"));
+            this.set("default_delta", this.get("delta"));
+            this.set("default_width", this.get("width"));
         },
         moveRight: function() {
             var x = this.get('x');
@@ -32,6 +35,13 @@ define([
             if (x - delta - paddingWidth / 2 > -gameWidth / 2 + leftOffset)
                 this.set('x', x - delta);
             this.set('prevx', x);
+        },
+        restart: function() {
+            this.set("prevx", this.get("x"));
+
+            this.set("x", this.get("default_x"));
+            this.set("delta", this.get("default_delta"));
+            this.set("width", this.get("default_width"));
         }
     });
     return Model;
