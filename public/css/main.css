@@ -87,9 +87,13 @@ body {
   border: 1px, 1px, 1px, 0px; }
 
 .resources__loader {
+  font-size: 30pt;
   margin: 20% 20% 20% 20%;
   z-index: 1000000;
   text-align: center; }
+
+.img_size {
+  width: 100px; }
 
 .content__button {
   border-shadow: inset 3px -10px 25px -5px #0d0304;

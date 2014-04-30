@@ -12851,7 +12851,7 @@ define('views/scoreboard',[
     });
     return new View();
 });
-define('tmpl/game',[],function () {return function (__fest_context){var __fest_self=this,__fest_buf="",__fest_chunks=[],__fest_chunk,__fest_attrs=[],__fest_select,__fest_if,__fest_iterator,__fest_to,__fest_fn,__fest_html="",__fest_blocks={},__fest_params,__fest_element,__fest_debug_file="",__fest_debug_line="",__fest_debug_block="",__fest_htmlchars=/[&<>"]/g,__fest_htmlchars_test=/[&<>"]/,__fest_short_tags = {"area":true,"base":true,"br":true,"col":true,"command":true,"embed":true,"hr":true,"img":true,"input":true,"keygen":true,"link":true,"meta":true,"param":true,"source":true,"wbr":true},__fest_element_stack = [],__fest_htmlhash={"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"},__fest_jschars=/[\\'"\/\n\r\t\b\f<>]/g,__fest_jschars_test=/[\\'"\/\n\r\t\b\f<>]/,__fest_jshash={"\"":"\\\"","\\":"\\\\","/":"\\/","\n":"\\n","\r":"\\r","\t":"\\t","\b":"\\b","\f":"\\f","'":"\\'","<":"\\u003C",">":"\\u003E"},___fest_log_error;if(typeof __fest_error === "undefined"){___fest_log_error = (typeof console !== "undefined" && console.error) ? function(){return Function.prototype.apply.call(console.error, console, arguments)} : function(){};}else{___fest_log_error=__fest_error};function __fest_log_error(msg){___fest_log_error(msg+"\nin block \""+__fest_debug_block+"\" at line: "+__fest_debug_line+"\nfile: "+__fest_debug_file)}function __fest_replaceHTML(chr){return __fest_htmlhash[chr]}function __fest_replaceJS(chr){return __fest_jshash[chr]}function __fest_extend(dest, src){for(var i in src)if(src.hasOwnProperty(i))dest[i]=src[i];}function __fest_param(fn){fn.param=true;return fn}function __fest_call(fn, params,cp){if(cp)for(var i in params)if(typeof params[i]=="function"&&params[i].param)params[i]=params[i]();return fn.call(__fest_self,params)}function __fest_escapeJS(s){if (typeof s==="string") {if (__fest_jschars_test.test(s))return s.replace(__fest_jschars,__fest_replaceJS);} else if (typeof s==="undefined")return "";return s;}function __fest_escapeHTML(s){if (typeof s==="string") {if (__fest_htmlchars_test.test(s))return s.replace(__fest_htmlchars,__fest_replaceHTML);} else if (typeof s==="undefined")return "";return s;}var json=__fest_context;__fest_buf+=("<div class=\"content\"></div><canvas id=\"myCanvas\" class=\"game__position\" width=\"500\" height=\"500\"></canvas><div class=\"game\"><div class=\"game__navbar\"><a href=\"#main\" class=\"game__button\">⇐</a></div></div>");__fest_to=__fest_chunks.length;if (__fest_to) {__fest_iterator = 0;for (;__fest_iterator<__fest_to;__fest_iterator++) {__fest_chunk=__fest_chunks[__fest_iterator];if (typeof __fest_chunk==="string") {__fest_html+=__fest_chunk;} else {__fest_fn=__fest_blocks[__fest_chunk.name];if (__fest_fn) __fest_html+=__fest_call(__fest_fn,__fest_chunk.params,__fest_chunk.cp);}}return __fest_html+__fest_buf;} else {return __fest_buf;}} ; });
+define('tmpl/game',[],function () {return function (__fest_context){var __fest_self=this,__fest_buf="",__fest_chunks=[],__fest_chunk,__fest_attrs=[],__fest_select,__fest_if,__fest_iterator,__fest_to,__fest_fn,__fest_html="",__fest_blocks={},__fest_params,__fest_element,__fest_debug_file="",__fest_debug_line="",__fest_debug_block="",__fest_htmlchars=/[&<>"]/g,__fest_htmlchars_test=/[&<>"]/,__fest_short_tags = {"area":true,"base":true,"br":true,"col":true,"command":true,"embed":true,"hr":true,"img":true,"input":true,"keygen":true,"link":true,"meta":true,"param":true,"source":true,"wbr":true},__fest_element_stack = [],__fest_htmlhash={"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"},__fest_jschars=/[\\'"\/\n\r\t\b\f<>]/g,__fest_jschars_test=/[\\'"\/\n\r\t\b\f<>]/,__fest_jshash={"\"":"\\\"","\\":"\\\\","/":"\\/","\n":"\\n","\r":"\\r","\t":"\\t","\b":"\\b","\f":"\\f","'":"\\'","<":"\\u003C",">":"\\u003E"},___fest_log_error;if(typeof __fest_error === "undefined"){___fest_log_error = (typeof console !== "undefined" && console.error) ? function(){return Function.prototype.apply.call(console.error, console, arguments)} : function(){};}else{___fest_log_error=__fest_error};function __fest_log_error(msg){___fest_log_error(msg+"\nin block \""+__fest_debug_block+"\" at line: "+__fest_debug_line+"\nfile: "+__fest_debug_file)}function __fest_replaceHTML(chr){return __fest_htmlhash[chr]}function __fest_replaceJS(chr){return __fest_jshash[chr]}function __fest_extend(dest, src){for(var i in src)if(src.hasOwnProperty(i))dest[i]=src[i];}function __fest_param(fn){fn.param=true;return fn}function __fest_call(fn, params,cp){if(cp)for(var i in params)if(typeof params[i]=="function"&&params[i].param)params[i]=params[i]();return fn.call(__fest_self,params)}function __fest_escapeJS(s){if (typeof s==="string") {if (__fest_jschars_test.test(s))return s.replace(__fest_jschars,__fest_replaceJS);} else if (typeof s==="undefined")return "";return s;}function __fest_escapeHTML(s){if (typeof s==="string") {if (__fest_htmlchars_test.test(s))return s.replace(__fest_htmlchars,__fest_replaceHTML);} else if (typeof s==="undefined")return "";return s;}var json=__fest_context;__fest_buf+=("<div class=\"content\"></div><canvas class=\"game__position\" width=\"500\" height=\"500\"></canvas><canvas class=\"game__position\" width=\"500\" height=\"500\"></canvas><div class=\"game\"><div class=\"game__navbar\"><a href=\"#main\" class=\"game__button\">⇐</a><div class=\"game__info\">0</div></div></div>");__fest_to=__fest_chunks.length;if (__fest_to) {__fest_iterator = 0;for (;__fest_iterator<__fest_to;__fest_iterator++) {__fest_chunk=__fest_chunks[__fest_iterator];if (typeof __fest_chunk==="string") {__fest_html+=__fest_chunk;} else {__fest_fn=__fest_blocks[__fest_chunk.name];if (__fest_fn) __fest_html+=__fest_call(__fest_fn,__fest_chunk.params,__fest_chunk.cp);}}return __fest_html+__fest_buf;} else {return __fest_buf;}} ; });
 define('models/padding',[
     'backbone'
 ], function(
@@ -12865,6 +12865,9 @@ define('models/padding',[
         },
         initialize: function(options) {
             this.game = options.game;
+            this.set("default_x", this.get("x"));
+            this.set("default_delta", this.get("delta"));
+            this.set("default_width", this.get("width"));
         },
         moveRight: function() {
             var x = this.get('x');
@@ -12886,6 +12889,13 @@ define('models/padding',[
             if (x - delta - paddingWidth / 2 > -gameWidth / 2 + leftOffset)
                 this.set('x', x - delta);
             this.set('prevx', x);
+        },
+        restart: function() {
+            this.set("prevx", this.get("x"));
+
+            this.set("x", this.get("default_x"));
+            this.set("delta", this.get("default_delta"));
+            this.set("width", this.get("default_width"));
         }
     });
     return Model;
@@ -12917,14 +12927,17 @@ define('models/game',[
         over: function() {
             this.trigger("gameOver");
         },
-        reset: function () {
-            this.stop = true;
-            this.stage = 1;
-            this.score = 0;
+        restart: function () {
+            this.set("stop", true);
+            this.set("stage", 1);
+            this.set("score", 0);
         },
         addScore: function(count) {
             var score = this.get("score");
             this.set("score", score + count);
+        },
+        getScore: function() {
+            return this.get("score");
         }
     });
     return Model;
@@ -12956,6 +12969,91 @@ define('views/padding',[
     });
     return View;
 });
+define('models/blocks',[
+    'backbone'
+], function(
+    Backbone
+) {
+
+    var Model = Backbone.Model.extend({
+        defaults: {
+        },
+        initialize: function(options) {
+            this.game = options.game;
+
+            var gameWidth = this.game.get('width');
+            var gameHeight = this.game.get('height');
+            var gameLeftOffset = this.game.get('leftOffset');
+            var gameRightOffset = this.game.get('rightOffset');
+            var gameTopOffset = this.game.get('topOffset');
+            var gameBottomOffset = this.game.get('bottomOffset');
+
+            this.set("leftBorder", -gameWidth / 2 + gameLeftOffset + 20);
+            this.set("rightBorder", gameWidth / 2 - gameRightOffset);
+            this.set("width", 65);
+            this.set("height", 20);
+            this.set("dist", 70);
+
+            var y = gameHeight - gameTopOffset - gameBottomOffset;
+            for (var x = this.get("leftBorder"); x < this.get("rightBorder"); x += this.get("dist")) {
+                this.set("block_" + x.toString() + "_x", x);
+                this.set("block_" + x.toString() + "_y", y);
+                this.set("block_" + x.toString() + "_type", 1);
+            }
+
+            this.set("type_1_color", "lightblue");
+            this.set("type_2_color", "blue");
+            this.set("type_3_color", "#FF00FF");
+            this.set("type_4_color", "pink");
+            this.set("type_5_color", "red");
+
+            this.set("type_1_score", 1);
+            this.set("type_2_score", 2);
+            this.set("type_3_score", 3);
+            this.set("type_4_score", 5);
+            this.set("type_5_score", 10);
+
+            this.set("type_count", 5);
+        },
+        restart: function() {
+            for (var x = this.get("leftBorder"); x < this.get("rightBorder"); x += this.get("dist")) {
+                this.set("block_" + x.toString() + "_x", x);
+                this.set("block_" + x.toString() + "_type", 1);
+            }
+        }
+    });
+    return Model;
+});
+define('views/blocks',[
+    'backbone'
+], function(
+    Backbone
+) {
+    var View = Backbone.View.extend({
+        initialize: function(options) {
+            for (var x = this.model.get("leftBorder"); x < this.model.get("rightBorder"); x += this.model.get("dist")) {
+                this.model.on("change:block_" + x.toString() + "_type", this.render, this);
+            }
+            this.context = options.context;
+            this.render();
+        },
+        render: function() {
+            var width = this.model.get("width");
+            var height = this.model.get("height");
+            for (var x = this.model.get("leftBorder"); x < this.model.get("rightBorder"); x += this.model.get("dist")) {
+                var y = this.model.get("block_" + x.toString() + "_y");
+                var bltype = this.model.get("block_" + x.toString() + "_type");
+                this.context.fillStyle = this.model.get("type_" + bltype.toString() + "_color");
+                this.context.fillRect(x - width / 2, y, width, height);
+            }
+        },
+        show: function() {
+
+        },
+        hide: function() {}
+    });
+    return View;
+});
 define('models/ball',[
     'backbone'
 ], function(
@@ -12965,12 +13063,18 @@ define('models/ball',[
 
         initialize: function(options) {
             this.game = options.game;
+            this.set("game_over", false);
+            this.set("default_x", this.get("x"));
+            this.set("default_y", this.get("y"));
+            this.set("default_radius", this.get("radius"));
+            this.set("default_velocity", this.get("velocity"));
+            this.set("default_angle", this.get("angle"));
         },
 
-        move: function() {
+        move: function(paddingMoveLeft, paddingMoveRight) {
             var px = this.get('x');
             var py = this.get('y');
-            var radius = this.get('radius');
+            var radius = this.get('radius') * 0.4;
             var pvelocity = this.get('velocity');
             var pangle = this.get('angle');
             var game = this.get('game');
@@ -12988,6 +13092,8 @@ define('models/ball',[
             var paddingX = padding.get('x');
             var paddingWidth = padding.get('width');
             var nangle = pangle;
+
+            var blocks = this.get('blocks');
             if (nx - radius < -gameWidth / 2 + gameLeftOffset) {
                 nangle = -pangle + Math.PI;
                 nx = px + pvelocity * Math.cos(nangle);
@@ -13000,26 +13106,64 @@ define('models/ball',[
                 ny = py + pvelocity * Math.sin(nangle);
                 this.game.addScore(1);
             }
-            if (ny + radius > gameHeight - gameTopOffset - gameBottomOffset) {
+            if (ny - 2*radius > gameHeight - gameTopOffset - gameBottomOffset) {
                 nangle = -pangle;
                 nx = px + pvelocity * Math.cos(nangle);
                 ny = py + pvelocity * Math.sin(nangle);
-                this.game.addScore(1);
+                ny -= 3*radius;
             }
             if (py - radius > 0 && ny - radius < 0 && nx > paddingX - paddingWidth && nx < paddingX + paddingWidth) {
                 nangle = -pangle;
+                var addAngle = Math.PI * 0.2 * Math.random();
+                if (paddingMoveLeft)
+                    nangle += addAngle;
+                if (paddingMoveRight)
+                    nangle -= addAngle;
+
                 nx = px + pvelocity * Math.cos(nangle);
                 ny = py + pvelocity * Math.sin(nangle);
-                this.game.addScore(5);
+                this.game.addScore(2);
+            }
+            for (var x = blocks.get("leftBorder"); x < blocks.get("rightBorder"); x += blocks.get("dist")) {
+                var blx = blocks.get("block_" + x.toString() + "_x");
+                var bltype = blocks.get("block_" + x.toString() + "_type");
+                var blwidth = blocks.get("width");
+
+                if (ny + radius > gameHeight - gameTopOffset - gameBottomOffset && nx > x - blwidth / 2 && nx < x + blwidth / 2) {
+                    nangle = -pangle;
+                    nx = px + pvelocity * Math.cos(nangle);
+                    ny = py + pvelocity * Math.sin(nangle);
+                    this.game.addScore(blocks.get("type_" + bltype.toString() + "_score"));
+                    bltype += 1;
+                    if (bltype > blocks.get("type_count"))
+                        bltype = 1;
+                    blocks.set("block_" + x.toString() + "_type", bltype);
+                }
             }
             if (ny + radius < 0) {
-                this.game.over();
+                this.set("game_over", true);
             }
             this.set('prevx', px);
             this.set('prevy', py);
             this.set('x', nx);
             this.set('y', ny);
             this.set('angle', nangle);
+
+            var scoreDiv = this.get("scoreDiv");
+            scoreDiv.innerHTML = this.game.getScore().toString();
+        },
+        restart: function() {
+            this.set("prevx", this.get("x"));
+            this.set("prevy", this.get("y"));
+
+            this.set("x", this.get('default_x'));
+            this.set("y", this.get('default_y'));
+            this.set("radius", this.get('default_radius'));
+            this.set("velocity", this.get('default_velocity'));
+            this.set("angle", this.get('default_angle'));
+
+            var scoreDiv = this.get("scoreDiv");
+            scoreDiv.innerHTML = "0";
         }
     });
     return Model;
@@ -13041,14 +13185,17 @@ define('views/ball',[
             var y = this.model.get('y');
             var prevx = this.model.get('prevx');
             var prevy = this.model.get('prevy');
-            this.context.clearRect(prevx - radius, prevy - radius, 2 * radius, 2 * radius);
-            this.context.beginPath();
-            this.context.arc(x, y, radius, 0, 2 * Math.PI, true);
-            this.context.fillStyle = 'red';
-            this.context.fill();
+
+            this.context.clearRect(prevx - 2*radius, prevy - 2*radius, 2*2*radius, 2*2*radius);
+            if (!this.model.get("game_over")) {
+                this.context.beginPath();
+                this.context.arc(x, y, radius, 0, 2 * Math.PI, true);
+                this.context.fillStyle = 'red';
+                this.context.fill();
+            }
         },
         show: function() {
-
+            
         },
         hide: function() {}
     });
@@ -13112,10 +13259,12 @@ define('views/game',[
     'models/game',
     'models/padding',
     'views/padding',
+    'models/blocks',
+    'views/blocks',
     'models/ball',
     'views/ball',
     'views/game_over'
-], function (Backbone, tmpl, Game, PaddingModel, PaddingView, BallModel, BallView, GameOverView) {
+], function (Backbone, tmpl, Game, PaddingModel, PaddingView, BlocksModel, BlocksView, BallModel, BallView, GameOverView) {
 
     var View = Backbone.View.extend({
         template: tmpl,
@@ -13132,15 +13281,19 @@ define('views/game',[
         game: null,
         canvas: null,
         context: null,
+        canvas2: null,
+        context2: null,
         paddingModel: null,
         paddingView: null,
+        blocksModel: null,
+        blocksView: null,
         ballModel: null,
         ballView: null,
         FPS: 50,
         leftButtonPressed: false,
         rigthButtonPressed: false,
 
-        initialize: function () {
+        initialize: function() {
             this.$el.html(this.template());
             $('.content_wrapper').append(this.$el);
             this.canvas = this.$el.find(".game__position")[0];
@@ -13148,6 +13301,12 @@ define('views/game',[
             this.canvas.width = this.baseGameWidth;
             this.canvas.height = this.baseGameHeight;
             this.context.setTransform(1, 0, 0, -1, this.canvas.width / 2, this.canvas.height - this.baseBottomOffset);
+
+            this.canvas2 = this.$el.find(".game__position")[1];
+            this.context2 = this.canvas2.getContext("2d");
+            this.canvas2.width = this.baseGameWidth;
+            this.canvas2.height = this.baseGameHeight;
+            this.context2.setTransform(1, 0, 0, -1, this.canvas2.width / 2, this.canvas2.height - this.baseBottomOffset);
 
             this.game = new Game({
                 width: this.canvas.width,
@@ -13166,40 +13325,52 @@ define('views/game',[
                 context: this.context,
                 model: this.paddingModel
             });
+            this.blocksModel = new BlocksModel({
+                game: this.game
+            });
+            this.blocksView = new BlocksView({
+                context: this.context,
+                model: this.blocksModel
+            });
             this.ballModel = new BallModel({
                 x: 0,
                 y: this.baseBallRadius,
                 radius: this.baseBallRadius,
                 game: this.game,
                 velocity: 5,
-                angle: Math.PI / 4,
-                padding: this.paddingModel
+                angle: Math.PI / 4 + Math.PI / 2 * Math.random(),
+                padding: this.paddingModel,
+                blocks: this.blocksModel,
+                scoreDiv: this.$el.find(".game__info")[0]
             });
             this.ballView = new BallView({
-                context: this.context,
+                context: this.context2,
                 model: this.ballModel
             });
-            this.gameOverView = new GameOverView();
+            this.gameOverView = new GameOverView({
+                score: 1 // this.game.get("score") ?
+            });
             $(document).on('keydown', this.keydown.bind(this));
             $(document).on('keyup', this.keyup.bind(this));
-            this.game.on('gameOver', this.gameOver.bind(this));
             setInterval(
-                function () {
+                function() {
                     this.step();
                 }.bind(this), 1000 / this.FPS);
+
+            var loader = $(document).find('.resources__loader')[0];
+            loader.style.display = 'none';
         },
-        render: function () {
+        render: function() {
             return this;
         },
-        show: function () {
+        show: function() {
             this.$el.show();
-            console.log(this.ballModel);
             this.trigger('show', this);
         },
-        hide: function () {
+        hide: function() {
             this.$el.hide();
         },
-        keydown: function (e) {
+        keydown: function(e) {
             switch (e.keyCode) {
                 case 37:
                     this.leftButtonPressed = true;
@@ -13218,7 +13389,7 @@ define('views/game',[
                     break;
             }
         },
-        keyup: function (e) {
+        keyup: function(e) {
             switch (e.keyCode) {
                 case 37:
                     this.leftButtonPressed = false;
@@ -13230,19 +13401,33 @@ define('views/game',[
                     break;
             }
         },
-        step: function () {
+        step: function() {
+            if (this.ballModel.get("game_over")) {
+
+            }
+
             var stopped = this.game.get('stop');
             if (!stopped) {
                 if (this.leftButtonPressed)
                     this.paddingModel.moveLeft();
                 if (this.rigthButtonPressed)
                     this.paddingModel.moveRight();
-                this.ballModel.move();
+                this.ballModel.move(this.leftButtonPressed, this.rigthButtonPressed);
+                if (this.ballModel.get("game_over")) {
+                    this.thisGameOver();
+                }
             }
         },
-        gameOver: function (e) {
-            this.game.stop();
-            this.gameOverView.show(this.game.get("score"));
+        thisGameOver: function(e) {
+            var score = this.game.get("score");
+            this.game.restart();
+            this.paddingModel.restart();
+            this.blocksModel.restart();
+            this.ballModel.restart();
+            this.ballModel.set("game_over", false);
+            this.ballView.render();
+
+            this.gameOverView.show(score);
         }
     });
     return new View();

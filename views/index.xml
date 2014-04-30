@@ -11,7 +11,8 @@
 	</head>
 	<body>
 		<div class="resources__loader">
-			<img src="/css/images/load_1.gif"/>
+			<div>LOADING</div>
+			<img class ="img_size" src="/css/images/load_1.gif"/>
 		</div>
 		<div class="content_wrapper"></div>
 		<fest:if test="json.development">
