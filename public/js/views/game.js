@@ -18,7 +18,7 @@ define([
         basePaddingHeight: 20,
         baseGameWidth: 360,
         baseGameHeight: 640,
-        baseBottomOffset: 40,
+        baseBottomOffset: 10,
         baseLeftOffset: 20,
         baseRightOffset: 20,
         baseTopOffset: 100,
@@ -34,9 +34,13 @@ define([
         blocksView: null,
         ballModel: null,
         ballView: null,
-        FPS: 50,
-        leftButtonPressed: false,
-        rigthButtonPressed: false,
+        FPS: 100,
+        lastFrapTime: null,
+        deltaFrapTime: 0,
+        leftKeyPressed: false,
+        rigthKeyPressed: false,
+        upKeyPressed: false,
+        downKeyPressed: false,
 
         initialize: function() {
             this.$el.html(this.template());
@@ -62,6 +66,17 @@ define([
                 bottomOffset: this.baseBottomOffset
             });
             this.paddingModel = new PaddingModel({
+                x: 0,                           // center of block
+                y: this.baseBottomOffset + 25,  // center of block
+                max_y: this.baseBottomOffset + 100,
+                speed_x: 0,
+                speed_y: 0,
+                max_speed_x: 50,                     // speed use when user press key
+                max_speed_y: 50,
+                acceleration_x: 50,
+                acceleration_y: 100,
+                friction_x: 25,
+                friction_y: 50,
                 width: this.basePaddingWidth,
                 height: this.basePaddingHeight,
                 game: this.game
@@ -79,10 +94,10 @@ define([
             });
             this.ballModel = new BallModel({
                 x: 0,
-                y: this.baseBallRadius,
+                y: this.paddingModel.get("y") + 2*this.baseBallRadius,
                 radius: this.baseBallRadius,
                 game: this.game,
-                velocity: 5,
+                velocity: 200,
                 angle: Math.PI / 4 + Math.PI / 2 * Math.random(),
                 padding: this.paddingModel,
                 blocks: this.blocksModel,
@@ -104,6 +119,8 @@ define([
 
             var loader = $(document).find('.resources__loader')[0];
             loader.style.display = 'none';
+
+            this.lastFrapTime = (new Date()).getTime();
         },
         render: function() {
             return this;
@@ -118,10 +135,16 @@ define([
         keydown: function(e) {
             switch (e.keyCode) {
                 case 37:
-                    this.leftButtonPressed = true;
+                    this.leftKeyPressed = true;
+                    break;
+                case 38:
+                    this.upKeyPressed = true;
                     break;
                 case 39:
-                    this.rigthButtonPressed = true;
+                    this.rigthKeyPressed = true;
+                    break;
+                case 40:
+                    this.downKeyPressed = true;
                     break;
                 case 32:
                     var stopped = this.game.get('stop');
@@ -137,27 +160,32 @@ define([
         keyup: function(e) {
             switch (e.keyCode) {
                 case 37:
-                    this.leftButtonPressed = false;
+                    this.leftKeyPressed = false;
+                    break;
+                case 38:
+                    this.upKeyPressed = false;
                     break;
                 case 39:
-                    this.rigthButtonPressed = false;
+                    this.rigthKeyPressed = false;
+                    break;
+                case 40:
+                    this.downKeyPressed = false;
                     break;
                 default:
                     break;
             }
         },
         step: function() {
-            if (this.ballModel.get("game_over")) {
-
-            }
+            var currentFrapTime = (new Date()).getTime();
+            var lastFrapTime = this.game.get('lastFrapTime');
+            this.game.set('deltaFrapTime', (currentFrapTime - lastFrapTime)/1000);
+            this.game.set('lastFrapTime', currentFrapTime);
 
             var stopped = this.game.get('stop');
             if (!stopped) {
-                if (this.leftButtonPressed)
-                    this.paddingModel.moveLeft();
-                if (this.rigthButtonPressed)
-                    this.paddingModel.moveRight();
-                this.ballModel.move(this.leftButtonPressed, this.rigthButtonPressed);
+                this.paddingModel.move(this.leftKeyPressed, this.rigthKeyPressed, this.upKeyPressed, this.downKeyPressed);
+            
+                this.ballModel.move(this.leftKeyPressed, this.rigthKeyPressed);
                 if (this.ballModel.get("game_over")) {
                     this.thisGameOver();
                 }

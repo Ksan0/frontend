@@ -14,48 +14,107 @@ define([
             this.set("default_velocity", this.get("velocity"));
             this.set("default_angle", this.get("angle"));
         },
+        _collision: function(rect, ball) {
+            // rect = {x: X, y: Y, w: W, h: H}
+            // ball = {x: X, y: Y, r: R}
+            // return {vector_x: X, vector_y: Y}
+            var collision_count = 0;
+            var vector_x = 0;
+            var vector_y = 0;
+            var dangle = Math.PI / 10;
+            for (var angle = 0; angle < 2*Math.PI; angle += dangle) {
+                var px = ball.x + ball.r * Math.cos(angle);
+                var py = ball.y + ball.r * Math.sin(angle);
+        
+                if (px < rect.x || px > rect.x + rect.w || py < rect.y || py > rect.y + rect.h)
+                    continue;
 
+                ++collision_count;
+                vector_x += ball.x - px;
+                vector_y += ball.y - py;
+            }
+
+            var return_vector_x = 0;
+            var return_vector_y = 0;
+            if (collision_count !== 0) {
+                return_vector_x = vector_x / collision_count;
+                return_vector_y = vector_y / collision_count;
+            }
+            return {vector_x: return_vector_x, vector_y: return_vector_y};
+        },
         move: function(paddingMoveLeft, paddingMoveRight) {
-            var px = this.get('x');
-            var py = this.get('y');
-            var radius = this.get('radius') * 0.4;
-            var pvelocity = this.get('velocity');
-            var pangle = this.get('angle');
             var game = this.get('game');
-
             var gameWidth = game.get('width');
             var gameHeight = game.get('height');
             var gameLeftOffset = game.get('leftOffset');
             var gameRightOffset = game.get('rightOffset');
             var gameTopOffset = game.get('topOffset');
             var gameBottomOffset = game.get('bottomOffset');
-            var nx = px + pvelocity * Math.cos(pangle);
-            var ny = py + pvelocity * Math.sin(pangle);
+            var deltaFrapTime = game.get('deltaFrapTime');
+
+            var __ball_speed = this.get('velocity');
+            var __ball_angle = this.get('angle');
+            var ball_speed_x = __ball_speed * Math.cos(__ball_angle) * deltaFrapTime;
+            var ball_speed_y = __ball_speed * Math.sin(__ball_angle) * deltaFrapTime;
+
+            var ball_x = this.get('x') + ball_speed_x;
+            var ball_y = this.get('y') + ball_speed_y;
+            var ball_r = this.get('radius');
+
+            this.set('prevx', ball_x);
+            this.set('prevy', ball_y);
+
+            // check borders
+            if (ball_x - ball_r < -gameWidth / 2 + gameLeftOffset) {  // left border
+                ball_speed_x *= -1;
+            }
+            if (ball_x + ball_r > gameWidth / 2 - gameRightOffset) {  // right border
+                ball_speed_x *= -1;
+            }
+            if (ball_y + ball_r > gameHeight - gameTopOffset - gameBottomOffset) {  // top border
+                ball_speed_y *= -1;
+            }
 
             var padding = this.get('padding');
-            var paddingX = padding.get('x');
-            var paddingWidth = padding.get('width');
-            var nangle = pangle;
+            var padding_x = padding.get('x');
+            var padding_y = padding.get('y');
+            var padding_w = padding.get('width');
+            var padding_h = padding.get('height');
+
+            var __padding_collision_x = padding_x - padding_w / 2;
+            var __padding_collision_y = padding_y - padding_h / 2;
+            var result = this._collision(
+                {   // rect
+                    x: __padding_collision_x,
+                    y: __padding_collision_y,
+                    w: padding_w,
+                    h: padding_h
+                }, {    // ball
+                    x: ball_x,
+                    y: ball_y,
+                    r: ball_r
+                }
+            );
+            ball_speed_x += result.vector_x;
+            ball_speed_y += result.vector_y;
+
+            this.set('x', ball_x);
+            this.set('y', ball_y);
+            this.set('angle', Math.atan2(ball_speed_y, ball_speed_x));
+            this.set('speed', Math.sqrt(ball_speed_x*ball_speed_x + ball_speed_y*ball_speed_y));
+            return;
+
+            /*var px = this.get('x');
+            var py = this.get('y');
+            var radius = this.get('radius') * 0.4;
+            var pvelocity = this.get('velocity');
+            var pangle = this.get('angle');
+            var game = this.get('game');*/
+
+            /*var nx = px + pvelocity * Math.cos(pangle);
+            var ny = py + pvelocity * Math.sin(pangle);*/
 
             var blocks = this.get('blocks');
-            if (nx - radius < -gameWidth / 2 + gameLeftOffset) {
-                nangle = -pangle + Math.PI;
-                nx = px + pvelocity * Math.cos(nangle);
-                ny = py + pvelocity * Math.sin(nangle);
-                this.game.addScore(1);
-            }
-            if (nx + radius > gameWidth / 2 - gameRightOffset) {
-                nangle = -pangle + Math.PI;
-                nx = px + pvelocity * Math.cos(nangle);
-                ny = py + pvelocity * Math.sin(nangle);
-                this.game.addScore(1);
-            }
-            if (ny - 2*radius > gameHeight - gameTopOffset - gameBottomOffset) {
-                nangle = -pangle;
-                nx = px + pvelocity * Math.cos(nangle);
-                ny = py + pvelocity * Math.sin(nangle);
-                ny -= 3*radius;
-            }
             if (py - radius > 0 && ny - radius < 0 && nx > paddingX - paddingWidth && nx < paddingX + paddingWidth) {
                 nangle = -pangle;
                 var addAngle = Math.PI * 0.2 * Math.random();
