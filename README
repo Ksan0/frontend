@@ -1,10 +1,3 @@
-TODO:
-tabs vs spaces
-td, tr -> class
-no id -> class
-events -> hide, show
-canvas init one time
-
 install:
 git clone https://github.com/ksan0/frontend.git
 cd frontend
