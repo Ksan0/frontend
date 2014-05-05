@@ -5,7 +5,7 @@ define([
 ) {
     var View = Backbone.View.extend({
         initialize: function(options) {
-            this.model.on("change:x change:y", this.render, this);
+            //this.model.on("change:x change:y", this.render, this);
             this.context = options.context;
             this.render();
         },

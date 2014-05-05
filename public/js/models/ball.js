@@ -13,14 +13,18 @@ define([
             this.set("default_radius", this.get("radius"));
             this.set("default_velocity", this.get("velocity"));
             this.set("default_angle", this.get("angle"));
+
+            this.set('prevx', this.get('x'));
+            this.set('prevy', this.get('y'));
         },
         _collision: function(rect, ball) {
-            // rect = {x: X, y: Y, w: W, h: H}
-            // ball = {x: X, y: Y, r: R}
-            // return {vector_x: X, vector_y: Y}
+            // rect = {x: Number, y: Number, w: Number, h: Number, speed: Number, angle: Number}
+            // ball = {x: Number, y: Number, r: Number, rot: Number}
+            // return {vector_x: Number, vector_y: Number, vector_rot: Number}
             var collision_count = 0;
             var vector_x = 0;
             var vector_y = 0;
+            var vector_rot = 0;
             var dangle = Math.PI / 10;
             for (var angle = 0; angle < 2*Math.PI; angle += dangle) {
                 var px = ball.x + ball.r * Math.cos(angle);
@@ -30,17 +34,29 @@ define([
                     continue;
 
                 ++collision_count;
+
+                // speed vectors
                 vector_x += ball.x - px;
                 vector_y += ball.y - py;
+
+                // rotation vector
+                vector_rot += ball.rot_inc;
             }
 
             var return_vector_x = 0;
             var return_vector_y = 0;
+            var return_vector_rot = 0;
             if (collision_count !== 0) {
                 return_vector_x = vector_x / collision_count;
                 return_vector_y = vector_y / collision_count;
+                return_vector_rot = vector_rot / collision_count;
             }
-            return {vector_x: return_vector_x, vector_y: return_vector_y};
+
+            return {
+                vector_x: return_vector_x,
+                vector_y: return_vector_y,
+                vector_rot: return_vector_rot
+            };
         },
         move: function(paddingMoveLeft, paddingMoveRight) {
             var game = this.get('game');
@@ -56,6 +72,8 @@ define([
             var __ball_angle = this.get('angle');
             var ball_speed_x = __ball_speed * Math.cos(__ball_angle) * deltaFrapTime;
             var ball_speed_y = __ball_speed * Math.sin(__ball_angle) * deltaFrapTime;
+            var ball_rotation = this.get('rotation');
+            var ball_rotation_inc = this.get('rotation_inc');
 
             var ball_x = this.get('x') + ball_speed_x;
             var ball_y = this.get('y') + ball_speed_y;
@@ -92,16 +110,20 @@ define([
                 }, {    // ball
                     x: ball_x,
                     y: ball_y,
-                    r: ball_r
+                    r: ball_r,
+                    rot: ball_rotation,
+                    rot_inc: ball_rotation_inc
                 }
             );
             ball_speed_x += result.vector_x;
             ball_speed_y += result.vector_y;
+            ball_rotation += result.vector_rot;
 
             this.set('x', ball_x);
             this.set('y', ball_y);
             this.set('angle', Math.atan2(ball_speed_y, ball_speed_x));
             this.set('speed', Math.sqrt(ball_speed_x*ball_speed_x + ball_speed_y*ball_speed_y));
+            this.set('rotation', ball_rotation);
             return;
 
             /*var px = this.get('x');

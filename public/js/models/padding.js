@@ -91,8 +91,8 @@ define([
             this.set('speed_y', speed_y);
         },
         move: function(leftKey, rightKey, upKey, downKey) {
-            var dx = leftKey == rightKey ? 0 : -Number(leftKey) + Number(rightKey);
-            var dy = upKey == downKey ? 0 : -Number(downKey) + Number(upKey);
+            var dx = -Number(leftKey) + Number(rightKey);
+            var dy = -Number(downKey) + Number(upKey);
             this._moveDxDy(dx, dy);
         },
         restart: function() {

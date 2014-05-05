@@ -21,8 +21,8 @@ define([
         baseBottomOffset: 10,
         baseLeftOffset: 20,
         baseRightOffset: 20,
-        baseTopOffset: 100,
-        baseBallRadius: 10,
+        baseTopOffset: 90,
+        baseBallRadius: 20,
         game: null,
         canvas: null,
         context: null,
@@ -94,18 +94,33 @@ define([
             });
             this.ballModel = new BallModel({
                 x: 0,
-                y: this.paddingModel.get("y") + 2*this.baseBallRadius,
+                y: this.paddingModel.get("y") + 1.5*this.baseBallRadius,
                 radius: this.baseBallRadius,
                 game: this.game,
                 velocity: 200,
                 angle: Math.PI / 4 + Math.PI / 2 * Math.random(),
+                rotation: -7 * Math.PI / 180,
+                rotation_inc: 0,
+                friction: 1,
                 padding: this.paddingModel,
                 blocks: this.blocksModel,
                 scoreDiv: this.$el.find(".game__info")[0]
             });
+            var ballImage = new Image();
+            ballImage.src = '/css/images/ball3.png';
+
+            /*ballImage.onload = function() {
+                console.log(this, this.width, this.height);
+                for (var i = 0, n = this.width * this.height * 4; i < n; i += 4) {
+                    if (this.data[i] == 0xFF && this.data[i+1] == 0xFF && this.data[i+2] == 0xFF)
+                        this.data[i+3] = 255;
+                }
+            };*/
+            
             this.ballView = new BallView({
                 context: this.context2,
-                model: this.ballModel
+                model: this.ballModel,
+                image: ballImage // $(document).find('.resource__ball_image')[0]
             });
             this.gameOverView = new GameOverView({
                 score: 1 // this.game.get("score") ?
@@ -123,6 +138,12 @@ define([
             this.lastFrapTime = (new Date()).getTime();
         },
         render: function() {
+            this.context.beginPath();
+            this.context.strokeStyle = '#777777';
+            this.context.strokeRect(  -this.canvas.width/2 + this.baseLeftOffset,
+                                this.baseBottomOffset,
+                                this.baseGameWidth - this.baseLeftOffset - this.baseRightOffset,
+                                this.baseGameHeight - this.baseTopOffset - this.baseBottomOffset);
             return this;
         },
         show: function() {
@@ -190,6 +211,10 @@ define([
                     this.thisGameOver();
                 }
             }
+
+            this.paddingView.render();
+            this.ballView.render();
+            this.render();
         },
         thisGameOver: function(e) {
             var score = this.game.get("score");
