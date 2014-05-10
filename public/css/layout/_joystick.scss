@@ -1,0 +1,64 @@
+
+$image_size: 100px;
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  // background-color: #F08080; 
+  background-color: black; 
+}
+
+.joystick-wrapper {
+  width: 100%;
+  position: relative;
+  -webkit-transform: translate(0, 50%);
+}
+
+.pause {
+  display: inline-block;
+  // position: relative;
+  // float: left;
+  // margin: 5% auto 5%;
+}
+
+.medium {
+  position: relative;
+  left: 50%;
+  display: inline-block;
+  -webkit-transform: translateX(-50%);
+}
+
+.position-up {
+  height: $image_size;
+  width: $image_size;
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%) rotate(-180deg);
+}
+.position-down {
+  height: $image_size;
+  width: $image_size;
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+
+}
+.position-left {;
+  height: $image_size;
+  width: $image_size;
+  display: inline-block;
+  -webkit-transform: rotate(90deg);
+}
+.position-right {
+  height: $image_size;
+  width: $image_size;
+  display: inline-block;
+  -webkit-transform: rotate(-90deg);
+}
+
+.img-size {
+  max-height: $image_size;
+  max-width: $image_size;
+}

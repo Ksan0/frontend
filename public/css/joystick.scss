@@ -1,17 +1,4 @@
 @import 'functions/mixins';
 @import 'blocks/buttons';
-
-body {
-  margin: 0;
-  height: 100%;
-  width: 100%;
-  background-color: #F08080; 
-  text-align:center;
-}
-
-.pause {
-  position: relative;
-  top: 50%;
-  @include transform(0, -50%);
-}
+@import 'layout/joystick'
 

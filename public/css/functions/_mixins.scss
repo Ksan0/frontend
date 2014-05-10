@@ -20,3 +20,8 @@
   -webkit-box-shadow: $val;
   box-shadow: $val;
 }
+
+@mixin triangle($val){
+  width: $val;
+  height: $val;
+}
