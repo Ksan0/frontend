@@ -7,6 +7,42 @@ define([
     var Model = Backbone.Model.extend({
         defaults: {
         },
+        _randType: function() {
+            var chanceList = new Array(0.55, 0.15, 0.15, 0.15);
+            var r = Math.random();
+
+            var chanceNow = 0;
+            var counter = 1;
+            for (var i = 0; i < this.get('types_count'); i += 1) {
+                if (r < chanceList[i] + chanceNow) {
+                    return counter;
+                }
+                counter += 1;
+                chanceNow += chanceList[i];
+            }
+
+            return this.get('types_count');
+        },
+        _randHp: function() {
+            var chanceList = new Array(0.05, 0.20, 0.50, 0.25);
+            var r = Math.random();
+
+            var chanceNow = 0;
+            var counter = 1;
+            for (var i = 0; i < this.get('hp_max'); i += 1) {
+                if (r < chanceList[i] + chanceNow) {
+                    return counter;
+                }
+                counter += 1;
+                chanceNow += chanceList[i];
+            }
+
+            return this.get('hp_max');
+        },
+        _randBonus: function(hp) {
+            var r = Math.random();
+            return r <  0.1*hp;
+        },
         initialize: function(options) {
             this.game = options.game;
 
@@ -19,33 +55,57 @@ define([
 
             this.set("width", 62);
             this.set("height", 20);
-            var dist = 67;
-            var leftBorder = -gameWidth / 2 + gameLeftOffset + this.get('width');
-            var rightBorder = gameWidth / 2 - gameRightOffset - this.get('width')/2;
+            
+            var delta_x = 67;
+            var min_x = -gameWidth / 2 + gameLeftOffset + this.get('width');
+            var max_x = gameWidth / 2 - gameRightOffset - this.get('width')/2;
+            
+            var delta_y = 23;
+            var max_y = gameHeight - gameTopOffset - 4*gameBottomOffset;
+            var min_y   = gameHeight - gameTopOffset - 12*gameBottomOffset;
 
-            var y_from = gameHeight - gameTopOffset - 4*gameBottomOffset;
-            var y_to   = gameHeight - gameTopOffset - 8*gameBottomOffset;
+            this.set('types_count', 4);
+            this.set('hp_max', 4);
+
             var for_data = this.for_data();
             var counter = 0;
-            for (var x = leftBorder; x < rightBorder; x += dist) {
-                this.set("block_" + counter.toString() + "_x", x);
-                this.set("block_" + counter.toString() + "_y", y_from);
-                this.set("block_" + counter.toString() + "_type", 1);
-                this.set("block_" + counter.toString() + "_hp", 4);
-                this.set("block_" + counter.toString() + "_timer", 0);
-                counter += 1;
+            for (var x = min_x; x < max_x; x += delta_x) {
+                for(var y = min_y; y < max_y; y += delta_y) {
+                    this.set("block_" + counter.toString() + "_x", x);
+                    this.set("block_" + counter.toString() + "_y", y);
+                    this.set("block_" + counter.toString() + "_type", this._randType());
+                    var hp = this._randHp();
+                    this.set("block_" + counter.toString() + "_hp", hp);
+                    this.set("block_" + counter.toString() + "_bonus", this._randBonus(hp));
+                    this.set("block_" + counter.toString() + "_timer", 0);
+                    counter += 1;
+                }
             }
             this.set('count', counter);
-
-            this.set('types_count', 1);
-            this.set('hp_max', 4);
+        },
+        recovery: function() {
+            var for_data = this.for_data();
+            for (var i = 0; i < for_data.count; i += 1) {
+                var timer = this.get("block_" + i.toString() + "_timer");
+                var deltaT = this.get("game").get("deltaFrapTime");
+                if (timer > 0) {
+                    timer -= deltaT;
+                    this.set("block_" + i.toString() + "_timer", timer);
+                    if (timer < 0) {
+                        this.set("block_" + i.toString() + "_type", this._randType());
+                        this.set("block_" + i.toString() + "_hp", this._randHp());
+                    }
+                }
+            }
         },
         restart: function() {
             var for_data = this.for_data();
             for (var i = 0; i < for_data.count; i += 1) {
-                this.set("block_" + i.toString() + "_type", 1);
-                this.set("block_" + i.toString() + "_hp", 4);
-                this.set("block_" + i.toString() + "timer", 0);
+                this.set("block_" + i.toString() + "_type", this._randType());
+                var hp = this._randHp();
+                this.set("block_" + i.toString() + "_hp", hp);
+                this.set("block_" + i.toString() + "_bonus", this._randBonus(hp));
+                this.set("block_" + i.toString() + "_timer", 0);
             }
         },
         for_data: function() {

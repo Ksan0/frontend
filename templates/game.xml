@@ -6,7 +6,15 @@
         <div class="game">
             <div class="game__navbar">
                 <a href="#main" class="game__button">&#8656;</a>
-                <div class="game__info">0</div>
+                <div class="game__info">Score:</div>
+                <div class="game__info game__score">0</div>
+                |
+                <div class="game__info">Life:</div>
+                <div class="game__info game__life">1</div>
+                |
+                <div class="game__info game__bonus">text</div>
+                <!--div class="game__info">Bonus:</div>
+                <div class="game__info game__bonus">None</div-->
             </div>           
         </div>
 </fest:template>

@@ -8,6 +8,7 @@ define([
         initialize: function(options) {
             this.game = options.game;
             this.set("game_over", false);
+            this.set("life", 1);
             this.set("default_x", this.get("x"));
             this.set("default_y", this.get("y"));
             this.set("default_radius", this.get("radius"));
@@ -158,7 +159,7 @@ define([
                 if (hp <= 0)
                     continue;
 
-                var spX = padding.get('max_speed_x') * (ball_speed_x / __ball_speed);
+                spX = padding.get('max_speed_x') * (ball_speed_x / __ball_speed);
                 result = this._collision(
                     {   // rect
                         x: blocks.get('block_' + i.toString() + '_x') - blocks_width / 2,
@@ -179,12 +180,30 @@ define([
                 if (result.is) {
                     ball_speed_x += result.vector_x;
                     ball_speed_y += result.vector_y;
-                    blocks.set('block_' + i.toString() + '_hp', hp - 1);
+                    hp -= 1;
+                    blocks.set('block_' + i.toString() + '_hp', hp);
+                    if (hp <= 0) {
+                        var max_t = 180;
+                        var min_t = 120;
+                        var time = Math.floor(Math.random() * (max_t - min_t + 1)) + min_t + game.getScore() * 0.1;
+                        blocks.set('block_' + i.toString() + '_timer', time);
+                        game.addScore(20);
+                        this.get('scoreDiv').innerHTML = game.getScore();
+                    }
                 }
             }
 
             if (ball_y < 0) {
-                this.set("game_over", true);
+                var life = this.get("life");
+                console.log(life);
+                if (life > 0) {
+                    this.set("life", life - 1);
+                    this.get("lifeDiv").innerHTML = life - 1;
+                    ball_speed_y *= -1;
+                    ball_y = this.get("prevy") + ball_speed_y;
+                } else {
+                    this.set("game_over", true);
+                }
             }
 
             this.set('x', ball_x);
@@ -196,62 +215,12 @@ define([
             padding.set('speed_x', padding_speed_x);
             padding.set('speed_y', padding_speed_y);
             return;
-
-            /*var px = this.get('x');
-            var py = this.get('y');
-            var radius = this.get('radius') * 0.4;
-            var pvelocity = this.get('velocity');
-            var pangle = this.get('angle');
-            var game = this.get('game');*/
-
-            /*var nx = px + pvelocity * Math.cos(pangle);
-            var ny = py + pvelocity * Math.sin(pangle);*/
-
-            var blocks = this.get('blocks');
-            if (py - radius > 0 && ny - radius < 0 && nx > paddingX - paddingWidth && nx < paddingX + paddingWidth) {
-                nangle = -pangle;
-                var addAngle = Math.PI * 0.2 * Math.random();
-                if (paddingMoveLeft)
-                    nangle += addAngle;
-                if (paddingMoveRight)
-                    nangle -= addAngle;
-
-                nx = px + pvelocity * Math.cos(nangle);
-                ny = py + pvelocity * Math.sin(nangle);
-                this.game.addScore(2);
-            }
-            for (var x = blocks.get("leftBorder"); x < blocks.get("rightBorder"); x += blocks.get("dist")) {
-                var blx = blocks.get("block_" + x.toString() + "_x");
-                var bltype = blocks.get("block_" + x.toString() + "_type");
-                var blwidth = blocks.get("width");
-
-                if (ny + radius > gameHeight - gameTopOffset - gameBottomOffset && nx > x - blwidth / 2 && nx < x + blwidth / 2) {
-                    nangle = -pangle;
-                    nx = px + pvelocity * Math.cos(nangle);
-                    ny = py + pvelocity * Math.sin(nangle);
-                    this.game.addScore(blocks.get("type_" + bltype.toString() + "_score"));
-                    bltype += 1;
-                    if (bltype > blocks.get("type_count"))
-                        bltype = 1;
-                    blocks.set("block_" + x.toString() + "_type", bltype);
-                }
-            }
-            if (ny + radius < 0) {
-                this.set("game_over", true);
-            }
-            this.set('prevx', px);
-            this.set('prevy', py);
-            this.set('x', nx);
-            this.set('y', ny);
-            this.set('angle', nangle);
-
-            var scoreDiv = this.get("scoreDiv");
-            scoreDiv.innerHTML = this.game.getScore().toString();
         },
         restart: function() {
             this.set("prevx", this.get("x"));
             this.set("prevy", this.get("y"));
 
+            this.set("life", 1);
             this.set("x", this.get('default_x'));
             this.set("y", this.get('default_y'));
             this.set("radius", this.get('default_radius'));

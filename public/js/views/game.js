@@ -68,7 +68,7 @@ define([
             this.paddingModel = new PaddingModel({
                 x: 0,                           // center of block
                 y: this.baseBottomOffset + 25,  // center of block
-                max_y: this.baseBottomOffset + 100,
+                max_y: this.baseBottomOffset + 200,
                 speed_x: 0,
                 speed_y: 0,
                 max_speed_x: 150,                     // speed use when user press key
@@ -104,7 +104,8 @@ define([
                 friction: 1,
                 padding: this.paddingModel,
                 blocks: this.blocksModel,
-                scoreDiv: this.$el.find(".game__info")[0]
+                scoreDiv: this.$el.find(".game__score")[0],
+                lifeDiv: this.$el.find(".game__life")[0]
             });
             var ballImage = new Image();
             ballImage.src = '/css/images/ball3.png';
@@ -203,6 +204,8 @@ define([
                 if (this.ballModel.get("game_over")) {
                     this.thisGameOver();
                 }
+
+                this.blocksModel.recovery();
             }
 
             this.blocksView.render();
