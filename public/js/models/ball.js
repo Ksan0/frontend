@@ -64,15 +64,15 @@ define([
         },
         move: function() {
             var ball_speed = this.get('velocity') * this.get('game').get('deltaFrapTime');
-            var step = 10;
+            var step = 20;
 
             var good = false;
-            for (var i = 1; i <= ball_speed / step + 0.5; i += 1) {
-                this._move(step);
-                good = true;
-            }
-
-            if (!good) {
+            if (ball_speed >= step) {
+                for (var i = 1; i <= ball_speed / step + 0.5; i += 1) {
+                    this._move(step);
+                    good = true;
+                }
+            } else {
                 this._move(ball_speed);
             }
         },
@@ -126,13 +126,14 @@ define([
 
             var __padding_collision_x = padding_x - padding_w / 2;
             var __padding_collision_y = padding_y - padding_h / 2;
+            var spX = padding.get('max_speed_x') * (ball_speed_x / __ball_speed);
             var result = this._collision(
                 {   // rect
                     x: __padding_collision_x,
                     y: __padding_collision_y,
                     w: padding_w,
                     h: padding_h,
-                    speed_x: padding_speed_x
+                    speed_x: padding_speed_x + spX
                 }, {    // ball
                     x: ball_x,
                     y: ball_y,
@@ -153,13 +154,18 @@ define([
             var blocks_height = blocks.get('height');
             var for_data = blocks.for_data();
             for (var i = 0; i < for_data.count; i += 1) {
+                var hp = blocks.get('block_' + i.toString() + '_hp');
+                if (hp <= 0)
+                    continue;
+
+                var spX = padding.get('max_speed_x') * (ball_speed_x / __ball_speed);
                 result = this._collision(
                     {   // rect
                         x: blocks.get('block_' + i.toString() + '_x') - blocks_width / 2,
-                        y: blocks.get('block_' + i.toString() + '_y'),
+                        y: blocks.get('block_' + i.toString() + '_y') - blocks_height / 2,
                         w: blocks_width,
                         h: blocks_height,
-                        speed_x: 0
+                        speed_x: spX
                     },
                     {   // ball
                         x: ball_x,
@@ -173,6 +179,7 @@ define([
                 if (result.is) {
                     ball_speed_x += result.vector_x;
                     ball_speed_y += result.vector_y;
+                    blocks.set('block_' + i.toString() + '_hp', hp - 1);
                 }
             }
 

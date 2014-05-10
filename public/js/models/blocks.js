@@ -31,28 +31,21 @@ define([
                 this.set("block_" + counter.toString() + "_x", x);
                 this.set("block_" + counter.toString() + "_y", y_from);
                 this.set("block_" + counter.toString() + "_type", 1);
+                this.set("block_" + counter.toString() + "_hp", 4);
+                this.set("block_" + counter.toString() + "_timer", 0);
                 counter += 1;
             }
             this.set('count', counter);
 
-            this.set("type_1_color", "lightblue");
-            this.set("type_2_color", "blue");
-            this.set("type_3_color", "#FF00FF");
-            this.set("type_4_color", "pink");
-            this.set("type_5_color", "red");
-
-            this.set("type_1_score", 1);
-            this.set("type_2_score", 2);
-            this.set("type_3_score", 3);
-            this.set("type_4_score", 5);
-            this.set("type_5_score", 10);
-
-            this.set("type_count", 5);
+            this.set('types_count', 1);
+            this.set('hp_max', 4);
         },
         restart: function() {
             var for_data = this.for_data();
             for (var i = 0; i < for_data.count; i += 1) {
                 this.set("block_" + i.toString() + "_type", 1);
+                this.set("block_" + i.toString() + "_hp", 4);
+                this.set("block_" + i.toString() + "timer", 0);
             }
         },
         for_data: function() {

@@ -205,6 +205,7 @@ define([
                 }
             }
 
+            this.blocksView.render();
             this.paddingView.render();
             this.ballView.render();
             this.render();
