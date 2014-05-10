@@ -1,8 +1,8 @@
 <fest:template xmlns:fest="http://fest.mail.ru"
     context_name="json">
         <div class="content"></div>
-        <canvas class="game__position" width="500" height="500"></canvas>
-        <canvas class="game__position" width="500" height="500"></canvas>
+        <canvas class="game__position"></canvas>
+        <canvas class="game__position"></canvas>
         <div class="game">
             <div class="game__navbar">
                 <a href="#main" class="game__button">&#8656;</a>

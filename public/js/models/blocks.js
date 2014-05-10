@@ -17,18 +17,23 @@ define([
             var gameTopOffset = this.game.get('topOffset');
             var gameBottomOffset = this.game.get('bottomOffset');
 
-            this.set("leftBorder", -gameWidth / 2 + gameLeftOffset + 20);
-            this.set("rightBorder", gameWidth / 2 - gameRightOffset);
-            this.set("width", 65);
+            this.set("width", 62);
             this.set("height", 20);
-            this.set("dist", 70);
+            var dist = 67;
+            var leftBorder = -gameWidth / 2 + gameLeftOffset + this.get('width');
+            var rightBorder = gameWidth / 2 - gameRightOffset - this.get('width')/2;
 
-            var y = gameHeight - gameTopOffset - gameBottomOffset;
-            for (var x = this.get("leftBorder"); x < this.get("rightBorder"); x += this.get("dist")) {
-                this.set("block_" + x.toString() + "_x", x);
-                this.set("block_" + x.toString() + "_y", y);
-                this.set("block_" + x.toString() + "_type", 1);
+            var y_from = gameHeight - gameTopOffset - 4*gameBottomOffset;
+            var y_to   = gameHeight - gameTopOffset - 8*gameBottomOffset;
+            var for_data = this.for_data();
+            var counter = 0;
+            for (var x = leftBorder; x < rightBorder; x += dist) {
+                this.set("block_" + counter.toString() + "_x", x);
+                this.set("block_" + counter.toString() + "_y", y_from);
+                this.set("block_" + counter.toString() + "_type", 1);
+                counter += 1;
             }
+            this.set('count', counter);
 
             this.set("type_1_color", "lightblue");
             this.set("type_2_color", "blue");
@@ -45,10 +50,15 @@ define([
             this.set("type_count", 5);
         },
         restart: function() {
-            for (var x = this.get("leftBorder"); x < this.get("rightBorder"); x += this.get("dist")) {
-                this.set("block_" + x.toString() + "_x", x);
-                this.set("block_" + x.toString() + "_type", 1);
+            var for_data = this.for_data();
+            for (var i = 0; i < for_data.count; i += 1) {
+                this.set("block_" + i.toString() + "_type", 1);
             }
+        },
+        for_data: function() {
+            return {
+                'count': this.get('count')
+            };
         }
     });
     return Model;

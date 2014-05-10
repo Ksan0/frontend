@@ -12,7 +12,7 @@ body {
   right: 0;
   margin: 1% auto;
   height: 620px;
-  width: 360px;
+  width: 640px;
   background-image: url(images/bg.jpg); }
 
 .content__title {
@@ -35,7 +35,7 @@ body {
   right: 0;
   margin: 1% auto;
   height: 620px;
-  width: 360px;
+  width: 640px;
   font-size: 250%;
   font-weight: 900;
   text-shadow: 1px 1px 2px #e2bdbd, 0 0 1em white;
@@ -49,7 +49,7 @@ body {
   right: 0;
   margin: 1% auto;
   height: 620px;
-  width: 360px; }
+  width: 640px; }
 
 .game__info {
   margin: 3% 4%;

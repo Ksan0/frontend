@@ -16,13 +16,13 @@ define([
         bgImagePath: 'css/images/bgImage.jpg',
         basePaddingWidth: 80,
         basePaddingHeight: 20,
-        baseGameWidth: 360,
+        baseGameWidth: 640,
         baseGameHeight: 640,
         baseBottomOffset: 10,
         baseLeftOffset: 20,
         baseRightOffset: 20,
         baseTopOffset: 90,
-        baseBallRadius: 20,
+        baseBallRadius: 18,
         game: null,
         canvas: null,
         context: null,
@@ -71,10 +71,10 @@ define([
                 max_y: this.baseBottomOffset + 100,
                 speed_x: 0,
                 speed_y: 0,
-                max_speed_x: 50,                     // speed use when user press key
-                max_speed_y: 50,
-                acceleration_x: 100,
-                acceleration_y: 100,
+                max_speed_x: 150,                     // speed use when user press key
+                max_speed_y: 75,
+                acceleration_x: 175,
+                acceleration_y: 175,
                 friction_x: 50,
                 friction_y: 50,
                 width: this.basePaddingWidth,
@@ -99,7 +99,7 @@ define([
                 game: this.game,
                 velocity: 200,
                 angle: Math.PI / 4 + Math.PI / 2 * Math.random(),
-                rotation: -7 * Math.PI / 180,
+                rotation: -6 * Math.PI / 180,
                 rotation_inc: 0,
                 friction: 1,
                 padding: this.paddingModel,
@@ -108,19 +108,11 @@ define([
             });
             var ballImage = new Image();
             ballImage.src = '/css/images/ball3.png';
-
-            /*ballImage.onload = function() {
-                console.log(this, this.width, this.height);
-                for (var i = 0, n = this.width * this.height * 4; i < n; i += 4) {
-                    if (this.data[i] == 0xFF && this.data[i+1] == 0xFF && this.data[i+2] == 0xFF)
-                        this.data[i+3] = 255;
-                }
-            };*/
             
             this.ballView = new BallView({
                 context: this.context2,
                 model: this.ballModel,
-                image: ballImage // $(document).find('.resource__ball_image')[0]
+                image: ballImage
             });
             this.gameOverView = new GameOverView({
                 score: 1 // this.game.get("score") ?
@@ -143,7 +135,8 @@ define([
             this.context.strokeRect(  -this.canvas.width/2 + this.baseLeftOffset,
                                 this.baseBottomOffset,
                                 this.baseGameWidth - this.baseLeftOffset - this.baseRightOffset,
-                                this.baseGameHeight - this.baseTopOffset - this.baseBottomOffset);
+                                this.baseGameHeight - this.baseTopOffset - 2*this.baseBottomOffset);
+            this.context.closePath();
             return this;
         },
         show: function() {
@@ -206,7 +199,7 @@ define([
             if (!stopped) {
                 this.paddingModel.move(this.leftKeyPressed, this.rigthKeyPressed, this.upKeyPressed, this.downKeyPressed);
             
-                this.ballModel.move(this.leftKeyPressed, this.rigthKeyPressed);
+                this.ballModel.move();
                 if (this.ballModel.get("game_over")) {
                     this.thisGameOver();
                 }
