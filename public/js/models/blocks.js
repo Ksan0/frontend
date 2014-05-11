@@ -65,7 +65,7 @@ define([
             var min_y   = gameHeight - gameTopOffset - 12*gameBottomOffset;
 
             this.set('types_count', 4);
-            this.set('hp_max', 4);
+            this.set('hp_max', 3);
 
             var for_data = this.for_data();
             var counter = 0;
@@ -112,6 +112,15 @@ define([
             return {
                 'count': this.get('count')
             };
+        },
+        isWinGame: function() {
+            var for_data = this.for_data();
+            for (var i = 0; i < for_data.count; i += 1) {
+                if (this.get('block_' + i.toString() + '_hp') > 0)
+                    return false;
+            }
+
+            return true;
         }
     });
     return Model;

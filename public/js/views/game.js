@@ -222,7 +222,7 @@ define([
             this.ballModel.set("game_over", false);
             this.ballView.render();
 
-            this.gameOverView.show(score);
+            this.gameOverView.show(score, this.blocksModel.isWinGame());
         }
     });
     return new View();

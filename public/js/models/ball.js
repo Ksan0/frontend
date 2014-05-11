@@ -195,7 +195,6 @@ define([
 
             if (ball_y < 0) {
                 var life = this.get("life");
-                console.log(life);
                 if (life > 0) {
                     this.set("life", life - 1);
                     this.get("lifeDiv").innerHTML = life - 1;

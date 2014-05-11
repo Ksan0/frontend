@@ -2,11 +2,12 @@
     context_name="json">
             <div class="content font_type">
                 <div class="content__title">ARCANOID</div>
-                <div class="content__main">Game Over</div>
+                <div class="content__main win__game"></div>
                 <div class="content__main">Your Score: <fest:value>json.score</fest:value></div>
                 <form id="gameOverForm">
                     <input type="text" class="scoreform " id="username" />
                     <input type="submit" class="content__button" />
                 </form>
+                <input class="content__button restart__game" type="button" value="Restart" />
             </div>
 </fest:template>
