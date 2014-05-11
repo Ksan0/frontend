@@ -141,8 +141,6 @@ define([
             loader.style.display = 'none';
 
             this.lastFrapTime = (new Date()).getTime();
-
-            this.ballModel.setBonus(2);
         },
         render: function() {
             this.context.beginPath();
