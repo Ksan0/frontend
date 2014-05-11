@@ -17,6 +17,7 @@ define([
                 score: this.score
             }));
             $('.content_wrapper').append(this.$el);
+            this.hidden = false;
             this.hide();
         },
         render: function() {
@@ -35,12 +36,17 @@ define([
         show: function(score, winGame) {
             this.score = score;
             this.winGame = winGame;
+            this.hidden = false;
 
             this.render();
             this.$el.show();
         },
         hide: function() {
+            this.hidden = true;
             this.$el.hide();
+        },
+        isHidden: function() {
+            return this.hidden;
         },
         addResult: function(event) {
             event.preventDefault();

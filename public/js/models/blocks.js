@@ -57,11 +57,11 @@ define([
             this.set("height", 20);
             
             var delta_x = 67;
-            var min_x = -gameWidth / 2 + gameLeftOffset + this.get('width');
+            var min_x = -gameWidth / 2 + gameLeftOffset + 1.25*this.get('width');
             var max_x = gameWidth / 2 - gameRightOffset - this.get('width')/2;
             
             var delta_y = 23;
-            var max_y = gameHeight - gameTopOffset - 4*gameBottomOffset;
+            var max_y = gameHeight - gameTopOffset - 6*gameBottomOffset;
             var min_y   = gameHeight - gameTopOffset - 12*gameBottomOffset;
 
             this.set('types_count', 4);
@@ -70,7 +70,7 @@ define([
             var for_data = this.for_data();
             var counter = 0;
             for (var x = min_x; x < max_x; x += delta_x) {
-                for(var y = min_y; y < max_y; y += delta_y) {
+                for(var y = max_y; y > min_y; y -= delta_y) {
                     this.set("block_" + counter.toString() + "_x", x);
                     this.set("block_" + counter.toString() + "_y", y);
                     this.set("block_" + counter.toString() + "_type", this._randType());

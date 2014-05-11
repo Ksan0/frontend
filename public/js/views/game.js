@@ -162,11 +162,13 @@ define([
                     this.downKeyPressed = true;
                     break;
                 case 32:
-                    var stopped = this.game.get('stop');
-                    if (stopped)
-                        this.game.start();
-                    else
-                        this.game.pause();
+                    if (this.gameOverView.isHidden()) {
+                        var stopped = this.game.get('stop');
+                        if (stopped)
+                            this.game.start();
+                        else
+                            this.game.pause();
+                    }
                     break;
                 default:
                     break;

@@ -199,7 +199,7 @@ define([
                     this.set("life", life - 1);
                     this.get("lifeDiv").innerHTML = life - 1;
                     ball_speed_y *= -1;
-                    ball_y = this.get("prevy") + ball_speed_y;
+                    ball_y = this.get("prevy") + 2*ball_speed_y;
                 } else {
                     this.set("game_over", true);
                 }
