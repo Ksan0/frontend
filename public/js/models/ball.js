@@ -202,6 +202,10 @@ define([
                         blocks.ballDestroyBlock(i);
                         game.addScore(20);
                         this.get('scoreDiv').innerHTML = game.getScore();
+                        var win = blocks.isWinGame();
+                        if (win) {
+                            this.set("game_over", true);
+                        }
                     }
                 }
             }

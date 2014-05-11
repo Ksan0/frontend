@@ -239,10 +239,6 @@ define([
             this.ballView.render();
 
             this.gameOverView.show(score, this.blocksModel.isWinGame());
-        },
-        setBallBonus: function(type) {
-            console.log('dddd');
-            this.ballModel.setBonus(type);
         }
     });
     return new View();
