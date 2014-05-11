@@ -9,10 +9,17 @@ define([
         },
         initialize: function(options) {
             this.game = options.game;
+
             this.set("default_x", this.get("x"));
             this.set("default_y", this.get("y"));
             this.set("default_speed_x", this.get("speed_x"));
             this.set("default_speed_y", this.get("speed_y"));
+            this.set("default_max_speed_x", this.get("max_speed_x"));
+            this.set("default_max_speed_y", this.get("max_speed_y"));
+            this.set("default_acceleration_x", this.get("acceleration_x"));
+            this.set("default_acceleration_y", this.get("acceleration_y"));
+            this.set("default_friction_x", this.get("friction_x"));
+            this.set("default_friction_y", this.get("friction_y"));
             this.set("default_max_y", this.get("max_y"));
             this.set("default_width", this.get("width"));
             this.set("default_height", this.get("height"));
@@ -45,11 +52,19 @@ define([
             this.set('prevx', x);
             this.set('prevy', y);
 
-            speed_x += -friction_x + acceleration_x;
+            speed_x += acceleration_x;
+            if (Math.abs(speed_x) < Math.abs(friction_x))
+                speed_x = 0;
+            else 
+                speed_x -= friction_x;
             if (Math.abs(speed_x) > max_speed_x)
                 speed_x *= max_speed_x / Math.abs(speed_x);
 
-            speed_y += -friction_y + acceleration_y;
+            speed_y += acceleration_y;
+            if (Math.abs(speed_y) < Math.abs(friction_y))
+                speed_y = 0;
+            else 
+                speed_y -= friction_y;
             if (Math.abs(speed_y) > max_speed_y)
                 speed_y *= max_speed_y / Math.abs(speed_y);
  
@@ -85,6 +100,8 @@ define([
                 }
             }
 
+
+
             this.set('x', x);
             this.set('y', y);
             this.set('speed_x', speed_x);
@@ -103,6 +120,12 @@ define([
             this.set("y", this.get("default_y"));
             this.set("speed_x", this.get("default_speed_x"));
             this.set("speed_y", this.get("default_speed_y"));
+            this.set("max_speed_x", this.get("default_max_speed_x"));
+            this.set("max_speed_y", this.get("default_max_speed_y"));
+            this.set("acceleration_x", this.get("default_acceleration_x"));
+            this.set("acceleration_y", this.get("default_acceleration_y"));
+            this.set("friction_x", this.get("default_friction_x"));
+            this.set("friction_y", this.get("default_friction_y"));
             this.set("max_y", this.get("default_max_y"));
             this.set("width", this.get("default_width"));
             this.set("height", this.get("default_height"));

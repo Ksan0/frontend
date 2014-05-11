@@ -28,6 +28,8 @@ define([
         context: null,
         canvas2: null,
         context2: null,
+        canvas3: null,
+        context3: null,
         paddingModel: null,
         paddingView: null,
         blocksModel: null,
@@ -56,6 +58,12 @@ define([
             this.canvas2.width = this.baseGameWidth;
             this.canvas2.height = this.baseGameHeight;
             this.context2.setTransform(1, 0, 0, -1, this.canvas2.width / 2, this.canvas2.height - this.baseBottomOffset);
+
+            this.canvas3 = this.$el.find(".game__position")[2];
+            this.context3 = this.canvas3.getContext("2d");
+            this.canvas3.width = this.baseGameWidth;
+            this.canvas3.height = this.baseGameHeight;
+            this.context3.setTransform(1, 0, 0, -1, this.canvas2.width / 2, this.canvas2.height - this.baseBottomOffset);
 
             this.game = new Game({
                 width: this.canvas.width,
@@ -86,10 +94,12 @@ define([
                 model: this.paddingModel
             });
             this.blocksModel = new BlocksModel({
-                game: this.game
+                game: this.game,
+                padding: this.paddingModel
             });
             this.blocksView = new BlocksView({
                 context: this.context,
+                context_bonus: this.context3,
                 model: this.blocksModel
             });
             this.ballModel = new BallModel({
@@ -105,8 +115,10 @@ define([
                 padding: this.paddingModel,
                 blocks: this.blocksModel,
                 scoreDiv: this.$el.find(".game__score")[0],
-                lifeDiv: this.$el.find(".game__life")[0]
+                lifeDiv: this.$el.find(".game__life")[0],
+                bonusDiv: this.$el.find(".game__bonus")[0]
             });
+            this.blocksModel.set('ball', this.ballModel);
             var ballImage = new Image();
             ballImage.src = '/css/images/ball3.png';
             
@@ -129,6 +141,8 @@ define([
             loader.style.display = 'none';
 
             this.lastFrapTime = (new Date()).getTime();
+
+            this.ballModel.setBonus(2);
         },
         render: function() {
             this.context.beginPath();
@@ -207,12 +221,13 @@ define([
                     this.thisGameOver();
                 }
 
-                this.blocksModel.recovery();
+                //this.blocksModel.recovery();
+                this.blocksModel.step();
             }
 
             this.blocksView.render();
-            this.paddingView.render();
             this.ballView.render();
+            this.paddingView.render();
             this.render();
         },
         thisGameOver: function(e) {
@@ -225,6 +240,10 @@ define([
             this.ballView.render();
 
             this.gameOverView.show(score, this.blocksModel.isWinGame());
+        },
+        setBallBonus: function(type) {
+            console.log('dddd');
+            this.ballModel.setBonus(type);
         }
     });
     return new View();

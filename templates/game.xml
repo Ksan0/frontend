@@ -3,6 +3,7 @@
         <div class="content"></div>
         <canvas class="game__position"></canvas>
         <canvas class="game__position"></canvas>
+        <canvas class="game__position"></canvas>
         <div class="game">
             <div class="game__navbar">
                 <a href="#main" class="game__button">&#8656;</a>
@@ -12,7 +13,7 @@
                 <div class="game__info">Life:</div>
                 <div class="game__info game__life">1</div>
                 |
-                <div class="game__info game__bonus">text</div>
+                <div class="game__info game__bonus"></div>
                 <!--div class="game__info">Bonus:</div>
                 <div class="game__info game__bonus">None</div-->
             </div>           

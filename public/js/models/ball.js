@@ -14,6 +14,7 @@ define([
             this.set("default_radius", this.get("radius"));
             this.set("default_velocity", this.get("velocity"));
             this.set("default_angle", this.get("angle"));
+            this.set("bonus", "none");
 
             this.set('prevx', this.get('x'));
             this.set('prevy', this.get('y'));
@@ -64,8 +65,9 @@ define([
             };
         },
         move: function() {
-            var ball_speed = this.get('velocity') * this.get('game').get('deltaFrapTime');
-            var step = 20;
+            var deltaT = this.get('game').get('deltaFrapTime');
+            var ball_speed = this.get('velocity') * deltaT;
+            var step = 30;
 
             var good = false;
             if (ball_speed >= step) {
@@ -75,6 +77,17 @@ define([
                 }
             } else {
                 this._move(ball_speed);
+            }
+
+            var bonus_time = this.get('bonus_time') - deltaT;
+            this.set('bonus_time', bonus_time);
+            if (bonus_time <= 0)
+                this.setBonus(0);
+            var bonus = this.get("bonus");
+            if (bonus != "none") {
+                this.get("bonusDiv").innerHTML = bonus + "(" + Math.floor(bonus_time).toString() + "s)";
+            } else {
+                this.get("bonusDiv").innerHTML = "";
             }
         },
         _move: function(__ball_speed) {
@@ -180,13 +193,13 @@ define([
                 if (result.is) {
                     ball_speed_x += result.vector_x;
                     ball_speed_y += result.vector_y;
-                    hp -= 1;
+                    if (this.get("bonus") == "strength") 
+                        hp = 0;
+                    else 
+                        hp -= 1;
                     blocks.set('block_' + i.toString() + '_hp', hp);
                     if (hp <= 0) {
-                        var max_t = 180;
-                        var min_t = 120;
-                        var time = Math.floor(Math.random() * (max_t - min_t + 1)) + min_t + game.getScore() * 0.1;
-                        blocks.set('block_' + i.toString() + '_timer', time);
+                        blocks.ballDestroyBlock(i);
                         game.addScore(20);
                         this.get('scoreDiv').innerHTML = game.getScore();
                     }
@@ -214,6 +227,54 @@ define([
             padding.set('speed_x', padding_speed_x);
             padding.set('speed_y', padding_speed_y);
             return;
+        },
+        setBonus: function(type) {
+            if (this.get("bonus") == "velocity" && type != 4) {
+                var padding = this.get('padding');
+                padding.set('max_speed_x', padding.get('default_max_speed_x'));
+                padding.set('max_speed_y', padding.get('default_max_speed_y'));
+                padding.set('acceleration_x', padding.get('default_acceleration_x'));
+                padding.set('acceleration_y', padding.get('default_acceleration_y'));
+                padding.set('friction_x', padding.get('default_friction_x'));
+                padding.set('friction_y', padding.get('default_friction_y'));
+                this.set('velocity', this.get('velocity')/1.5);
+            }
+
+            /*
+                max_speed_x: 150,
+                max_speed_y: 75,
+                acceleration_x: 175,
+                acceleration_y: 175,
+                friction_x: 50,
+                friction_y: 50,
+            */
+
+            switch(type) {
+                case 2:     // velocity
+                    this.set("bonus", "velocity");
+                    var padding = this.get('padding');
+                    padding.set('max_speed_x', 200);
+                    padding.set('max_speed_y', 150);
+                    padding.set('acceleration_x', 10000);
+                    padding.set('acceleration_y', 10000);
+                    padding.set('friction_x', 1000);
+                    padding.set('friction_y', 1000);
+                    this.set('velocity', this.get('velocity')*1.5);
+                    break;
+                case 3:     // strength
+                    this.set("bonus", "strength");
+                    break;
+                case 4:     // life
+                    this.set('life', this.get('life') + 1);
+                    this.get("lifeDiv").innerHTML = this.get('life');
+                    break;
+                default:
+                    this.set("bonus", "none");
+            }
+
+            if (this.get("bonus") != "none") {
+                this.set("bonus_time", 10);
+            }
         },
         restart: function() {
             this.set("prevx", this.get("x"));
