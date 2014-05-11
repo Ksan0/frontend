@@ -232,6 +232,7 @@ define([
         },
         thisGameOver: function(e) {
             var score = this.game.get("score");
+            this.blocksView.clearAll();
             this.game.restart();
             this.paddingModel.restart();
             this.blocksModel.restart();

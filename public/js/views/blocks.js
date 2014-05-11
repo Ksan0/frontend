@@ -71,6 +71,25 @@ define([
                 this.context_bonus.drawImage(img, x-bonus_width/2, y-bonus_height/2, bonus_width, bonus_height);
             }
         },
+        clearAll: function() {
+            var width = this.model.get("width");
+            var height = this.model.get("height");
+            var for_data = this.model.for_data();
+            
+            for (var i = 0; i < for_data.count; i += 1) {
+                var x = this.model.get("block_" + i.toString() + "_x");
+                var y = this.model.get("block_" + i.toString() + "_y");
+                this.context.clearRect(x-width/2, y-height/2, width, height);
+            }
+
+            var bonus_width = this.model.get('bonus_width');
+            var bonus_height = this.model.get('bonus_height');
+            for (var i = 0; i < for_data.count; i += 1) {
+                var x = this.model.get("bonus_" + i.toString() + "_x");
+                var y = this.model.get("bonus_" + i.toString() + "_y");
+                this.context_bonus.clearRect(x-0.8*bonus_width, y-0.8*bonus_height, 1.6*bonus_width, 1.6*bonus_height);
+            }
+        },
         show: function() {
 
         },
