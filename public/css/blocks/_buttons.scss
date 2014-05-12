@@ -1,24 +1,26 @@
 
+$fonttype: Georgia, serif;
+
 .content__button {
-  border-shadow:inset 3px -10px 25px -5px #0d0304;
+  @include shadow(1px 1px 50px 1px #0BFFEC);
   border-radius:24px;
-  margin: 6%;
+  margin: 8% auto;
   opacity: 0.9;
   background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #f70a39), color-stop(1, #ed0505) );
   background:-moz-linear-gradient( center top, #f70a39 5%, #ed0505 100% );
   filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f70a39', endColorstr='#ed0505');
   background-color:#f70a39;
   border:2px solid #9e1e2b;
-  display:inline-block;
+  display:block;
   color:#f2f4ff;
-  height:34px;
-  line-height:34px;
-  width:165px;
+  height:80px;
+  line-height:80px;
+  width:250px;
   font: {
-    size:19px;
+    size:30px;
     weight:bold;
     style:normal;
-    family:Comic Sans MS;
+    family:$fonttype;
   }
   text: {
     indent:3px;
@@ -39,7 +41,7 @@
 }
 
 .game__button {  
-  border-shadow:inset 3px -10px 25px -5px #0d0304;
+  @include shadow(inset 3px -10px 25px -5px #0d0304);
   border-radius:41px;
   margin: 0 2%;
   background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #fa0000), color-stop(1, #1f0707) );
@@ -48,14 +50,14 @@
   background-color:#fa0000;
   display:inline-block;
   color:#eb9999;
-  height:51px;
-  line-height:51px;
-  width:49px;
+  height:45px;
+  line-height:45px;
+  width:70px;
   font: {
-    size:35px;
+    size:20px;
     weight:bold;
     style:normal;
-    family:Arial;
+    family:$fonttype;
   }
   text: {
     indent:-1.06px;
@@ -112,40 +114,4 @@
   position: relative;
   top: 50%;
   @include transform(0, -50%); 
-}
-
-.triangle-up {
-    @include triangle(0);
-    border: {
-      left: 30px solid transparent;
-      right: 30px solid transparent;
-      bottom: 70px solid red;
-    }
-}
-
-.triangle-down {
-    @include triangle(0);
-    border: {
-      left: 30px solid transparent;
-      right: 30px solid transparent;
-      top: 70px solid red;
-    }
-}
-
-.triangle-left {
-    @include triangle(0);
-    border: {
-      top: 30px solid transparent;
-      right: 70px solid red;
-      bottom: 30px solid transparent;
-    }
-}
-
-.triangle-right {
-    @include triangle(0);
-    border: {
-      top: 30px solid transparent;
-      left: 70px solid red;
-      bottom: 30px solid transparent;
-    }
 }

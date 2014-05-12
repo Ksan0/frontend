@@ -1,22 +1,24 @@
 .content__button {
-  border-shadow: inset 3px -10px 25px -5px #0d0304;
+  -moz-box-shadow: 1px 1px 50px 1px #0bffec;
+  -webkit-box-shadow: 1px 1px 50px 1px #0bffec;
+  box-shadow: 1px 1px 50px 1px #0bffec;
   border-radius: 24px;
-  margin: 6%;
+  margin: 8% auto;
   opacity: 0.9;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f70a39), color-stop(1, #ed0505));
   background: -moz-linear-gradient(center top, #f70a39 5%, #ed0505 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f70a39', endColorstr='#ed0505');
   background-color: #f70a39;
   border: 2px solid #9e1e2b;
-  display: inline-block;
+  display: block;
   color: #f2f4ff;
-  height: 34px;
-  line-height: 34px;
-  width: 165px;
-  font-size: 19px;
+  height: 80px;
+  line-height: 80px;
+  width: 250px;
+  font-size: 30px;
   font-weight: bold;
   font-style: normal;
-  font-family: Comic Sans MS;
+  font-family: Georgia, serif;
   text-indent: 3px;
   text-decoration: none;
   text-align: center; }
@@ -30,7 +32,9 @@
     top: 1px; }
 
 .game__button {
-  border-shadow: inset 3px -10px 25px -5px #0d0304;
+  -moz-box-shadow: inset 3px -10px 25px -5px #0d0304;
+  -webkit-box-shadow: inset 3px -10px 25px -5px #0d0304;
+  box-shadow: inset 3px -10px 25px -5px #0d0304;
   border-radius: 41px;
   margin: 0 2%;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fa0000), color-stop(1, #1f0707));
@@ -39,13 +43,13 @@
   background-color: #fa0000;
   display: inline-block;
   color: #eb9999;
-  height: 51px;
-  line-height: 51px;
-  width: 49px;
-  font-size: 35px;
+  height: 45px;
+  line-height: 45px;
+  width: 70px;
+  font-size: 20px;
   font-weight: bold;
   font-style: normal;
-  font-family: Arial;
+  font-family: Georgia, serif;
   text-indent: -1.06px;
   text-decoration: none;
   text-align: center;
@@ -96,34 +100,6 @@
   -webkit-transform: translate(0, -50%);
   -moz-transform: translate(0, -50%);
   transform: translate(0, -50%); }
-
-.triangle-up {
-  width: 0;
-  height: 0;
-  border-left: 30px solid transparent;
-  border-right: 30px solid transparent;
-  border-bottom: 70px solid red; }
-
-.triangle-down {
-  width: 0;
-  height: 0;
-  border-left: 30px solid transparent;
-  border-right: 30px solid transparent;
-  border-top: 70px solid red; }
-
-.triangle-left {
-  width: 0;
-  height: 0;
-  border-top: 30px solid transparent;
-  border-right: 70px solid red;
-  border-bottom: 30px solid transparent; }
-
-.triangle-right {
-  width: 0;
-  height: 0;
-  border-top: 30px solid transparent;
-  border-left: 70px solid red;
-  border-bottom: 30px solid transparent; }
 
 body {
   margin: 0;

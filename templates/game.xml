@@ -6,7 +6,7 @@
         <canvas class="game__position"></canvas>
         <div class="game">
             <div class="game__navbar">
-                <a href="#main" class="game__button">&#8656;</a>
+                <a href="#main" class="game__button">back</a>
                 <div class="game__info">Score:</div>
                 <div class="game__info game__score">0</div>
                 |
