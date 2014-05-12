@@ -96,9 +96,7 @@ define([
 
 	window.server = server;
 
-	/*
-	server.send('message', function(answer){
+	/*server.send('message', function(answer){
 		console.log(answer);
-	});
-	*/
+	});*/
 });

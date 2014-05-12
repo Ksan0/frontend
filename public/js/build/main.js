@@ -12691,7 +12691,7 @@ define('views/main',[
     var View = Backbone.View.extend({
         template: tmpl,
         initialize: function() {
-            console.log (this.template)
+            // console.log (this.template)
             this.$el.html(this.template());
             $('.content_wrapper').append(this.$el);
         },
@@ -12851,7 +12851,7 @@ define('views/scoreboard',[
     });
     return new View();
 });
-define('tmpl/game',[],function () {return function (__fest_context){var __fest_self=this,__fest_buf="",__fest_chunks=[],__fest_chunk,__fest_attrs=[],__fest_select,__fest_if,__fest_iterator,__fest_to,__fest_fn,__fest_html="",__fest_blocks={},__fest_params,__fest_element,__fest_debug_file="",__fest_debug_line="",__fest_debug_block="",__fest_htmlchars=/[&<>"]/g,__fest_htmlchars_test=/[&<>"]/,__fest_short_tags = {"area":true,"base":true,"br":true,"col":true,"command":true,"embed":true,"hr":true,"img":true,"input":true,"keygen":true,"link":true,"meta":true,"param":true,"source":true,"wbr":true},__fest_element_stack = [],__fest_htmlhash={"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"},__fest_jschars=/[\\'"\/\n\r\t\b\f<>]/g,__fest_jschars_test=/[\\'"\/\n\r\t\b\f<>]/,__fest_jshash={"\"":"\\\"","\\":"\\\\","/":"\\/","\n":"\\n","\r":"\\r","\t":"\\t","\b":"\\b","\f":"\\f","'":"\\'","<":"\\u003C",">":"\\u003E"},___fest_log_error;if(typeof __fest_error === "undefined"){___fest_log_error = (typeof console !== "undefined" && console.error) ? function(){return Function.prototype.apply.call(console.error, console, arguments)} : function(){};}else{___fest_log_error=__fest_error};function __fest_log_error(msg){___fest_log_error(msg+"\nin block \""+__fest_debug_block+"\" at line: "+__fest_debug_line+"\nfile: "+__fest_debug_file)}function __fest_replaceHTML(chr){return __fest_htmlhash[chr]}function __fest_replaceJS(chr){return __fest_jshash[chr]}function __fest_extend(dest, src){for(var i in src)if(src.hasOwnProperty(i))dest[i]=src[i];}function __fest_param(fn){fn.param=true;return fn}function __fest_call(fn, params,cp){if(cp)for(var i in params)if(typeof params[i]=="function"&&params[i].param)params[i]=params[i]();return fn.call(__fest_self,params)}function __fest_escapeJS(s){if (typeof s==="string") {if (__fest_jschars_test.test(s))return s.replace(__fest_jschars,__fest_replaceJS);} else if (typeof s==="undefined")return "";return s;}function __fest_escapeHTML(s){if (typeof s==="string") {if (__fest_htmlchars_test.test(s))return s.replace(__fest_htmlchars,__fest_replaceHTML);} else if (typeof s==="undefined")return "";return s;}var json=__fest_context;__fest_buf+=("<div class=\"content\"></div><canvas class=\"game__position\" width=\"500\" height=\"500\"></canvas><canvas class=\"game__position\" width=\"500\" height=\"500\"></canvas><div class=\"game\"><div class=\"game__navbar\"><a href=\"#main\" class=\"game__button\">⇐</a><div class=\"game__info\">0</div></div></div>");__fest_to=__fest_chunks.length;if (__fest_to) {__fest_iterator = 0;for (;__fest_iterator<__fest_to;__fest_iterator++) {__fest_chunk=__fest_chunks[__fest_iterator];if (typeof __fest_chunk==="string") {__fest_html+=__fest_chunk;} else {__fest_fn=__fest_blocks[__fest_chunk.name];if (__fest_fn) __fest_html+=__fest_call(__fest_fn,__fest_chunk.params,__fest_chunk.cp);}}return __fest_html+__fest_buf;} else {return __fest_buf;}} ; });
+define('tmpl/game',[],function () {return function (__fest_context){var __fest_self=this,__fest_buf="",__fest_chunks=[],__fest_chunk,__fest_attrs=[],__fest_select,__fest_if,__fest_iterator,__fest_to,__fest_fn,__fest_html="",__fest_blocks={},__fest_params,__fest_element,__fest_debug_file="",__fest_debug_line="",__fest_debug_block="",__fest_htmlchars=/[&<>"]/g,__fest_htmlchars_test=/[&<>"]/,__fest_short_tags = {"area":true,"base":true,"br":true,"col":true,"command":true,"embed":true,"hr":true,"img":true,"input":true,"keygen":true,"link":true,"meta":true,"param":true,"source":true,"wbr":true},__fest_element_stack = [],__fest_htmlhash={"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"},__fest_jschars=/[\\'"\/\n\r\t\b\f<>]/g,__fest_jschars_test=/[\\'"\/\n\r\t\b\f<>]/,__fest_jshash={"\"":"\\\"","\\":"\\\\","/":"\\/","\n":"\\n","\r":"\\r","\t":"\\t","\b":"\\b","\f":"\\f","'":"\\'","<":"\\u003C",">":"\\u003E"},___fest_log_error;if(typeof __fest_error === "undefined"){___fest_log_error = (typeof console !== "undefined" && console.error) ? function(){return Function.prototype.apply.call(console.error, console, arguments)} : function(){};}else{___fest_log_error=__fest_error};function __fest_log_error(msg){___fest_log_error(msg+"\nin block \""+__fest_debug_block+"\" at line: "+__fest_debug_line+"\nfile: "+__fest_debug_file)}function __fest_replaceHTML(chr){return __fest_htmlhash[chr]}function __fest_replaceJS(chr){return __fest_jshash[chr]}function __fest_extend(dest, src){for(var i in src)if(src.hasOwnProperty(i))dest[i]=src[i];}function __fest_param(fn){fn.param=true;return fn}function __fest_call(fn, params,cp){if(cp)for(var i in params)if(typeof params[i]=="function"&&params[i].param)params[i]=params[i]();return fn.call(__fest_self,params)}function __fest_escapeJS(s){if (typeof s==="string") {if (__fest_jschars_test.test(s))return s.replace(__fest_jschars,__fest_replaceJS);} else if (typeof s==="undefined")return "";return s;}function __fest_escapeHTML(s){if (typeof s==="string") {if (__fest_htmlchars_test.test(s))return s.replace(__fest_htmlchars,__fest_replaceHTML);} else if (typeof s==="undefined")return "";return s;}var json=__fest_context;__fest_buf+=("<div class=\"content\"></div><canvas class=\"game__position\"></canvas><canvas class=\"game__position\"></canvas><canvas class=\"game__position\"></canvas><div class=\"game\"><div class=\"game__navbar\"><a href=\"#main\" class=\"game__button\">⇐</a><div class=\"game__info\">Score:</div><div class=\"game__info game__score\">0</div>|<div class=\"game__info\">Life:</div><div class=\"game__info game__life\">1</div>|<div class=\"game__info game__bonus\"></div></div></div>");__fest_to=__fest_chunks.length;if (__fest_to) {__fest_iterator = 0;for (;__fest_iterator<__fest_to;__fest_iterator++) {__fest_chunk=__fest_chunks[__fest_iterator];if (typeof __fest_chunk==="string") {__fest_html+=__fest_chunk;} else {__fest_fn=__fest_blocks[__fest_chunk.name];if (__fest_fn) __fest_html+=__fest_call(__fest_fn,__fest_chunk.params,__fest_chunk.cp);}}return __fest_html+__fest_buf;} else {return __fest_buf;}} ; });
 define('models/padding',[
     'backbone'
 ], function(
@@ -12860,42 +12860,129 @@ define('models/padding',[
 
     var Model = Backbone.Model.extend({
         defaults: {
-            x: 0,
-            delta: 5
         },
         initialize: function(options) {
             this.game = options.game;
+
             this.set("default_x", this.get("x"));
-            this.set("default_delta", this.get("delta"));
+            this.set("default_y", this.get("y"));
+            this.set("default_speed_x", this.get("speed_x"));
+            this.set("default_speed_y", this.get("speed_y"));
+            this.set("default_max_speed_x", this.get("max_speed_x"));
+            this.set("default_max_speed_y", this.get("max_speed_y"));
+            this.set("default_acceleration_x", this.get("acceleration_x"));
+            this.set("default_acceleration_y", this.get("acceleration_y"));
+            this.set("default_friction_x", this.get("friction_x"));
+            this.set("default_friction_y", this.get("friction_y"));
+            this.set("default_max_y", this.get("max_y"));
             this.set("default_width", this.get("width"));
+            this.set("default_height", this.get("height"));
+
+            this.set("prevx", this.get("x"));
+            this.set("prevy", this.get("y"));
         },
-        moveRight: function() {
+        _moveDxDy: function(dx, dy) {    // dX = -1 | 0 | 1 <=> left | nothing | right
+            var game = this.get('game');
+            var gameWidth = game.get('width');
+            var gameHeight = game.get('height');
+            var gameLeftOffset = game.get('leftOffset');
+            var gameRightOffset = game.get('rightOffset');
+            var gameBottomOffset = game.get('bottomOffset');
+            var max_y = this.get('max_y');
+            var deltaFrapTime = game.get('deltaFrapTime');
+
             var x = this.get('x');
-            var delta = this.get('delta');
-            var gameWidth = this.game.get('width');
-            var paddingWidth = this.get('width');
-            var rightOffset = this.game.get('rightOffset');
-            if (x + delta + paddingWidth / 2 < gameWidth / 2 - rightOffset) {
-                this.set('x', x + delta);
-                this.set('prevx', x);
-            }
-        },
-        moveLeft: function() {
-            var x = this.get('x');
-            var delta = this.get('delta');
-            var gameWidth = this.game.get('width');
-            var paddingWidth = this.get('width');
-            var leftOffset = this.game.get('leftOffset');
-            if (x - delta - paddingWidth / 2 > -gameWidth / 2 + leftOffset)
-                this.set('x', x - delta);
+            var y = this.get('y');
+            var width = this.get('width');
+            var height = this.get('height');
+            var speed_x = this.get('speed_x');
+            var speed_y = this.get('speed_y');
+            var max_speed_x = this.get('max_speed_x');
+            var max_speed_y = this.get('max_speed_y');
+            var acceleration_x = this.get('acceleration_x') * dx * deltaFrapTime;
+            var acceleration_y = this.get('acceleration_y') * dy * deltaFrapTime;
+            var friction_x = speed_x === 0 ? 0 : this.get('friction_x') * deltaFrapTime * speed_x / Math.abs(speed_x);
+            var friction_y = speed_y === 0 ? 0 : this.get('friction_y') * deltaFrapTime * speed_y / Math.abs(speed_y);
             this.set('prevx', x);
+            this.set('prevy', y);
+
+            speed_x += acceleration_x;
+            if (Math.abs(speed_x) < Math.abs(friction_x))
+                speed_x = 0;
+            else 
+                speed_x -= friction_x;
+            if (Math.abs(speed_x) > max_speed_x)
+                speed_x *= max_speed_x / Math.abs(speed_x);
+
+            speed_y += acceleration_y;
+            if (Math.abs(speed_y) < Math.abs(friction_y))
+                speed_y = 0;
+            else 
+                speed_y -= friction_y;
+            if (Math.abs(speed_y) > max_speed_y)
+                speed_y *= max_speed_y / Math.abs(speed_y);
+ 
+            if (speed_x < 0) {
+                if(x + speed_x * deltaFrapTime - width / 2 > -gameWidth / 2 + gameLeftOffset) {
+                    x += speed_x * deltaFrapTime;
+                } else {
+                    x = -gameWidth / 2 + gameLeftOffset + width / 2;
+                    speed_x = 0;
+                }
+            } else if (speed_x > 0) {
+                if (x + speed_x * deltaFrapTime + width / 2 < gameWidth / 2 - gameRightOffset) {
+                    x += speed_x * deltaFrapTime;
+                } else {
+                    x = gameWidth / 2 - gameRightOffset - width / 2;
+                    speed_x = 0;
+                }
+            }
+            
+            if (speed_y < 0) {
+                if(y + speed_y * deltaFrapTime - height / 2 > gameBottomOffset) {
+                    y += speed_y * deltaFrapTime;
+                } else {
+                    y = gameBottomOffset + height / 2;
+                    speed_y = 0;
+                }
+            } else if (speed_y > 0) {
+                if (y + speed_y * deltaFrapTime + height / 2 < max_y + gameBottomOffset) {
+                    y += speed_y * deltaFrapTime;
+                } else {
+                    y = max_y + gameBottomOffset - height / 2;
+                    speed_y = 0;
+                }
+            }
+
+
+
+            this.set('x', x);
+            this.set('y', y);
+            this.set('speed_x', speed_x);
+            this.set('speed_y', speed_y);
+        },
+        move: function(leftKey, rightKey, upKey, downKey) {
+            var dx = -Number(leftKey) + Number(rightKey);
+            var dy = -Number(downKey) + Number(upKey);
+            this._moveDxDy(dx, dy);
         },
         restart: function() {
             this.set("prevx", this.get("x"));
+            this.set("prevy", this.get("y"));
 
             this.set("x", this.get("default_x"));
-            this.set("delta", this.get("default_delta"));
+            this.set("y", this.get("default_y"));
+            this.set("speed_x", this.get("default_speed_x"));
+            this.set("speed_y", this.get("default_speed_y"));
+            this.set("max_speed_x", this.get("default_max_speed_x"));
+            this.set("max_speed_y", this.get("default_max_speed_y"));
+            this.set("acceleration_x", this.get("default_acceleration_x"));
+            this.set("acceleration_y", this.get("default_acceleration_y"));
+            this.set("friction_x", this.get("default_friction_x"));
+            this.set("friction_y", this.get("default_friction_y"));
+            this.set("max_y", this.get("default_max_y"));
             this.set("width", this.get("default_width"));
+            this.set("height", this.get("default_height"));
         }
     });
     return Model;
@@ -12925,7 +13012,7 @@ define('models/game',[
             this.set('stop', true);
         },
         over: function() {
-            this.trigger("gameOver");
+            //this.trigger("gameOver");
         },
         restart: function () {
             this.set("stop", true);
@@ -12949,7 +13036,7 @@ define('views/padding',[
 ) {
     var View = Backbone.View.extend({
         initialize: function(options) {
-            this.model.on("change:x", this.render, this);
+            //this.model.on("change:x change:y", this.render, this);
             this.context = options.context;
             this.render();
         },
@@ -12957,15 +13044,17 @@ define('views/padding',[
             var width = this.model.get("width");
             var height = this.model.get("height");
             var x = this.model.get("x");
+            var y = this.model.get("y");
             var prevx = this.model.get("prevx");
-            this.context.clearRect(prevx - width / 2, -height, width, height);
+            var prevy = this.model.get("prevy");
+            this.context.clearRect(prevx - width, prevy - height, 2*width, 2*height);
             this.context.fillStyle = 'green';
-            this.context.fillRect(x - width / 2, -height, width, height);
+            this.context.fillRect(x - width/2, y - height/2, width, height);
         },
         show: function() {
-
         },
-        hide: function() {}
+        hide: function() {
+        }
     });
     return View;
 });
@@ -12978,8 +13067,64 @@ define('models/blocks',[
     var Model = Backbone.Model.extend({
         defaults: {
         },
+        _randType: function() {
+            var chanceList = new Array(0.55, 0.15, 0.15, 0.15);
+            var r = Math.random();
+
+            var chanceNow = 0;
+            var counter = 1;
+            for (var i = 0; i < this.get('types_count'); i += 1) {
+                if (r < chanceList[i] + chanceNow) {
+                    return counter;
+                }
+                counter += 1;
+                chanceNow += chanceList[i];
+            }
+
+            return this.get('types_count');
+        },
+        _randHp: function() {
+            //return 1;
+
+            var chanceList = new Array(0.05, 0.20, 0.50, 0.25);
+            var r = Math.random();
+
+            var chanceNow = 0;
+            var counter = 1;
+            for (var i = 0; i < this.get('hp_max'); i += 1) {
+                if (r < chanceList[i] + chanceNow) {
+                    return counter;
+                }
+                counter += 1;
+                chanceNow += chanceList[i];
+            }
+
+            return this.get('hp_max');
+        },
+        _randBonus: function(hp) {
+            var r = Math.random();
+            return r <  0.1*hp;
+        },
+        _collisionPadding: function(px, py) {
+            var padding = this.get('padding');
+            var padding_x = padding.get('x');
+            var padding_y = padding.get('y');
+            var padding_w = padding.get('width');
+            var padding_h = padding.get('height');
+            
+            return  px > padding_x - padding_w/2 && px < padding_x + padding_w/2 &&
+                    py > padding_y - padding_h/2 && py < padding_y + padding_h/2;
+        },
+        _collision: function(x, y, w, h) {
+            var result = this._collisionPadding(x - w/2, y - h/2) ||
+                         this._collisionPadding(x - w/2, y + h/2) ||
+                         this._collisionPadding(x + w/2, y - h/2) ||
+                         this._collisionPadding(x + w/2, y + h/2);
+            return result;
+        },
         initialize: function(options) {
             this.game = options.game;
+            this.padding = options.padding;
 
             var gameWidth = this.game.get('width');
             var gameHeight = this.game.get('height');
@@ -12988,38 +13133,127 @@ define('models/blocks',[
             var gameTopOffset = this.game.get('topOffset');
             var gameBottomOffset = this.game.get('bottomOffset');
 
-            this.set("leftBorder", -gameWidth / 2 + gameLeftOffset + 20);
-            this.set("rightBorder", gameWidth / 2 - gameRightOffset);
-            this.set("width", 65);
+            this.set("bonus_width", 20);
+            this.set("bonus_height", 20);
+            this.set("width", 62);
             this.set("height", 20);
-            this.set("dist", 70);
+            
+            var delta_x = 67;
+            var min_x = -gameWidth / 2 + gameLeftOffset + 1.25*this.get('width');
+            var max_x = gameWidth / 2 - gameRightOffset - this.get('width')/2;
+            
+            var delta_y = 23;
+            var max_y = gameHeight - gameTopOffset - 6*gameBottomOffset;
+            var min_y   = gameHeight - gameTopOffset - 12*gameBottomOffset;
 
-            var y = gameHeight - gameTopOffset - gameBottomOffset;
-            for (var x = this.get("leftBorder"); x < this.get("rightBorder"); x += this.get("dist")) {
-                this.set("block_" + x.toString() + "_x", x);
-                this.set("block_" + x.toString() + "_y", y);
-                this.set("block_" + x.toString() + "_type", 1);
+            this.set('types_count', 4);
+            this.set('hp_max', 3);
+
+            var for_data = this.for_data();
+            var counter = 0;
+            for (var x = min_x; x < max_x; x += delta_x) {
+                for(var y = max_y; y > min_y; y -= delta_y) {
+                    this.set("block_" + counter.toString() + "_x", x);
+                    this.set("block_" + counter.toString() + "_y", y);
+                    this.set("block_" + counter.toString() + "_type", this._randType());
+                    var hp = this._randHp();
+                    this.set("block_" + counter.toString() + "_hp", hp);
+                    this.set("block_" + counter.toString() + "_bonus", this._randBonus(hp));
+                    this.set("block_" + counter.toString() + "_timer", 0);
+
+                    this.set("bonus_" + counter.toString() + "_enabled", false);
+                    this.set("bonus_" + counter.toString() + "_needClear", false);
+                    counter += 1;
+                }
             }
-
-            this.set("type_1_color", "lightblue");
-            this.set("type_2_color", "blue");
-            this.set("type_3_color", "#FF00FF");
-            this.set("type_4_color", "pink");
-            this.set("type_5_color", "red");
-
-            this.set("type_1_score", 1);
-            this.set("type_2_score", 2);
-            this.set("type_3_score", 3);
-            this.set("type_4_score", 5);
-            this.set("type_5_score", 10);
-
-            this.set("type_count", 5);
+            this.set('count', counter);
         },
         restart: function() {
-            for (var x = this.get("leftBorder"); x < this.get("rightBorder"); x += this.get("dist")) {
-                this.set("block_" + x.toString() + "_x", x);
-                this.set("block_" + x.toString() + "_type", 1);
+            var for_data = this.for_data();
+            for (var i = 0; i < for_data.count; i += 1) {
+                this.set("block_" + i.toString() + "_type", this._randType());
+                var hp = this._randHp();
+                this.set("block_" + i.toString() + "_hp", hp);
+                this.set("block_" + i.toString() + "_bonus", this._randBonus(hp));
+                this.set("block_" + i.toString() + "_timer", 0);
+
+                this.set("bonus_" + i.toString() + "_enabled", false);
             }
+        },
+        ballDestroyBlock: function(index) {
+            var game = this.get('game');
+
+            var max_t = 180;
+            var min_t = 120;
+            var time = Math.random() * (max_t - min_t + 1) + min_t + game.getScore() * 0.1;
+            this.set('block_' + index.toString() + '_timer', time);
+            var t = this.get('block_' + index.toString() + '_type');
+
+            if (t != 1) {
+                var x = this.get('block_' + index.toString() + '_x');
+                var y = this.get('block_' + index.toString() + '_y');
+                
+                this.set('bonus_' + index.toString() + '_enabled', true);
+                this.set('bonus_' + index.toString() + '_x', x);
+                this.set('bonus_' + index.toString() + '_y', y);
+                this.set('bonus_' + index.toString() + '_speed_y', -100);
+                this.set('bonus_' + index.toString() + '_type', t);
+            }
+        },
+        step: function() {
+            var for_data = this.for_data();
+            var deltaT = this.get("game").get("deltaFrapTime");
+            // blocks recovery
+            for (var i = 0; i < for_data.count; i += 1) {
+                var timer = this.get("block_" + i.toString() + "_timer");
+                if (timer > 0) {
+                    timer -= deltaT;
+                    this.set("block_" + i.toString() + "_timer", timer);
+                    if (timer < 0) {
+                        this.set("block_" + i.toString() + "_type", this._randType());
+                        this.set("block_" + i.toString() + "_hp", this._randHp());
+                    }
+                }
+            }
+
+            // bonus move
+            var bonus_width = this.get('bonus_width');
+            var bonus_height = this.get('bonus_height');
+            for (var i = 0; i < for_data.count; i += 1) {
+                if (! this.get('bonus_' + i.toString() + '_enabled'))
+                    continue;
+                var speed_y = this.get('bonus_' + i.toString() + '_speed_y');
+                var x = this.get('bonus_' + i.toString() + '_x');
+                var y = this.get('bonus_' + i.toString() + '_y') + speed_y * deltaT;
+                this.set('bonus_' + i.toString() + '_y', y);
+
+                var collision = this._collision(x, y, bonus_width, bonus_height);
+                if (collision) {
+                    this.set('bonus_' + i.toString() + '_enabled', false);
+                    this.set("bonus_" + i.toString() + "_needClear", true);
+                    var t = this.get('bonus_' + i.toString() + '_type');
+                    this.get('ball').setBonus(t);
+                }
+
+                if (y < 0) {
+                    this.set('bonus_' + i.toString() + '_enabled', false);
+                    this.set("bonus_" + i.toString() + "_needClear", true);
+                }
+            }
+        },
+        for_data: function() {
+            return {
+                'count': this.get('count')
+            };
+        },
+        isWinGame: function() {
+            var for_data = this.for_data();
+            for (var i = 0; i < for_data.count; i += 1) {
+                if (this.get('block_' + i.toString() + '_hp') > 0)
+                    return false;
+            }
+
+            return true;
         }
     });
     return Model;
@@ -13031,20 +13265,89 @@ define('views/blocks',[
 ) {
     var View = Backbone.View.extend({
         initialize: function(options) {
-            for (var x = this.model.get("leftBorder"); x < this.model.get("rightBorder"); x += this.model.get("dist")) {
-                this.model.on("change:block_" + x.toString() + "_type", this.render, this);
+            var types_count = this.model.get('types_count');
+            var hp_max = this.model.get('hp_max');
+
+            var dict = {};
+            for (var t = 1; t <= types_count; t += 1) {
+                for (var hp = 1; hp <= hp_max; hp += 1) {
+                    var img = new Image();
+                    img.src = '/css/images/block_' + t.toString() + '_' + hp.toString() + '.png';
+                    dict['block_img_' + t.toString() + '_' + hp.toString()] = img;
+                }
             }
+            for (var t = 2; t <= types_count; t += 1) {
+                var img = new Image();
+                img.src = '/css/images/bonus_' + t.toString() + '.png';
+                dict['bonus_img_' + t.toString()] = img;
+            }
+            this.imgs = dict;
+
+            var for_data = this.model.for_data();
+            /*for (var i = 0; i < for_data.count; i += 1) {
+                this.model.on("change:block_" + i.toString() + "_hp", this.render, this);
+            }*/
+
             this.context = options.context;
-            this.render();
+            this.context_bonus = options.context_bonus;
         },
         render: function() {
             var width = this.model.get("width");
             var height = this.model.get("height");
-            for (var x = this.model.get("leftBorder"); x < this.model.get("rightBorder"); x += this.model.get("dist")) {
-                var y = this.model.get("block_" + x.toString() + "_y");
-                var bltype = this.model.get("block_" + x.toString() + "_type");
-                this.context.fillStyle = this.model.get("type_" + bltype.toString() + "_color");
-                this.context.fillRect(x - width / 2, y, width, height);
+            var for_data = this.model.for_data();
+            
+            for (var i = 0; i < for_data.count; i += 1) {
+                var x = this.model.get("block_" + i.toString() + "_x");
+                var y = this.model.get("block_" + i.toString() + "_y");
+                var t = this.model.get("block_" + i.toString() + "_type");
+                var hp = this.model.get("block_" + i.toString() + "_hp");
+          
+                this.context.clearRect(x-width/2, y-height/2, width, height);
+                if (hp > 0) {
+                    var img = this.imgs["block_img_" + t.toString() + "_" + hp.toString()];
+                    this.context.drawImage(img, x-width/2, y-height/2, width, height);
+                }
+            }
+
+            var bonus_width = this.model.get('bonus_width');
+            var bonus_height = this.model.get('bonus_height');
+            for (var i = 0; i < for_data.count; i += 1) {
+                var x = this.model.get("bonus_" + i.toString() + "_x");
+                var y = this.model.get("bonus_" + i.toString() + "_y");
+
+                if (! this.model.get("bonus_" + i.toString() + "_enabled")) {
+                    if (this.model.get("bonus_" + i.toString() + "_needClear")) {
+                        this.context_bonus.clearRect(x-0.8*bonus_width, y-0.8*bonus_height, 1.6*bonus_width, 1.6*bonus_height);
+                        this.model.set("bonus_" + i.toString() + "_needClear", false);
+                    }
+                    continue;
+                }
+
+                var t = this.model.get("bonus_" + i.toString() + "_type");
+
+                this.context_bonus.clearRect(x-0.8*bonus_width, y-0.8*bonus_height, 1.6*bonus_width, 1.6*bonus_height);
+            
+                var img = this.imgs["bonus_img_" + t.toString()];
+                this.context_bonus.drawImage(img, x-bonus_width/2, y-bonus_height/2, bonus_width, bonus_height);
+            }
+        },
+        clearAll: function() {
+            var width = this.model.get("width");
+            var height = this.model.get("height");
+            var for_data = this.model.for_data();
+            
+            for (var i = 0; i < for_data.count; i += 1) {
+                var x = this.model.get("block_" + i.toString() + "_x");
+                var y = this.model.get("block_" + i.toString() + "_y");
+                this.context.clearRect(x-width/2, y-height/2, width, height);
+            }
+
+            var bonus_width = this.model.get('bonus_width');
+            var bonus_height = this.model.get('bonus_height');
+            for (var i = 0; i < for_data.count; i += 1) {
+                var x = this.model.get("bonus_" + i.toString() + "_x");
+                var y = this.model.get("bonus_" + i.toString() + "_y");
+                this.context_bonus.clearRect(x-0.8*bonus_width, y-0.8*bonus_height, 1.6*bonus_width, 1.6*bonus_height);
             }
         },
         show: function() {
@@ -13064,98 +13367,283 @@ define('models/ball',[
         initialize: function(options) {
             this.game = options.game;
             this.set("game_over", false);
+            this.set("life", 1);
             this.set("default_x", this.get("x"));
             this.set("default_y", this.get("y"));
             this.set("default_radius", this.get("radius"));
             this.set("default_velocity", this.get("velocity"));
             this.set("default_angle", this.get("angle"));
+            this.set("bonus", "none");
+
+            this.set('prevx', this.get('x'));
+            this.set('prevy', this.get('y'));
         },
+        _collision: function(rect, ball) {
+            // rect = {x: Number, y: Number, w: Number, h: Number, speed_x: Number}
+            // ball = {x: Number, y: Number, r: Number, rot: Number}
+            // return {is: Boolean, vector_x: Number, vector_y: Number, vector_rot: Number}
+            var collision_count = 0;
+            var vector_x = 0;
+            //var vector_x_fromPadding = 0;
+            var vector_y = 0;
+            var vector_rot = 0;
+            var dangle = Math.PI / 10;
+            for (var angle = 0; angle < 2*Math.PI; angle += dangle) {
+                var px = ball.x + ball.r * Math.cos(angle);
+                var py = ball.y + ball.r * Math.sin(angle);
+        
+                if (px < rect.x || px > rect.x + rect.w || py < rect.y || py > rect.y + rect.h)
+                    continue;
 
-        move: function(paddingMoveLeft, paddingMoveRight) {
-            var px = this.get('x');
-            var py = this.get('y');
-            var radius = this.get('radius') * 0.4;
-            var pvelocity = this.get('velocity');
-            var pangle = this.get('angle');
+                ++collision_count;
+
+                // speed vectors
+                vector_x += ball.x - px;
+                vector_x += rect.speed_x * 0.1;
+                vector_y += ball.y - py;
+
+                // rotation vector
+                //vector_rot += ball.rot_inc;
+            }
+
+            var return_vector_x = 0;
+            var return_vector_y = 0;
+            var return_vector_rot = 0;
+            if (collision_count !== 0) {
+                return_vector_x = vector_x / collision_count;
+                return_vector_y = vector_y / collision_count;
+                return_vector_rot = vector_rot / collision_count;
+            }
+
+            var is = collision_count === 0 ? false : true;
+            return {
+                is: is,
+                vector_x: return_vector_x,
+                vector_y: return_vector_y,
+                vector_rot: return_vector_rot
+            };
+        },
+        move: function() {
+            var deltaT = this.get('game').get('deltaFrapTime');
+            var ball_speed = this.get('velocity') * deltaT;
+            var step = 30;
+
+            var good = false;
+            if (ball_speed >= step) {
+                for (var i = 1; i <= ball_speed / step + 0.5; i += 1) {
+                    this._move(step);
+                    good = true;
+                }
+            } else {
+                this._move(ball_speed);
+            }
+
+            var bonus_time = this.get('bonus_time') - deltaT;
+            this.set('bonus_time', bonus_time);
+            if (bonus_time <= 0)
+                this.setBonus(0);
+            var bonus = this.get("bonus");
+            if (bonus != "none") {
+                this.get("bonusDiv").innerHTML = bonus + "(" + Math.floor(bonus_time).toString() + "s)";
+            } else {
+                this.get("bonusDiv").innerHTML = "";
+            }
+        },
+        _move: function(__ball_speed) {
             var game = this.get('game');
-
             var gameWidth = game.get('width');
             var gameHeight = game.get('height');
             var gameLeftOffset = game.get('leftOffset');
             var gameRightOffset = game.get('rightOffset');
             var gameTopOffset = game.get('topOffset');
             var gameBottomOffset = game.get('bottomOffset');
-            var nx = px + pvelocity * Math.cos(pangle);
-            var ny = py + pvelocity * Math.sin(pangle);
+            var deltaFrapTime = game.get('deltaFrapTime');
+
+            var __ball_angle = this.get('angle');
+            var ball_speed_x = __ball_speed * Math.cos(__ball_angle);
+            var ball_speed_y = __ball_speed * Math.sin(__ball_angle);
+            var ball_rotation = this.get('rotation');
+            var ball_rotation_inc = this.get('rotation_inc');
+
+            var ball_x = this.get('x') + ball_speed_x;
+            var ball_y = this.get('y') + ball_speed_y;
+            var ball_r = this.get('radius');
+
+            this.set('prevx', ball_x);
+            this.set('prevy', ball_y);
+
+            // check borders
+            if (ball_x - ball_r < -gameWidth / 2 + gameLeftOffset) {  // left border
+                ball_speed_x *= -1;
+                ball_x = this.get('prevx') + ball_speed_x;
+                ball_y = this.get('prevy');
+            }
+            if (ball_x + ball_r > gameWidth / 2 - gameRightOffset) {  // right border
+                ball_speed_x *= -1;
+                ball_x = this.get('prevx') + ball_speed_x;
+                ball_y = this.get('prevy');
+            }
+            if (ball_y + ball_r > gameHeight - gameTopOffset - gameBottomOffset) {  // top border
+                ball_speed_y *= -1;
+                ball_x = this.get('prevx');
+                ball_y = this.get('prevy') + ball_speed_y;
+            }
 
             var padding = this.get('padding');
-            var paddingX = padding.get('x');
-            var paddingWidth = padding.get('width');
-            var nangle = pangle;
+            var padding_x = padding.get('x');
+            var padding_y = padding.get('y');
+            var padding_w = padding.get('width');
+            var padding_h = padding.get('height');
+            var padding_speed_x = padding.get('speed_x');
+            var padding_speed_y = padding.get('speed_y');
+
+            var __padding_collision_x = padding_x - padding_w / 2;
+            var __padding_collision_y = padding_y - padding_h / 2;
+            var spX = padding.get('max_speed_x') * (ball_speed_x / __ball_speed);
+            var result = this._collision(
+                {   // rect
+                    x: __padding_collision_x,
+                    y: __padding_collision_y,
+                    w: padding_w,
+                    h: padding_h,
+                    speed_x: padding_speed_x + spX
+                }, {    // ball
+                    x: ball_x,
+                    y: ball_y,
+                    r: ball_r,
+                    rot: ball_rotation,
+                    rot_inc: ball_rotation_inc
+                }
+            );
+            ball_speed_x += result.vector_x;
+            ball_speed_y += result.vector_y;
+            ball_rotation += result.vector_rot;
+
+            padding_speed_x -= 3*result.vector_x;
+            padding_speed_y -= 3*result.vector_y;
 
             var blocks = this.get('blocks');
-            if (nx - radius < -gameWidth / 2 + gameLeftOffset) {
-                nangle = -pangle + Math.PI;
-                nx = px + pvelocity * Math.cos(nangle);
-                ny = py + pvelocity * Math.sin(nangle);
-                this.game.addScore(1);
-            }
-            if (nx + radius > gameWidth / 2 - gameRightOffset) {
-                nangle = -pangle + Math.PI;
-                nx = px + pvelocity * Math.cos(nangle);
-                ny = py + pvelocity * Math.sin(nangle);
-                this.game.addScore(1);
-            }
-            if (ny - 2*radius > gameHeight - gameTopOffset - gameBottomOffset) {
-                nangle = -pangle;
-                nx = px + pvelocity * Math.cos(nangle);
-                ny = py + pvelocity * Math.sin(nangle);
-                ny -= 3*radius;
-            }
-            if (py - radius > 0 && ny - radius < 0 && nx > paddingX - paddingWidth && nx < paddingX + paddingWidth) {
-                nangle = -pangle;
-                var addAngle = Math.PI * 0.2 * Math.random();
-                if (paddingMoveLeft)
-                    nangle += addAngle;
-                if (paddingMoveRight)
-                    nangle -= addAngle;
+            var blocks_width = blocks.get('width');
+            var blocks_height = blocks.get('height');
+            var for_data = blocks.for_data();
+            for (var i = 0; i < for_data.count; i += 1) {
+                var hp = blocks.get('block_' + i.toString() + '_hp');
+                if (hp <= 0)
+                    continue;
 
-                nx = px + pvelocity * Math.cos(nangle);
-                ny = py + pvelocity * Math.sin(nangle);
-                this.game.addScore(2);
-            }
-            for (var x = blocks.get("leftBorder"); x < blocks.get("rightBorder"); x += blocks.get("dist")) {
-                var blx = blocks.get("block_" + x.toString() + "_x");
-                var bltype = blocks.get("block_" + x.toString() + "_type");
-                var blwidth = blocks.get("width");
+                spX = padding.get('max_speed_x') * (ball_speed_x / __ball_speed);
+                result = this._collision(
+                    {   // rect
+                        x: blocks.get('block_' + i.toString() + '_x') - blocks_width / 2,
+                        y: blocks.get('block_' + i.toString() + '_y') - blocks_height / 2,
+                        w: blocks_width,
+                        h: blocks_height,
+                        speed_x: spX
+                    },
+                    {   // ball
+                        x: ball_x,
+                        y: ball_y,
+                        r: ball_r,
+                        rot: ball_rotation,
+                        rot_inc: ball_rotation_inc
+                    }
+                );
 
-                if (ny + radius > gameHeight - gameTopOffset - gameBottomOffset && nx > x - blwidth / 2 && nx < x + blwidth / 2) {
-                    nangle = -pangle;
-                    nx = px + pvelocity * Math.cos(nangle);
-                    ny = py + pvelocity * Math.sin(nangle);
-                    this.game.addScore(blocks.get("type_" + bltype.toString() + "_score"));
-                    bltype += 1;
-                    if (bltype > blocks.get("type_count"))
-                        bltype = 1;
-                    blocks.set("block_" + x.toString() + "_type", bltype);
+                if (result.is) {
+                    ball_speed_x += result.vector_x;
+                    ball_speed_y += result.vector_y;
+                    if (this.get("bonus") == "strength") 
+                        hp = 0;
+                    else 
+                        hp -= 1;
+                    blocks.set('block_' + i.toString() + '_hp', hp);
+                    if (hp <= 0) {
+                        blocks.ballDestroyBlock(i);
+                        game.addScore(20);
+                        this.get('scoreDiv').innerHTML = game.getScore();
+                        var win = blocks.isWinGame();
+                        if (win) {
+                            this.set("game_over", true);
+                        }
+                    }
                 }
             }
-            if (ny + radius < 0) {
-                this.set("game_over", true);
-            }
-            this.set('prevx', px);
-            this.set('prevy', py);
-            this.set('x', nx);
-            this.set('y', ny);
-            this.set('angle', nangle);
 
-            var scoreDiv = this.get("scoreDiv");
-            scoreDiv.innerHTML = this.game.getScore().toString();
+            if (ball_y < 0) {
+                var life = this.get("life");
+                if (life > 0) {
+                    this.set("life", life - 1);
+                    this.get("lifeDiv").innerHTML = life - 1;
+                    ball_speed_y *= -1;
+                    ball_y = this.get("prevy") + 2*ball_speed_y;
+                } else {
+                    this.set("game_over", true);
+                }
+            }
+
+            this.set('x', ball_x);
+            this.set('y', ball_y);
+            this.set('angle', Math.atan2(ball_speed_y, ball_speed_x));
+            this.set('speed', Math.sqrt(ball_speed_x*ball_speed_x + ball_speed_y*ball_speed_y));
+            this.set('rotation', ball_rotation);
+
+            padding.set('speed_x', padding_speed_x);
+            padding.set('speed_y', padding_speed_y);
+            return;
+        },
+        setBonus: function(type) {
+            if (this.get("bonus") == "velocity" && type != 4) {
+                var padding = this.get('padding');
+                padding.set('max_speed_x', padding.get('default_max_speed_x'));
+                padding.set('max_speed_y', padding.get('default_max_speed_y'));
+                padding.set('acceleration_x', padding.get('default_acceleration_x'));
+                padding.set('acceleration_y', padding.get('default_acceleration_y'));
+                padding.set('friction_x', padding.get('default_friction_x'));
+                padding.set('friction_y', padding.get('default_friction_y'));
+                this.set('velocity', this.get('velocity')/1.5);
+            }
+
+            /*
+                max_speed_x: 150,
+                max_speed_y: 75,
+                acceleration_x: 175,
+                acceleration_y: 175,
+                friction_x: 50,
+                friction_y: 50,
+            */
+
+            switch(type) {
+                case 2:     // velocity
+                    this.set("bonus", "velocity");
+                    var padding = this.get('padding');
+                    padding.set('max_speed_x', 200);
+                    padding.set('max_speed_y', 150);
+                    padding.set('acceleration_x', 10000);
+                    padding.set('acceleration_y', 10000);
+                    padding.set('friction_x', 1000);
+                    padding.set('friction_y', 1000);
+                    this.set('velocity', this.get('velocity')*1.5);
+                    break;
+                case 3:     // strength
+                    this.set("bonus", "strength");
+                    break;
+                case 4:     // life
+                    this.set('life', this.get('life') + 1);
+                    this.get("lifeDiv").innerHTML = this.get('life');
+                    break;
+                default:
+                    this.set("bonus", "none");
+            }
+
+            if (this.get("bonus") != "none") {
+                this.set("bonus_time", 10);
+            }
         },
         restart: function() {
             this.set("prevx", this.get("x"));
             this.set("prevy", this.get("y"));
 
+            this.set("life", 1);
             this.set("x", this.get('default_x'));
             this.set("y", this.get('default_y'));
             this.set("radius", this.get('default_radius'));
@@ -13175,23 +13663,34 @@ define('views/ball',[
 ) {
     var View = Backbone.View.extend({
         initialize: function(options) {
-            this.model.on("change:x change:y", this.render, this);
+            //this.model.on("change:x change:y", this.render, this);
             this.context = options.context;
-            this.render();
+            this.image = options.image;
+            this.image_angle = 0;
+            //this.render();
         },
         render: function() {
-            var radius = this.model.get('radius');
+            var r = this.model.get('radius');
             var x = this.model.get('x');
             var y = this.model.get('y');
             var prevx = this.model.get('prevx');
             var prevy = this.model.get('prevy');
 
-            this.context.clearRect(prevx - 2*radius, prevy - 2*radius, 2*2*radius, 2*2*radius);
+            this.context.clearRect(prevx - 2*r, prevy - 2*r, 2*2*r, 2*2*r);
+            this.context.clearRect(this.model.get('default_x') - 2*r, this.model.get('default_y') - 2*r, 2*2*r, 2*2*r);
             if (!this.model.get("game_over")) {
-                this.context.beginPath();
-                this.context.arc(x, y, radius, 0, 2 * Math.PI, true);
-                this.context.fillStyle = 'red';
-                this.context.fill();
+                var angle = this.image_angle + this.model.get('rotation');
+                var sin = Math.sin(angle);
+                var cos = Math.cos(angle);
+
+                this.context.translate(x, y);
+                this.context.transform(cos, sin, -sin, cos, 0, 0);
+                
+                this.context.drawImage(this.image, -r, -r, 2*r, 2*r);
+                
+                this.image_angle = angle;
+                this.context.transform(cos, -sin, sin, cos, 0, 0);
+                this.context.translate(-x, -y);
             }
         },
         show: function() {
@@ -13201,7 +13700,7 @@ define('views/ball',[
     });
     return View;
 });
-define('tmpl/game_over',[],function () {return function (__fest_context){var __fest_self=this,__fest_buf="",__fest_chunks=[],__fest_chunk,__fest_attrs=[],__fest_select,__fest_if,__fest_iterator,__fest_to,__fest_fn,__fest_html="",__fest_blocks={},__fest_params,__fest_element,__fest_debug_file="",__fest_debug_line="",__fest_debug_block="",__fest_htmlchars=/[&<>"]/g,__fest_htmlchars_test=/[&<>"]/,__fest_short_tags = {"area":true,"base":true,"br":true,"col":true,"command":true,"embed":true,"hr":true,"img":true,"input":true,"keygen":true,"link":true,"meta":true,"param":true,"source":true,"wbr":true},__fest_element_stack = [],__fest_htmlhash={"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"},__fest_jschars=/[\\'"\/\n\r\t\b\f<>]/g,__fest_jschars_test=/[\\'"\/\n\r\t\b\f<>]/,__fest_jshash={"\"":"\\\"","\\":"\\\\","/":"\\/","\n":"\\n","\r":"\\r","\t":"\\t","\b":"\\b","\f":"\\f","'":"\\'","<":"\\u003C",">":"\\u003E"},___fest_log_error;if(typeof __fest_error === "undefined"){___fest_log_error = (typeof console !== "undefined" && console.error) ? function(){return Function.prototype.apply.call(console.error, console, arguments)} : function(){};}else{___fest_log_error=__fest_error};function __fest_log_error(msg){___fest_log_error(msg+"\nin block \""+__fest_debug_block+"\" at line: "+__fest_debug_line+"\nfile: "+__fest_debug_file)}function __fest_replaceHTML(chr){return __fest_htmlhash[chr]}function __fest_replaceJS(chr){return __fest_jshash[chr]}function __fest_extend(dest, src){for(var i in src)if(src.hasOwnProperty(i))dest[i]=src[i];}function __fest_param(fn){fn.param=true;return fn}function __fest_call(fn, params,cp){if(cp)for(var i in params)if(typeof params[i]=="function"&&params[i].param)params[i]=params[i]();return fn.call(__fest_self,params)}function __fest_escapeJS(s){if (typeof s==="string") {if (__fest_jschars_test.test(s))return s.replace(__fest_jschars,__fest_replaceJS);} else if (typeof s==="undefined")return "";return s;}function __fest_escapeHTML(s){if (typeof s==="string") {if (__fest_htmlchars_test.test(s))return s.replace(__fest_htmlchars,__fest_replaceHTML);} else if (typeof s==="undefined")return "";return s;}var json=__fest_context;__fest_buf+=("<div class=\"content font_type\"><div class=\"content__title\">ARCANOID</div><div class=\"content__main\">Game Over</div><div class=\"content__main\">Your Score:");try{__fest_buf+=(__fest_escapeHTML(json.score))}catch(e){__fest_log_error(e.message + "4");}__fest_buf+=("</div><form id=\"gameOverForm\"><input type=\"text\" class=\"scoreform \" id=\"username\"/><input type=\"submit\" class=\"content__button\"/></form></div>");__fest_to=__fest_chunks.length;if (__fest_to) {__fest_iterator = 0;for (;__fest_iterator<__fest_to;__fest_iterator++) {__fest_chunk=__fest_chunks[__fest_iterator];if (typeof __fest_chunk==="string") {__fest_html+=__fest_chunk;} else {__fest_fn=__fest_blocks[__fest_chunk.name];if (__fest_fn) __fest_html+=__fest_call(__fest_fn,__fest_chunk.params,__fest_chunk.cp);}}return __fest_html+__fest_buf;} else {return __fest_buf;}} ; });
+define('tmpl/game_over',[],function () {return function (__fest_context){var __fest_self=this,__fest_buf="",__fest_chunks=[],__fest_chunk,__fest_attrs=[],__fest_select,__fest_if,__fest_iterator,__fest_to,__fest_fn,__fest_html="",__fest_blocks={},__fest_params,__fest_element,__fest_debug_file="",__fest_debug_line="",__fest_debug_block="",__fest_htmlchars=/[&<>"]/g,__fest_htmlchars_test=/[&<>"]/,__fest_short_tags = {"area":true,"base":true,"br":true,"col":true,"command":true,"embed":true,"hr":true,"img":true,"input":true,"keygen":true,"link":true,"meta":true,"param":true,"source":true,"wbr":true},__fest_element_stack = [],__fest_htmlhash={"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"},__fest_jschars=/[\\'"\/\n\r\t\b\f<>]/g,__fest_jschars_test=/[\\'"\/\n\r\t\b\f<>]/,__fest_jshash={"\"":"\\\"","\\":"\\\\","/":"\\/","\n":"\\n","\r":"\\r","\t":"\\t","\b":"\\b","\f":"\\f","'":"\\'","<":"\\u003C",">":"\\u003E"},___fest_log_error;if(typeof __fest_error === "undefined"){___fest_log_error = (typeof console !== "undefined" && console.error) ? function(){return Function.prototype.apply.call(console.error, console, arguments)} : function(){};}else{___fest_log_error=__fest_error};function __fest_log_error(msg){___fest_log_error(msg+"\nin block \""+__fest_debug_block+"\" at line: "+__fest_debug_line+"\nfile: "+__fest_debug_file)}function __fest_replaceHTML(chr){return __fest_htmlhash[chr]}function __fest_replaceJS(chr){return __fest_jshash[chr]}function __fest_extend(dest, src){for(var i in src)if(src.hasOwnProperty(i))dest[i]=src[i];}function __fest_param(fn){fn.param=true;return fn}function __fest_call(fn, params,cp){if(cp)for(var i in params)if(typeof params[i]=="function"&&params[i].param)params[i]=params[i]();return fn.call(__fest_self,params)}function __fest_escapeJS(s){if (typeof s==="string") {if (__fest_jschars_test.test(s))return s.replace(__fest_jschars,__fest_replaceJS);} else if (typeof s==="undefined")return "";return s;}function __fest_escapeHTML(s){if (typeof s==="string") {if (__fest_htmlchars_test.test(s))return s.replace(__fest_htmlchars,__fest_replaceHTML);} else if (typeof s==="undefined")return "";return s;}var json=__fest_context;__fest_buf+=("<div class=\"content font_type\"><div class=\"content__title\">ARCANOID</div><div class=\"content__main win__game\"></div><div class=\"content__main\">Your Score:");try{__fest_buf+=(__fest_escapeHTML(json.score))}catch(e){__fest_log_error(e.message + "4");}__fest_buf+=("</div><form id=\"gameOverForm\"><input type=\"text\" class=\"scoreform \" id=\"username\"/><input type=\"submit\" class=\"content__button\"/></form><input class=\"content__button restart__game\" type=\"button\" value=\"Restart\"/></div>");__fest_to=__fest_chunks.length;if (__fest_to) {__fest_iterator = 0;for (;__fest_iterator<__fest_to;__fest_iterator++) {__fest_chunk=__fest_chunks[__fest_iterator];if (typeof __fest_chunk==="string") {__fest_html+=__fest_chunk;} else {__fest_fn=__fest_blocks[__fest_chunk.name];if (__fest_fn) __fest_html+=__fest_call(__fest_fn,__fest_chunk.params,__fest_chunk.cp);}}return __fest_html+__fest_buf;} else {return __fest_buf;}} ; });
 define('views/game_over',[
     'backbone',
     'tmpl/game_over',
@@ -13221,22 +13720,36 @@ define('views/game_over',[
                 score: this.score
             }));
             $('.content_wrapper').append(this.$el);
+            this.hidden = false;
             this.hide();
         },
         render: function() {
             this.$el.html(this.template({
                 score: this.score
             }));
+
+            $(document).find('.win__game')[0].innerHTML = this.winGame ? "Затащил" : "Потрачено";
+            $(document).find('#gameOverForm')[0].style.display = this.winGame ? "" : "none";
+            $(document).find('.restart__game')[0].style.display = this.winGame ? "none" : "";
+
+            $('.restart__game', this.el).on('click', this.hide.bind(this));
             $('#gameOverForm', this.el).on('submit', this.addResult.bind(this));
             return this;
         },
-        show: function(score) {
+        show: function(score, winGame) {
             this.score = score;
+            this.winGame = winGame;
+            this.hidden = false;
+
             this.render();
             this.$el.show();
         },
         hide: function() {
+            this.hidden = true;
             this.$el.hide();
+        },
+        isHidden: function() {
+            return this.hidden;
         },
         addResult: function(event) {
             event.preventDefault();
@@ -13271,27 +13784,33 @@ define('views/game',[
         bgImagePath: 'css/images/bgImage.jpg',
         basePaddingWidth: 80,
         basePaddingHeight: 20,
-        baseGameWidth: 360,
+        baseGameWidth: 640,
         baseGameHeight: 640,
-        baseBottomOffset: 40,
+        baseBottomOffset: 10,
         baseLeftOffset: 20,
         baseRightOffset: 20,
-        baseTopOffset: 100,
-        baseBallRadius: 10,
+        baseTopOffset: 90,
+        baseBallRadius: 18,
         game: null,
         canvas: null,
         context: null,
         canvas2: null,
         context2: null,
+        canvas3: null,
+        context3: null,
         paddingModel: null,
         paddingView: null,
         blocksModel: null,
         blocksView: null,
         ballModel: null,
         ballView: null,
-        FPS: 50,
-        leftButtonPressed: false,
-        rigthButtonPressed: false,
+        FPS: 100,
+        lastFrapTime: null,
+        deltaFrapTime: 0,
+        leftKeyPressed: false,
+        rigthKeyPressed: false,
+        upKeyPressed: false,
+        downKeyPressed: false,
 
         initialize: function() {
             this.$el.html(this.template());
@@ -13308,6 +13827,12 @@ define('views/game',[
             this.canvas2.height = this.baseGameHeight;
             this.context2.setTransform(1, 0, 0, -1, this.canvas2.width / 2, this.canvas2.height - this.baseBottomOffset);
 
+            this.canvas3 = this.$el.find(".game__position")[2];
+            this.context3 = this.canvas3.getContext("2d");
+            this.canvas3.width = this.baseGameWidth;
+            this.canvas3.height = this.baseGameHeight;
+            this.context3.setTransform(1, 0, 0, -1, this.canvas2.width / 2, this.canvas2.height - this.baseBottomOffset);
+
             this.game = new Game({
                 width: this.canvas.width,
                 height: this.canvas.height,
@@ -13317,6 +13842,17 @@ define('views/game',[
                 bottomOffset: this.baseBottomOffset
             });
             this.paddingModel = new PaddingModel({
+                x: 0,                           // center of block
+                y: this.baseBottomOffset + 25,  // center of block
+                max_y: this.baseBottomOffset + 200,
+                speed_x: 0,
+                speed_y: 0,
+                max_speed_x: 150,                     // speed use when user press key
+                max_speed_y: 75,
+                acceleration_x: 175,
+                acceleration_y: 175,
+                friction_x: 50,
+                friction_y: 50,
                 width: this.basePaddingWidth,
                 height: this.basePaddingHeight,
                 game: this.game
@@ -13326,26 +13862,38 @@ define('views/game',[
                 model: this.paddingModel
             });
             this.blocksModel = new BlocksModel({
-                game: this.game
+                game: this.game,
+                padding: this.paddingModel
             });
             this.blocksView = new BlocksView({
                 context: this.context,
+                context_bonus: this.context3,
                 model: this.blocksModel
             });
             this.ballModel = new BallModel({
                 x: 0,
-                y: this.baseBallRadius,
+                y: this.paddingModel.get("y") + 1.5*this.baseBallRadius,
                 radius: this.baseBallRadius,
                 game: this.game,
-                velocity: 5,
+                velocity: 200,
                 angle: Math.PI / 4 + Math.PI / 2 * Math.random(),
+                rotation: -6 * Math.PI / 180,
+                rotation_inc: 0,
+                friction: 1,
                 padding: this.paddingModel,
                 blocks: this.blocksModel,
-                scoreDiv: this.$el.find(".game__info")[0]
+                scoreDiv: this.$el.find(".game__score")[0],
+                lifeDiv: this.$el.find(".game__life")[0],
+                bonusDiv: this.$el.find(".game__bonus")[0]
             });
+            this.blocksModel.set('ball', this.ballModel);
+            var ballImage = new Image();
+            ballImage.src = '/css/images/ball3.png';
+            
             this.ballView = new BallView({
                 context: this.context2,
-                model: this.ballModel
+                model: this.ballModel,
+                image: ballImage
             });
             this.gameOverView = new GameOverView({
                 score: 1 // this.game.get("score") ?
@@ -13359,8 +13907,17 @@ define('views/game',[
 
             var loader = $(document).find('.resources__loader')[0];
             loader.style.display = 'none';
+
+            this.lastFrapTime = (new Date()).getTime();
         },
         render: function() {
+            this.context.beginPath();
+            this.context.strokeStyle = '#777777';
+            this.context.strokeRect(  -this.canvas.width/2 + this.baseLeftOffset,
+                                this.baseBottomOffset,
+                                this.baseGameWidth - this.baseLeftOffset - this.baseRightOffset,
+                                this.baseGameHeight - this.baseTopOffset - 2*this.baseBottomOffset);
+            this.context.closePath();
             return this;
         },
         show: function() {
@@ -13373,17 +13930,25 @@ define('views/game',[
         keydown: function(e) {
             switch (e.keyCode) {
                 case 37:
-                    this.leftButtonPressed = true;
+                    this.leftKeyPressed = true;
+                    break;
+                case 38:
+                    this.upKeyPressed = true;
                     break;
                 case 39:
-                    this.rigthButtonPressed = true;
+                    this.rigthKeyPressed = true;
+                    break;
+                case 40:
+                    this.downKeyPressed = true;
                     break;
                 case 32:
-                    var stopped = this.game.get('stop');
-                    if (stopped)
-                        this.game.start();
-                    else
-                        this.game.pause();
+                    if (this.gameOverView.isHidden()) {
+                        var stopped = this.game.get('stop');
+                        if (stopped)
+                            this.game.start();
+                        else
+                            this.game.pause();
+                    }
                     break;
                 default:
                     break;
@@ -13392,34 +13957,48 @@ define('views/game',[
         keyup: function(e) {
             switch (e.keyCode) {
                 case 37:
-                    this.leftButtonPressed = false;
+                    this.leftKeyPressed = false;
+                    break;
+                case 38:
+                    this.upKeyPressed = false;
                     break;
                 case 39:
-                    this.rigthButtonPressed = false;
+                    this.rigthKeyPressed = false;
+                    break;
+                case 40:
+                    this.downKeyPressed = false;
                     break;
                 default:
                     break;
             }
         },
         step: function() {
-            if (this.ballModel.get("game_over")) {
-
-            }
+            var currentFrapTime = (new Date()).getTime();
+            var lastFrapTime = this.game.get('lastFrapTime');
+            this.game.set('deltaFrapTime', (currentFrapTime - lastFrapTime)/1000);
+            this.game.set('lastFrapTime', currentFrapTime);
 
             var stopped = this.game.get('stop');
             if (!stopped) {
-                if (this.leftButtonPressed)
-                    this.paddingModel.moveLeft();
-                if (this.rigthButtonPressed)
-                    this.paddingModel.moveRight();
-                this.ballModel.move(this.leftButtonPressed, this.rigthButtonPressed);
+                this.paddingModel.move(this.leftKeyPressed, this.rigthKeyPressed, this.upKeyPressed, this.downKeyPressed);
+            
+                this.ballModel.move();
                 if (this.ballModel.get("game_over")) {
                     this.thisGameOver();
                 }
+
+                //this.blocksModel.recovery();
+                this.blocksModel.step();
             }
+
+            this.blocksView.render();
+            this.ballView.render();
+            this.paddingView.render();
+            this.render();
         },
         thisGameOver: function(e) {
             var score = this.game.get("score");
+            this.blocksView.clearAll();
             this.game.restart();
             this.paddingModel.restart();
             this.blocksModel.restart();
@@ -13427,7 +14006,7 @@ define('views/game',[
             this.ballModel.set("game_over", false);
             this.ballView.render();
 
-            this.gameOverView.show(score);
+            this.gameOverView.show(score, this.blocksModel.isWinGame());
         }
     });
     return new View();

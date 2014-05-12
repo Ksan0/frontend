@@ -31,6 +31,7 @@
     "artist": "~0.1.5",
     "guid": "0.0.10",
     "socket.io": "~0.9.16",
-    "grunt-autoprefixer": "0.7.x"
+    "grunt-autoprefixer": "0.7.x",
+    "grunt-modernizr": "~0.5.2"
   }
 }
