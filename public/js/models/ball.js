@@ -241,7 +241,7 @@ define([
                 padding.set('acceleration_y', padding.get('default_acceleration_y'));
                 padding.set('friction_x', padding.get('default_friction_x'));
                 padding.set('friction_y', padding.get('default_friction_y'));
-                this.set('velocity', this.get('velocity')/1.5);
+                this.set('velocity', this.get('velocity')/1.25);
             }
 
             /*
@@ -263,7 +263,7 @@ define([
                     padding.set('acceleration_y', 10000);
                     padding.set('friction_x', 1000);
                     padding.set('friction_y', 1000);
-                    this.set('velocity', this.get('velocity')*1.5);
+                    this.set('velocity', this.get('velocity')*1.25);
                     break;
                 case 3:     // strength
                     this.set("bonus", "strength");
@@ -291,8 +291,8 @@ define([
             this.set("velocity", this.get('default_velocity'));
             this.set("angle", this.get('default_angle'));
 
-            var scoreDiv = this.get("scoreDiv");
-            scoreDiv.innerHTML = "0";
+            this.get("scoreDiv").innerHTML = "0";
+            this.get("lifeDiv").innerHTML = this.get("life");
         }
     });
     return Model;

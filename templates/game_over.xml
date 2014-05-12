@@ -8,6 +8,7 @@
                     <input type="text" class="scoreform " id="username" />
                     <input type="submit" class="content__button" />
                 </form>
-                <input class="content__button restart__game" type="button" value="Restart" />
+                <input class="content__button hide__gameover" type="button" value="Restart" />
+                <a class="content__button hide__gameover" href="#main">Menu</a>
             </div>
 </fest:template>
