@@ -291,8 +291,8 @@ define([
             this.set("velocity", this.get('default_velocity'));
             this.set("angle", this.get('default_angle'));
 
-            var scoreDiv = this.get("scoreDiv");
-            scoreDiv.innerHTML = "0";
+            this.get("scoreDiv").innerHTML = "0";
+            this.get("lifeDiv").innerHTML = this.get("life");
         }
     });
     return Model;
