@@ -15,7 +15,12 @@
         "/>
     </head>
     <body>
-        <div class="joystick-wrapper">
+        <div class="joystick-wrapper token">
+            <input type="text" class="scoreform token-input"/>
+            <div class="game__button">submit</div>
+        </div>
+
+        <div class="joystick-wrapper main" style="visibility: hidden">
             <div class="position-up">
                 <img class="img-size" src="/css/images/arrow.png"/>
             </div>
