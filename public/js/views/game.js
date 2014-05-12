@@ -47,20 +47,72 @@ define([
 
         initialize: function() {
 
+            var self = this;
             var start, init, reconnect;
 
-            this.server = new Connector({
-                server: ['getToken', 'bind'],
-                remote: '/console'
-            });
+            // Создаем связь с сервером
+            var server = new Connector({
+                    server: ['getToken', 'bind'],
+                    remote: '/console'
+                }
+            );
 
-            this.server.on('player-joined', function(data){
+            // На подключении игрока стартуем игру
+            server.on('player-joined', function(data){
                 // Передаем id связки консоль-джостик
                 start(data.guid);
             });
 
-            
+            // Инициализация
+            init = function(){
+                // Если id нет
+                if (!localStorage.getItem('consoleguid')){
+                    // Получаем токен
+                    server.getToken(function(token){
+                        self.token = token;
+                        self.insertToken();
+                    });
+                } else { // иначе
+                    // переподключаемся к уже созданной связке
+                    reconnect();
+                }
+            };
 
+            // Переподключение
+            reconnect = function(){
+                // Используем сохранненный id связки
+                server.bind({guid: localStorage.getItem('consoleguid')}, function(data){
+                    // Если все ок
+                    if (data.status == 'success'){
+                        // Стартуем
+                        start(data.guid);
+                    // Если связки уже нет
+                    } else if (data.status == 'undefined guid'){
+                        // Начинаем все заново
+                        localStorage.removeItem('consoleguid');
+                        init();
+                    }
+                });
+            };
+
+            server.on('reconnect', reconnect);
+
+            // Старт игры
+            start = function(guid){
+                console.log('start console');
+                // Сохраняем id связки
+                localStorage.setItem('consoleguid', guid);
+            };
+
+            init();
+
+            // Обмен сообщениями
+            server.on('message', function(data, answer){
+                console.log('message', data);
+                answer('answer');
+            });
+
+            window.server = server;
 
 
             this.$el.html(this.template());
@@ -159,6 +211,12 @@ define([
             loader.style.display = 'none';
 
             this.lastFrapTime = (new Date()).getTime();
+        },
+
+        insertToken: function() {
+            var tokenItem = this.$el.find('.token-place')[0];
+            tokenItem.innerHTML = this.token;
+            console.log(tokenItem);
         },
         render: function() {
             this.context.beginPath();

@@ -16,8 +16,10 @@
     </head>
     <body>
         <div class="joystick-wrapper token">
-            <input type="text" class="token-input" id="token"/>
-            <div class="token-button">OK</div>
+            <form>
+                <input type="text" class="token-input" id="token"/>
+                <button class="token-button" type="submit">OK</button>
+            </form>
         </div>
 
         <div class="joystick-wrapper main" style="visibility: hidden">
