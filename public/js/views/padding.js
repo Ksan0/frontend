@@ -19,9 +19,9 @@ define([
             this.context.fillRect(x - width / 2, -height, width, height);
         },
         show: function() {
-
         },
-        hide: function() {}
+        hide: function() {
+        }
     });
     return View;
 });
