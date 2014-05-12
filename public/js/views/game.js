@@ -81,8 +81,8 @@ define([
                 speed_y: 0,
                 max_speed_x: 150,                     // speed use when user press key
                 max_speed_y: 75,
-                acceleration_x: 175,
-                acceleration_y: 175,
+                acceleration_x: 200,
+                acceleration_y: 200,
                 friction_x: 50,
                 friction_y: 50,
                 width: this.basePaddingWidth,

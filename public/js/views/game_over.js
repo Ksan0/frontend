@@ -27,9 +27,9 @@ define([
 
             $(document).find('.win__game')[0].innerHTML = this.winGame ? "Затащил" : "Потрачено";
             $(document).find('#gameOverForm')[0].style.display = this.winGame ? "" : "none";
-            $(document).find('.restart__game')[0].style.display = this.winGame ? "none" : "";
+            $(document).find('.hide__gameover')[0].style.display = this.winGame ? "none" : "";
 
-            $('.restart__game', this.el).on('click', this.hide.bind(this));
+            $('.hide__gameover', this.el).on('click', this.hide.bind(this));
             $('#gameOverForm', this.el).on('submit', this.addResult.bind(this));
             return this;
         },
