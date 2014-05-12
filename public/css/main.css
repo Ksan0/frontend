@@ -12,7 +12,7 @@ body {
   right: 0;
   margin: 1% auto;
   height: 620px;
-  width: 360px;
+  width: 640px;
   background-image: url(images/bg.jpg); }
 
 .content__title {
@@ -35,7 +35,7 @@ body {
   right: 0;
   margin: 1% auto;
   height: 620px;
-  width: 360px;
+  width: 640px;
   font-size: 250%;
   font-weight: 900;
   text-shadow: 1px 1px 2px #e2bdbd, 0 0 1em white;
@@ -49,7 +49,7 @@ body {
   right: 0;
   margin: 1% auto;
   height: 620px;
-  width: 360px; }
+  width: 640px; }
 
 .game__info {
   margin: 3% 4%;
@@ -153,7 +153,7 @@ body {
     top: 1px; }
 
 .btn__pause {
-  color: #F08080;
+  color: black;
   opacity: 0.4;
   background-color: #F0FFFF;
   border-radius: 50%;
@@ -161,22 +161,22 @@ body {
   display: inline-block;
   text-decoration: none;
   text-align: center;
-  box-shadow: 0px 0px 30px 3px black; }
+  box-shadow: 0px 0px 30px 3px #faf5f5; }
   @media screen and (min-width: 1280px) {
-    .btn__pause {
-      width: 800px;
-      height: 800px;
-      font-size: 400px; } }
-  @media screen and (min-width: 720px) {
     .btn__pause {
       width: 400px;
       height: 400px;
       font-size: 200px; } }
-  @media screen and (min-width: 320px) {
+  @media screen and (min-width: 720px) {
     .btn__pause {
       width: 200px;
       height: 200px;
-      font-size: 50px; } }
+      font-size: 100px; } }
+  @media screen and (min-width: 320px) {
+    .btn__pause {
+      width: 100px;
+      height: 100px;
+      font-size: 25px; } }
   .btn__pause:active {
     background-color: grey; }
 
@@ -187,6 +187,34 @@ body {
   -webkit-transform: translate(0, -50%);
   -ms-transform: translate(0, -50%);
   transform: translate(0, -50%); }
+
+.triangle-up {
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-bottom: 70px solid red; }
+
+.triangle-down {
+  width: 0;
+  height: 0;
+  border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
+  border-top: 70px solid red; }
+
+.triangle-left {
+  width: 0;
+  height: 0;
+  border-top: 30px solid transparent;
+  border-right: 70px solid red;
+  border-bottom: 30px solid transparent; }
+
+.triangle-right {
+  width: 0;
+  height: 0;
+  border-top: 30px solid transparent;
+  border-left: 70px solid red;
+  border-bottom: 30px solid transparent; }
 
 .font_type {
   font-size: 17px;

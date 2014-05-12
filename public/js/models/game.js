@@ -23,7 +23,7 @@ define([
             this.set('stop', true);
         },
         over: function() {
-            this.trigger("gameOver");
+            //this.trigger("gameOver");
         },
         restart: function () {
             this.set("stop", true);

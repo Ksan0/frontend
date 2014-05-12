@@ -1,12 +1,21 @@
 <fest:template xmlns:fest="http://fest.mail.ru"
     context_name="json">
         <div class="content"></div>
-        <canvas class="game__position" width="500" height="500"></canvas>
-        <canvas class="game__position" width="500" height="500"></canvas>
+        <canvas class="game__position"></canvas>
+        <canvas class="game__position"></canvas>
+        <canvas class="game__position"></canvas>
         <div class="game">
             <div class="game__navbar">
                 <a href="#main" class="game__button">&#8656;</a>
-                <div class="game__info">0</div>
+                <div class="game__info">Score:</div>
+                <div class="game__info game__score">0</div>
+                |
+                <div class="game__info">Life:</div>
+                <div class="game__info game__life">1</div>
+                |
+                <div class="game__info game__bonus"></div>
+                <!--div class="game__info">Bonus:</div>
+                <div class="game__info game__bonus">None</div-->
             </div>           
         </div>
 </fest:template>

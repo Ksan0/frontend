@@ -2,3 +2,8 @@ node_modules/*
 stylesheets/*
 =======
 node_modules
+
+.idea/
+.sass-cache
+build.js
+build.min.js
