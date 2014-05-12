@@ -41,7 +41,8 @@ $fonttype: Georgia, serif;
 }
 
 .game__button {  
-  @include shadow(inset 3px -10px 25px -5px #0d0304);
+  @include shadow(-1px 0px 12px 5px #38c1eb);
+  box-shadow: -1px 0px 12px 5px #38c1eb;
   border-radius:41px;
   margin: 0 2%;
   background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #fa0000), color-stop(1, #1f0707) );
@@ -114,4 +115,43 @@ $fonttype: Georgia, serif;
   position: relative;
   top: 50%;
   @include transform(0, -50%); 
+}
+
+
+.token-button {
+  margin: 20px;
+  @include shadow(-1px 0px 12px 5px #38c1eb);
+  background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #4dc1eb) );
+  background:-moz-linear-gradient( center top, #ffffff 5%, #4dc1eb 100% );
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#4dc1eb');
+  background-color:#ffffff;
+  border-radius: 18px;
+  border:5px solid #4addf0;
+  display:inline-block;
+  color:black;
+  height:70px;
+  line-height:70px;
+  width:90px;
+  font:{
+    family:Georgia;
+    size:15px;
+    weight:bold;
+    style:normal;
+  }  
+  text:{
+    decoration:none;
+    align:center;
+    shadow:8px 1px 27px #43e80c;
+    indent:-3px;
+  }
+  &:hover{
+    background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #4dc1eb), color-stop(1, #ffffff) );
+    background:-moz-linear-gradient( center top, #4dc1eb 5%, #ffffff 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#4dc1eb', endColorstr='#ffffff');
+    background-color:#4dc1eb;
+  }
+  &:active {
+  position:relative;
+  top:1px;
+  }
 }

@@ -32,9 +32,10 @@
     top: 1px; }
 
 .game__button {
-  -moz-box-shadow: inset 3px -10px 25px -5px #0d0304;
-  -webkit-box-shadow: inset 3px -10px 25px -5px #0d0304;
-  box-shadow: inset 3px -10px 25px -5px #0d0304;
+  -moz-box-shadow: -1px 0px 12px 5px #38c1eb;
+  -webkit-box-shadow: -1px 0px 12px 5px #38c1eb;
+  box-shadow: -1px 0px 12px 5px #38c1eb;
+  box-shadow: -1px 0px 12px 5px #38c1eb;
   border-radius: 41px;
   margin: 0 2%;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fa0000), color-stop(1, #1f0707));
@@ -101,6 +102,39 @@
   -moz-transform: translate(0, -50%);
   transform: translate(0, -50%); }
 
+.token-button {
+  margin: 20px;
+  -moz-box-shadow: -1px 0px 12px 5px #38c1eb;
+  -webkit-box-shadow: -1px 0px 12px 5px #38c1eb;
+  box-shadow: -1px 0px 12px 5px #38c1eb;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, white), color-stop(1, #4dc1eb));
+  background: -moz-linear-gradient(center top, white 5%, #4dc1eb 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#4dc1eb');
+  background-color: #ffffff;
+  border-radius: 18px;
+  border: 5px solid #4addf0;
+  display: inline-block;
+  color: black;
+  height: 70px;
+  line-height: 70px;
+  width: 90px;
+  font-family: Georgia;
+  font-size: 15px;
+  font-weight: bold;
+  font-style: normal;
+  text-decoration: none;
+  text-align: center;
+  text-shadow: 8px 1px 27px #43e80c;
+  text-indent: -3px; }
+  .token-button:hover {
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #4dc1eb), color-stop(1, white));
+    background: -moz-linear-gradient(center top, #4dc1eb 5%, white 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4dc1eb', endColorstr='#ffffff');
+    background-color: #4dc1eb; }
+  .token-button:active {
+    position: relative;
+    top: 1px; }
+
 body {
   margin: 0;
   padding: 0;
@@ -108,10 +142,22 @@ body {
   width: 100%;
   background-color: black; }
 
+.token-input {
+  width: 150px;
+  height: 90px;
+  font-size: 30px;
+  font-family: Georgia, serif;
+  text-align: center;
+  border-radius: 25%;
+  border: 5px solid #4addf0;
+  -moz-box-shadow: -1px 0px 12px 9px #38c1eb;
+  -webkit-box-shadow: -1px 0px 12px 9px #38c1eb;
+  box-shadow: -1px 0px 12px 9px #38c1eb; }
+
 .token {
   text-align: center;
   position: relative;
-  top: 50%;
+  top: 30%;
   -webkit-transform: translate(0, -50%);
   -moz-transform: translate(0, -50%);
   transform: translate(0, -50%); }

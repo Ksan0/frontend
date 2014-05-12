@@ -10,12 +10,21 @@ body {
   background-color: black; 
 }
 
+.token-input {
+  width: 150px;
+  height: 90px;
+  font-size:30px;
+  font-family: Georgia, serif;;
+  text-align: center;
+  border-radius: 25%;
+  border:5px solid #4addf0;
+  @include shadow(-1px 0px 12px 9px #38c1eb);
+}
 
-.token {
-  
-  text-align:center;
+.token {  
+  text-align: center;
   position: relative;
-  top: 50%;
+  top: 30%;
   @include transform(0, -50%);
 }
 

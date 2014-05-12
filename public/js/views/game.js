@@ -46,6 +46,23 @@ define([
         downKeyPressed: false,
 
         initialize: function() {
+
+            var start, init, reconnect;
+
+            this.server = new Connector({
+                server: ['getToken', 'bind'],
+                remote: '/console'
+            });
+
+            this.server.on('player-joined', function(data){
+                // Передаем id связки консоль-джостик
+                start(data.guid);
+            });
+
+            
+
+
+
             this.$el.html(this.template());
             $('.content_wrapper').append(this.$el);
             this.canvas = this.$el.find(".game__position")[0];
