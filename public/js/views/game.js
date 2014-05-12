@@ -1,5 +1,6 @@
 define([
     'backbone',
+    'Connector',
     'tmpl/game',
     'models/game',
     'models/padding',
@@ -9,7 +10,7 @@ define([
     'models/ball',
     'views/ball',
     'views/game_over'
-], function (Backbone, tmpl, Game, PaddingModel, PaddingView, BlocksModel, BlocksView, BallModel, BallView, GameOverView) {
+], function (Backbone, Connector, tmpl, Game, PaddingModel, PaddingView, BlocksModel, BlocksView, BallModel, BallView, GameOverView) {
 
     var View = Backbone.View.extend({
         template: tmpl,

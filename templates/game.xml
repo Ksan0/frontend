@@ -15,7 +15,7 @@
                 |
                 <div class="game__info game__bonus"></div>
                 <!--div class="game__info">ARCANOID</div>
-                <!--div class="game__info">Bonus:</div>
+                <div class="game__info">Bonus:</div>
                 <div class="game__info game__bonus">None</div-->
             </div>           
         </div>

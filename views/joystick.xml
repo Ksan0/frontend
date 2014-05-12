@@ -16,7 +16,7 @@
     </head>
     <body>
         <div class="joystick-wrapper token">
-            <input type="text" class="scoreform token-input"/>
+            <input type="text" class="scoreform token-input" id="token"/>
             <div class="game__button">submit</div>
         </div>
 
@@ -39,6 +39,7 @@
                 <img class="img-size" src="/css/images/arrow.png"/>
             </div>
         </div>
+        <script data-main="js/main_joystick" src="js/lib/require.js"></script>
     </body>
 </html>
 </fest:template>

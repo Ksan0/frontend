@@ -139,6 +139,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-autoprefixer');
+    grunt.loadNpmTasks('grunt-modernizr');
 
     grunt.registerTask('default', ['sass','express','watch']);
     grunt.registerTask('build', ['fest', 'requirejs:build','concat:build', 'uglify:build', 'autoprefixer:build']);
