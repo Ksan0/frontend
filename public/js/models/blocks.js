@@ -82,9 +82,9 @@ define([
             var min_x = -gameWidth / 2 + gameLeftOffset + 1.25*this.get('width');
             var max_x = gameWidth / 2 - gameRightOffset - this.get('width')/2;
             
-            var delta_y = 23;
+            var delta_y = 50;
             var max_y = gameHeight - gameTopOffset - 6*gameBottomOffset;
-            var min_y   = gameHeight - gameTopOffset - 12*gameBottomOffset;
+            var min_y   = gameHeight - gameTopOffset - 18*gameBottomOffset;
 
             this.set('types_count', 4);
             this.set('hp_max', 3);
@@ -103,6 +103,8 @@ define([
 
                     this.set("bonus_" + counter.toString() + "_enabled", false);
                     this.set("bonus_" + counter.toString() + "_needClear", false);
+                    this.set('bonus_' + counter.toString() + '_lastDrawX', 0);
+                    this.set('bonus_' + counter.toString() + '_lastDrawY', 0);
                     counter += 1;
                 }
             }

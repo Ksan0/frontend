@@ -54,10 +54,13 @@ define([
             for (var i = 0; i < for_data.count; i += 1) {
                 var x = this.model.get("bonus_" + i.toString() + "_x");
                 var y = this.model.get("bonus_" + i.toString() + "_y");
+                var prevx = this.model.get("bonus_" + i.toString() + "_lastDrawX");
+                var prevy = this.model.get("bonus_" + i.toString() + "_lastDrawY");
 
                 if (! this.model.get("bonus_" + i.toString() + "_enabled")) {
                     if (this.model.get("bonus_" + i.toString() + "_needClear")) {
-                        this.context_bonus.clearRect(x-0.8*bonus_width, y-0.8*bonus_height, 1.6*bonus_width, 1.6*bonus_height);
+                        this.context_bonus.clearRect(prevx-0.6*bonus_width, prevy-0.6*bonus_height, 1.2*bonus_width, 1.2*bonus_height);
+                        this.context_bonus.clearRect(x-0.6*bonus_width, y-0.6*bonus_height, 1.2*bonus_width, 1.2*bonus_height);
                         this.model.set("bonus_" + i.toString() + "_needClear", false);
                     }
                     continue;
@@ -65,10 +68,12 @@ define([
 
                 var t = this.model.get("bonus_" + i.toString() + "_type");
 
-                this.context_bonus.clearRect(x-0.8*bonus_width, y-0.8*bonus_height, 1.6*bonus_width, 1.6*bonus_height);
-            
+                this.context_bonus.clearRect(prevx-0.6*bonus_width, prevy-0.6*bonus_height, 1.2*bonus_width, 1.2*bonus_height);
+                
                 var img = this.imgs["bonus_img_" + t.toString()];
                 this.context_bonus.drawImage(img, x-bonus_width/2, y-bonus_height/2, bonus_width, bonus_height);
+                this.model.set('bonus_' + i.toString() + '_lastDrawX', x);
+                this.model.set('bonus_' + i.toString() + '_lastDrawY', y);
             }
         },
         clearAll: function() {

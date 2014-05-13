@@ -193,7 +193,7 @@ define([
                 if (result.is) {
                     ball_speed_x += result.vector_x;
                     ball_speed_y += result.vector_y;
-                    if (this.get("bonus") == "strength") 
+                    if (this.get("bonus") == "strength")
                         hp = 0;
                     else 
                         hp -= 1;

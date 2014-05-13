@@ -306,6 +306,7 @@ define([
         },
         thisGameOver: function(e) {
             var score = this.game.get("score");
+            var win = this.blocksModel.isWinGame();
             this.blocksView.clearAll();
             this.game.restart();
             this.paddingModel.restart();
@@ -314,31 +315,41 @@ define([
             this.ballModel.set("game_over", false);
             this.ballView.render();
 
-            this.gameOverView.show(score, this.blocksModel.isWinGame());
+            this.gameOverView.show(score, win);
         },
 
         handleJoystick: function(data) {
             var stopped = this.game.get('stop');
-            var gamma;
-            var beta;
 
-            if (data.position.gamma < 0) {
-                this.leftKeyPressed = true;
-                this.rigthKeyPressed = false;
-            }
-            else {
-                this.leftKeyPressed = false;
-                this.rigthKeyPressed = true;
-            }
 
-            if (data.position.beta < 0) {
-                this.upKeyPressed = true;
-                this.downKeyPressed = false;
-            } else {
-                this.upKeyPressed = false;
-                this.downKeyPressed = true;
-            }
-        }
+            if (data.type == 'move')
+                var gamma;
+                var beta;
+
+                if (data.position.gamma < 0) {
+                    this.leftKeyPressed = true;
+                    this.rigthKeyPressed = false;
+                }
+                else {
+                    this.leftKeyPressed = false;
+                    this.rigthKeyPressed = true;
+                }
+
+                if (data.position.beta < 0) {
+                    this.upKeyPressed = true;
+                    this.downKeyPressed = false;
+                } else {
+                    this.upKeyPressed = false;
+                    this.downKeyPressed = true;
+                }
+            if (data.type == 'pause')
+                if (this.gameOverView.isHidden()) {
+                    if (stopped)
+                        this.game.start();
+                    else
+                        this.game.pause();
+                }
+        },
     });
     return new View();
 });
