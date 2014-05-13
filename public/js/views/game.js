@@ -159,9 +159,13 @@ define([
                 height: this.basePaddingHeight,
                 game: this.game
             });
+            
+            var paddingImage = new Image();
+            paddingImage.src = '/css/images/platform.png';
             this.paddingView = new PaddingView({
                 context: this.context,
-                model: this.paddingModel
+                model: this.paddingModel,
+                img: paddingImage
             });
             this.blocksModel = new BlocksModel({
                 game: this.game,

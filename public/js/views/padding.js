@@ -7,6 +7,7 @@ define([
         initialize: function(options) {
             //this.model.on("change:x change:y", this.render, this);
             this.context = options.context;
+            this.img = options.img;
             this.render();
         },
         render: function() {
@@ -17,8 +18,10 @@ define([
             var prevx = this.model.get("prevx");
             var prevy = this.model.get("prevy");
             this.context.clearRect(prevx - width, prevy - height, 2*width, 2*height);
-            this.context.fillStyle = 'green';
-            this.context.fillRect(x - width/2, y - height/2, width, height);
+            //this.context.fillStyle = 'green';
+            //this.context.fillRect(x - width/2, y - height/2, width, height);
+            this.context.drawImage(this.img, x-width/2, y-height/2, width, height);
+                
         },
         show: function() {
         },
