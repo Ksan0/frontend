@@ -18,7 +18,7 @@ module.exports = function(grunt) {
             },
             autoprefixer: {
                 files: ['public/css/*.css'],
-                tasks: ['autoprefixer:dev'],
+                tasks: ['autoprefixer:dev', 'autoprefixer:dev_joystick'],
                 options: {
                     atBegin: true
                 }
@@ -87,6 +87,15 @@ module.exports = function(grunt) {
                     optimize: "none",
                     out: "public/js/build/main.js" 
                 }
+            },
+            build_joystick: {
+                options: {
+                    almond: true,
+                    baseUrl: "public/js",
+                    mainConfigFile: "public/js/main_joystick.js",
+                    name: "main_joystick",
+                    out: "public/js/build/main_joystick.js"
+                }
             }
         },
         concat: {
@@ -96,6 +105,13 @@ module.exports = function(grunt) {
                 },
                 src: ['public/js/lib/almond.js','public/js/build/main.js'],
                 dest: 'public/js/build.js'
+            },
+            build_joystick: {
+                options: {
+                    separator: ';\n'
+                },
+                src: ['public/js/lib/almond.js', 'public/js/build/main_joystick.js'],
+                dest: 'public/js/build_joystick.js'
             }
         },
         uglify: {
@@ -103,6 +119,12 @@ module.exports = function(grunt) {
                 files: [{
                     src: ['public/js/build.js'],
                     dest: 'public/js/build.min.js'
+                }]
+            },
+            build_joystick: {
+                files: [{
+                    src: ['public/js/build_joystick.js'],
+                    dest: 'public/js/build_joystick.min.js'
                 }]
             }
         },
@@ -114,7 +136,14 @@ module.exports = function(grunt) {
                 src: 'public/css/main.css',
                 dest: 'public/css/main.css'
             },
-             multiple_files: {
+            build_joystick: {
+                options: {
+                    browsers: ['last 2 version', 'ie 8', 'ie 9']
+                },
+                src: 'public/css/joystick.css',
+                dest: 'public/css/joystick.css'
+            },
+            multiple_files: {
                 expand: true,
                 flatten: true,
                 src: 'public/css/*.css',
@@ -126,6 +155,13 @@ module.exports = function(grunt) {
                 },
                 src: 'public/css/main.css',
                 dest: 'public/css/main.css'
+            },
+            dev_joystick: {
+                options: {
+                    browsers: ['last 2 version', 'ie 8', 'ie 9']
+                },
+                src: 'public/css/joystick.css',
+                dest: 'public/css/joystick.css'
             }
         },
     });
@@ -143,4 +179,5 @@ module.exports = function(grunt) {
 
     grunt.registerTask('default', ['sass','express','watch']);
     grunt.registerTask('build', ['fest', 'requirejs:build','concat:build', 'uglify:build', 'autoprefixer:build']);
+    grunt.registerTask('build_joystick', ['fest', 'requirejs:build_joystick', 'concat:build_joystick', 'uglify:build_joystick', 'autoprefixer:build_joystick'])
 };

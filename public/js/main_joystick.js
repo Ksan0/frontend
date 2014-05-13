@@ -32,7 +32,6 @@ define([
 ], function(
     Connector
 ){
-    if (Modernizr.touch && Modernizr.hasEvent('deviceOrientation')) {
         var input = document.getElementById('token');
         var start, init, reconnect;
 
@@ -129,7 +128,4 @@ define([
             console.log(answer);
         });
         */
-    } else {
-        document.getElementsByTagName('body')[0].innerHTML = "Wrong device";
-    }
 });

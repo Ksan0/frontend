@@ -1,12 +1,9 @@
 .content__button {
-  -moz-box-shadow: 1px 1px 50px 1px #0bffec;
-  -webkit-box-shadow: 1px 1px 50px 1px #0bffec;
   box-shadow: 1px 1px 50px 1px #0bffec;
   border-radius: 24px;
   margin: 8% auto;
   opacity: 0.9;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f70a39), color-stop(1, #ed0505));
-  background: -moz-linear-gradient(center top, #f70a39 5%, #ed0505 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f70a39', endColorstr='#ed0505');
   background-color: #f70a39;
   border: 2px solid #9e1e2b;
@@ -24,7 +21,6 @@
   text-align: center; }
   .content__button:hover {
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #ed0505), color-stop(1, #f70a39));
-    background: -moz-linear-gradient(center top, #ed0505 5%, #f70a39 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ed0505', endColorstr='#f70a39');
     background-color: #ed0505; }
   .content__button:active {
@@ -32,14 +28,11 @@
     top: 1px; }
 
 .game__button {
-  -moz-box-shadow: -1px 0px 12px 5px #38c1eb;
-  -webkit-box-shadow: -1px 0px 12px 5px #38c1eb;
   box-shadow: -1px 0px 12px 5px #38c1eb;
   box-shadow: -1px 0px 12px 5px #38c1eb;
   border-radius: 41px;
   margin: 0 2%;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #fa0000), color-stop(1, #1f0707));
-  background: -moz-linear-gradient(center top, #fa0000 5%, #1f0707 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fa0000', endColorstr='#1f0707');
   background-color: #fa0000;
   display: inline-block;
@@ -57,7 +50,6 @@
   text-shadow: 2px 3px 45px #ff0808; }
   .game__button:hover {
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #030101), color-stop(1, #ff7a7a));
-    background: -moz-linear-gradient(center top, #030101 5%, #ff7a7a 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#030101', endColorstr='#ff7a7a');
     background-color: #030101; }
   .game__button:active {
@@ -73,8 +65,6 @@
   display: inline-block;
   text-decoration: none;
   text-align: center;
-  -moz-box-shadow: 0px 0px 30px 3px #faf5f5;
-  -webkit-box-shadow: 0px 0px 30px 3px #faf5f5;
   box-shadow: 0px 0px 30px 3px #faf5f5; }
   @media screen and (min-width: 1280px) {
     .btn__pause {
@@ -99,16 +89,13 @@
   position: relative;
   top: 50%;
   -webkit-transform: translate(0, -50%);
-  -moz-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
   transform: translate(0, -50%); }
 
 .token-button {
   margin: 20px;
-  -moz-box-shadow: -1px 0px 12px 5px #38c1eb;
-  -webkit-box-shadow: -1px 0px 12px 5px #38c1eb;
   box-shadow: -1px 0px 12px 5px #38c1eb;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, white), color-stop(1, #4dc1eb));
-  background: -moz-linear-gradient(center top, white 5%, #4dc1eb 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#4dc1eb');
   background-color: #ffffff;
   border-radius: 18px;
@@ -128,7 +115,6 @@
   text-indent: -3px; }
   .token-button:hover {
     background: -webkit-gradient(linear, left top, left bottom, color-stop(0.05, #4dc1eb), color-stop(1, white));
-    background: -moz-linear-gradient(center top, #4dc1eb 5%, white 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4dc1eb', endColorstr='#ffffff');
     background-color: #4dc1eb; }
   .token-button:active {
@@ -151,8 +137,6 @@ body {
   text-align: center;
   border-radius: 25%;
   border: 5px solid #4addf0;
-  -moz-box-shadow: -1px 0px 12px 9px #38c1eb;
-  -webkit-box-shadow: -1px 0px 12px 9px #38c1eb;
   box-shadow: -1px 0px 12px 9px #38c1eb; }
 
 .token {
@@ -160,7 +144,7 @@ body {
   position: relative;
   top: 30%;
   -webkit-transform: translate(0, -50%);
-  -moz-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
   transform: translate(0, -50%); }
 
 .joystick-wrapper {
@@ -173,7 +157,7 @@ body {
   position: relative;
   top: 50%;
   -webkit-transform: translate(0, -50%);
-  -moz-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
   transform: translate(0, -50%); }
 
 .img-size {
