@@ -293,6 +293,7 @@ define([
 
             this.get("scoreDiv").innerHTML = "0";
             this.get("lifeDiv").innerHTML = this.get("life");
+            this.get("bonusDiv").innerHTML = "";
         }
     });
     return Model;
