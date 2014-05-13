@@ -306,6 +306,7 @@ define([
         },
         thisGameOver: function(e) {
             var score = this.game.get("score");
+            var win = this.blocksModel.isWinGame();
             this.blocksView.clearAll();
             this.game.restart();
             this.paddingModel.restart();
@@ -314,7 +315,7 @@ define([
             this.ballModel.set("game_over", false);
             this.ballView.render();
 
-            this.gameOverView.show(score, this.blocksModel.isWinGame());
+            this.gameOverView.show(score, win);
         },
 
         handleJoystick: function(data) {
