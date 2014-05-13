@@ -22,9 +22,24 @@
             </form>
         </div>
         <div class="btn__pause pause main" style="visibility: hidden">
-            <div type="button" class="button__text">pause</div>
+            <div type="button" class="button__text button__pause">pause</div>
         </div>
-        <script data-main="js/main_joystick" src="js/lib/require.js"></script>
+        <fest:if test="json.development">
+            <script data-main="js/main_joystick" src="js/lib/require.js"></script>
+        </fest:if>
+        <fest:if test="!json.development">
+            <script>
+                console.time('load');
+            </script>
+            <script src="js/build_joystick.min.js"></script>
+            <script>
+                require(['main_joystick'], function(){
+                    console.timeEnd('load');
+                });
+            </script>
+        
+        </fest:if>
+        
     </body>
 </html>
 </fest:template>

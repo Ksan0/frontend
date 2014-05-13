@@ -37,8 +37,10 @@ define([
 
         var inputDiv = document.getElementsByClassName("token")[0];
         var mainDiv = document.getElementsByClassName("main")[0];
+        var pauseBtn = document.getElementsByClassName("button__pause")[0];
 
         window.addEventListener("deviceorientation", move, false);
+        window.addEventListener(pauseBtn.click, pause, false);
         // Создаем связь с сервером
         var server = new Connector({
                 server: ['bind'],
@@ -56,6 +58,12 @@ define([
             server.send({
                 type: 'move',
                 position: position
+            })
+        }
+
+        function pause(e) {
+            server.send({
+                type: 'pause'
             })
         }
 
@@ -112,7 +120,7 @@ define([
         };
 
         server.on('reconnect', reconnect);
-
+        //pauseBtn.on('click', pause);
         init();
 
         // Обмен сообщениями
