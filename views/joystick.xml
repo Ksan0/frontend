@@ -21,25 +21,8 @@
                 <button class="token-button" type="submit">OK</button>
             </form>
         </div>
-
-        <div class="joystick-wrapper main" style="visibility: hidden">
-            <div class="position-up">
-                <img class="img-size" src="/css/images/arrow.png"/>
-            </div>
-            <div class="medium">
-                <div class="position-left">
-                    <img class="img-size" src="/css/images/arrow.png"/>
-                </div>
-                <div class="pause">
-                    <img class="img-size" src="/css/images/pausebut.png"/>
-                </div>
-                <div class="position-right">
-                    <img class="img-size" src="/css/images/arrow.png"/>
-                </div>
-            </div>
-            <div class="position-down">
-                <img class="img-size" src="/css/images/arrow.png"/>
-            </div>
+        <div class="btn__pause pause main" style="visibility: hidden">
+            <div class="button__text">pause</div>
         </div>
         <script data-main="js/main_joystick" src="js/lib/require.js"></script>
     </body>
