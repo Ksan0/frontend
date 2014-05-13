@@ -13272,7 +13272,315 @@ define('views/scoreboard',[
     });
     return new View();
 });
-define('tmpl/game',[],function () {return function (__fest_context){var __fest_self=this,__fest_buf="",__fest_chunks=[],__fest_chunk,__fest_attrs=[],__fest_select,__fest_if,__fest_iterator,__fest_to,__fest_fn,__fest_html="",__fest_blocks={},__fest_params,__fest_element,__fest_debug_file="",__fest_debug_line="",__fest_debug_block="",__fest_htmlchars=/[&<>"]/g,__fest_htmlchars_test=/[&<>"]/,__fest_short_tags = {"area":true,"base":true,"br":true,"col":true,"command":true,"embed":true,"hr":true,"img":true,"input":true,"keygen":true,"link":true,"meta":true,"param":true,"source":true,"wbr":true},__fest_element_stack = [],__fest_htmlhash={"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"},__fest_jschars=/[\\'"\/\n\r\t\b\f<>]/g,__fest_jschars_test=/[\\'"\/\n\r\t\b\f<>]/,__fest_jshash={"\"":"\\\"","\\":"\\\\","/":"\\/","\n":"\\n","\r":"\\r","\t":"\\t","\b":"\\b","\f":"\\f","'":"\\'","<":"\\u003C",">":"\\u003E"},___fest_log_error;if(typeof __fest_error === "undefined"){___fest_log_error = (typeof console !== "undefined" && console.error) ? function(){return Function.prototype.apply.call(console.error, console, arguments)} : function(){};}else{___fest_log_error=__fest_error};function __fest_log_error(msg){___fest_log_error(msg+"\nin block \""+__fest_debug_block+"\" at line: "+__fest_debug_line+"\nfile: "+__fest_debug_file)}function __fest_replaceHTML(chr){return __fest_htmlhash[chr]}function __fest_replaceJS(chr){return __fest_jshash[chr]}function __fest_extend(dest, src){for(var i in src)if(src.hasOwnProperty(i))dest[i]=src[i];}function __fest_param(fn){fn.param=true;return fn}function __fest_call(fn, params,cp){if(cp)for(var i in params)if(typeof params[i]=="function"&&params[i].param)params[i]=params[i]();return fn.call(__fest_self,params)}function __fest_escapeJS(s){if (typeof s==="string") {if (__fest_jschars_test.test(s))return s.replace(__fest_jschars,__fest_replaceJS);} else if (typeof s==="undefined")return "";return s;}function __fest_escapeHTML(s){if (typeof s==="string") {if (__fest_htmlchars_test.test(s))return s.replace(__fest_htmlchars,__fest_replaceHTML);} else if (typeof s==="undefined")return "";return s;}var json=__fest_context;__fest_buf+=("<div class=\"content\"></div><canvas class=\"game__position\"></canvas><canvas class=\"game__position\"></canvas><canvas class=\"game__position\"></canvas><div class=\"game\"><div class=\"game__navbar\"><a href=\"#main\" class=\"game__button\">⇐</a><div class=\"game__info\">Score:</div><div class=\"game__info game__score\">0</div>|<div class=\"game__info\">Life:</div><div class=\"game__info game__life\">1</div>|<div class=\"game__info game__bonus\"></div></div></div>");__fest_to=__fest_chunks.length;if (__fest_to) {__fest_iterator = 0;for (;__fest_iterator<__fest_to;__fest_iterator++) {__fest_chunk=__fest_chunks[__fest_iterator];if (typeof __fest_chunk==="string") {__fest_html+=__fest_chunk;} else {__fest_fn=__fest_blocks[__fest_chunk.name];if (__fest_fn) __fest_html+=__fest_call(__fest_fn,__fest_chunk.params,__fest_chunk.cp);}}return __fest_html+__fest_buf;} else {return __fest_buf;}} ; });
+define('FnQuery',[],function(){
+    function FnQuery(){
+        this.query = [];
+    }
+
+    FnQuery.prototype = {
+        add: function(fn){
+            if (this._store){
+                this.query.push(fn);
+            } else {
+                fn();
+            }
+        },
+
+        store: function(){
+            this._store = true;
+        },
+
+        run: function(){
+            this._store = false;
+
+            for (var i = 0, l = this.query.length; i < l; i++){
+                this.query[i]();
+            }
+
+            this.query = [];
+        }
+    };
+
+    return FnQuery;
+});
+
+
+/*!
+ * socket.io-node
+ * Copyright(c) 2011 LearnBoost <dev@learnboost.com>
+ * MIT Licensed
+ */
+
+/**
+ * Module dependencies.
+ */
+
+var client = require('socket.io-client');
+
+/**
+ * Version.
+ */
+
+exports.version = '0.9.16';
+
+/**
+ * Supported protocol version.
+ */
+
+exports.protocol = 1;
+
+/**
+ * Client that we serve.
+ */
+
+exports.clientVersion = client.version;
+
+/**
+ * Attaches a manager
+ *
+ * @param {HTTPServer/Number} a HTTP/S server or a port number to listen on.
+ * @param {Object} opts to be passed to Manager and/or http server
+ * @param {Function} callback if a port is supplied
+ * @api public
+ */
+
+exports.listen = function (server, options, fn) {
+  if ('function' == typeof server) {
+    console.warn('Socket.IO\'s `listen()` method expects an `http.Server` instance\n'
+    + 'as its first parameter. Are you migrating from Express 2.x to 3.x?\n'
+    + 'If so, check out the "Socket.IO compatibility" section at:\n'
+    + 'https://github.com/visionmedia/express/wiki/Migrating-from-2.x-to-3.x');
+  }
+
+  if ('function' == typeof options) {
+    fn = options;
+    options = {};
+  }
+
+  if ('undefined' == typeof server) {
+    // create a server that listens on port 80
+    server = 80;
+  }
+
+  if ('number' == typeof server) {
+    // if a port number is passed
+    var port = server;
+
+    if (options && options.key)
+      server = require('https').createServer(options);
+    else
+      server = require('http').createServer();
+
+    // default response
+    server.on('request', function (req, res) {
+      res.writeHead(200);
+      res.end('Welcome to socket.io.');
+    });
+
+    server.listen(port, fn);
+  }
+
+  // otherwise assume a http/s server
+  return new exports.Manager(server, options);
+};
+
+/**
+ * Manager constructor.
+ *
+ * @api public
+ */
+
+exports.Manager = require('./manager');
+
+/**
+ * Transport constructor.
+ *
+ * @api public
+ */
+
+exports.Transport = require('./transport');
+
+/**
+ * Socket constructor.
+ *
+ * @api public
+ */
+
+exports.Socket = require('./socket');
+
+/**
+ * Static constructor.
+ *
+ * @api public
+ */
+
+exports.Static = require('./static');
+
+/**
+ * Store constructor.
+ *
+ * @api public
+ */
+
+exports.Store = require('./store');
+
+/**
+ * Memory Store constructor.
+ *
+ * @api public
+ */
+
+exports.MemoryStore = require('./stores/memory');
+
+/**
+ * Redis Store constructor.
+ *
+ * @api public
+ */
+
+exports.RedisStore = require('./stores/redis');
+
+/**
+ * Parser.
+ *
+ * @api public
+ */
+
+exports.parser = require('./parser');
+
+define("socket.io", (function (global) {
+    return function () {
+        var ret, fn;
+        return ret || global.io;
+    };
+}(this)));
+
+define('Connector',[
+    'backbone',
+    'FnQuery',
+    'socket.io'
+], function(
+    Backbone,
+    FnQuery,
+    io
+){
+    function Connector(conf){
+        conf || (conf = {});
+
+        this.socket = io.connect(conf.remote);
+        var self = this;
+
+        this._readyFns = [];
+        this._connected = false;
+
+        this._query = new FnQuery();
+        this._query.store();
+
+        if (conf.server){
+            this._setFnList(conf.server);
+        }
+
+        this.socket.on('disconnect', function(){
+            self._connected = false;
+            self._query.store();
+            self.trigger('disconnect');
+        });
+
+        this.socket.on('connect', function(){
+            if (!self.isReady()){
+                self.socket.emit('getFnList', function(fnList){
+                    self._fnList = fnList;
+                    self._setFnList(fnList);
+
+                    self._setReady();
+                    self._connected = true;
+                    self.trigger('connect');
+                    self._query.run();
+                });
+
+                self.socket.on('sms', function(data, answer){
+                    self.trigger(data.type || 'message', data.data, answer);
+                });
+
+            } else {
+                self._connected = true;
+                self.trigger('reconnect');
+                self._query.run();
+            }
+        });
+    }
+
+    $.extend(Connector.prototype, Backbone.Events, {
+        send: function(data, answer){
+            if (!answer && typeof data == 'function'){
+                answer = data;
+                data = void 0;
+            }
+
+            this.socket.emit('sms', {data: data}, function(data){
+                answer && answer(data);
+            })
+        },
+
+        isReady: function(){
+            return this._isReady;
+        },
+
+        onReady: function(fn){
+            if (this.isReady()){
+                fn.call(this);
+            } else {
+                this._readyFns.push(fn);
+            }
+        },
+
+        _setReady: function(){
+            for (var i = 0, l = this._readyFns.length; i < l; i++){
+                var fn = this._readyFns[i];
+
+                fn.call(this);
+            }
+
+            this._readyFns = [];
+
+            this._isReady = true;
+        },
+
+        _setFnList: function(fnList){
+            var self = this;
+
+            for (var i = 0, l = fnList.length; i < l; i++){
+                var name = fnList[i];
+
+                self[name] = (function(name){
+                    return function(data, answer){
+                        self._query.add(function(){
+                            if (self._fnList.indexOf(name) == -1){
+                                answer && answer('Error: undefined function');
+                                return;
+                            }
+
+                            if (!answer && typeof data == 'function'){
+                                answer = data;
+                                data = void 0;
+                            }
+
+                            self.socket.emit('fnCall', {
+                                name: name,
+                                data: data
+                            }, answer);
+
+                        });
+                    };
+                })(name);
+            }
+        }
+    });
+
+    return Connector;
+});
+
+define('tmpl/game',[],function () {return function (__fest_context){var __fest_self=this,__fest_buf="",__fest_chunks=[],__fest_chunk,__fest_attrs=[],__fest_select,__fest_if,__fest_iterator,__fest_to,__fest_fn,__fest_html="",__fest_blocks={},__fest_params,__fest_element,__fest_debug_file="",__fest_debug_line="",__fest_debug_block="",__fest_htmlchars=/[&<>"]/g,__fest_htmlchars_test=/[&<>"]/,__fest_short_tags = {"area":true,"base":true,"br":true,"col":true,"command":true,"embed":true,"hr":true,"img":true,"input":true,"keygen":true,"link":true,"meta":true,"param":true,"source":true,"wbr":true},__fest_element_stack = [],__fest_htmlhash={"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"},__fest_jschars=/[\\'"\/\n\r\t\b\f<>]/g,__fest_jschars_test=/[\\'"\/\n\r\t\b\f<>]/,__fest_jshash={"\"":"\\\"","\\":"\\\\","/":"\\/","\n":"\\n","\r":"\\r","\t":"\\t","\b":"\\b","\f":"\\f","'":"\\'","<":"\\u003C",">":"\\u003E"},___fest_log_error;if(typeof __fest_error === "undefined"){___fest_log_error = (typeof console !== "undefined" && console.error) ? function(){return Function.prototype.apply.call(console.error, console, arguments)} : function(){};}else{___fest_log_error=__fest_error};function __fest_log_error(msg){___fest_log_error(msg+"\nin block \""+__fest_debug_block+"\" at line: "+__fest_debug_line+"\nfile: "+__fest_debug_file)}function __fest_replaceHTML(chr){return __fest_htmlhash[chr]}function __fest_replaceJS(chr){return __fest_jshash[chr]}function __fest_extend(dest, src){for(var i in src)if(src.hasOwnProperty(i))dest[i]=src[i];}function __fest_param(fn){fn.param=true;return fn}function __fest_call(fn, params,cp){if(cp)for(var i in params)if(typeof params[i]=="function"&&params[i].param)params[i]=params[i]();return fn.call(__fest_self,params)}function __fest_escapeJS(s){if (typeof s==="string") {if (__fest_jschars_test.test(s))return s.replace(__fest_jschars,__fest_replaceJS);} else if (typeof s==="undefined")return "";return s;}function __fest_escapeHTML(s){if (typeof s==="string") {if (__fest_htmlchars_test.test(s))return s.replace(__fest_htmlchars,__fest_replaceHTML);} else if (typeof s==="undefined")return "";return s;}var json=__fest_context;__fest_buf+=("<div class=\"content\"></div><canvas class=\"game__position\"></canvas><canvas class=\"game__position\"></canvas><canvas class=\"game__position\"></canvas><div class=\"game\"><div class=\"game__navbar\"><a href=\"#main\" class=\"game__button\">back</a><div class=\"game__info\">Score:</div><div class=\"game__info game__score\">0</div>|<div class=\"game__info\">Life:</div><div class=\"game__info game__life\">1</div>|<div class=\"game__info game__bonus\"></div>|<div class=\"game__info token-place\">1234</div></div></div>");__fest_to=__fest_chunks.length;if (__fest_to) {__fest_iterator = 0;for (;__fest_iterator<__fest_to;__fest_iterator++) {__fest_chunk=__fest_chunks[__fest_iterator];if (typeof __fest_chunk==="string") {__fest_html+=__fest_chunk;} else {__fest_fn=__fest_blocks[__fest_chunk.name];if (__fest_fn) __fest_html+=__fest_call(__fest_fn,__fest_chunk.params,__fest_chunk.cp);}}return __fest_html+__fest_buf;} else {return __fest_buf;}} ; });
 define('models/padding',[
     'backbone'
 ], function(
@@ -14021,7 +14329,7 @@ define('models/ball',[
                 padding.set('acceleration_y', padding.get('default_acceleration_y'));
                 padding.set('friction_x', padding.get('default_friction_x'));
                 padding.set('friction_y', padding.get('default_friction_y'));
-                this.set('velocity', this.get('velocity')/1.5);
+                this.set('velocity', this.get('velocity')/1.25);
             }
 
             /*
@@ -14043,7 +14351,7 @@ define('models/ball',[
                     padding.set('acceleration_y', 10000);
                     padding.set('friction_x', 1000);
                     padding.set('friction_y', 1000);
-                    this.set('velocity', this.get('velocity')*1.5);
+                    this.set('velocity', this.get('velocity')*1.25);
                     break;
                 case 3:     // strength
                     this.set("bonus", "strength");
@@ -14071,8 +14379,8 @@ define('models/ball',[
             this.set("velocity", this.get('default_velocity'));
             this.set("angle", this.get('default_angle'));
 
-            var scoreDiv = this.get("scoreDiv");
-            scoreDiv.innerHTML = "0";
+            this.get("scoreDiv").innerHTML = "0";
+            this.get("lifeDiv").innerHTML = this.get("life");
         }
     });
     return Model;
@@ -14121,7 +14429,7 @@ define('views/ball',[
     });
     return View;
 });
-define('tmpl/game_over',[],function () {return function (__fest_context){var __fest_self=this,__fest_buf="",__fest_chunks=[],__fest_chunk,__fest_attrs=[],__fest_select,__fest_if,__fest_iterator,__fest_to,__fest_fn,__fest_html="",__fest_blocks={},__fest_params,__fest_element,__fest_debug_file="",__fest_debug_line="",__fest_debug_block="",__fest_htmlchars=/[&<>"]/g,__fest_htmlchars_test=/[&<>"]/,__fest_short_tags = {"area":true,"base":true,"br":true,"col":true,"command":true,"embed":true,"hr":true,"img":true,"input":true,"keygen":true,"link":true,"meta":true,"param":true,"source":true,"wbr":true},__fest_element_stack = [],__fest_htmlhash={"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"},__fest_jschars=/[\\'"\/\n\r\t\b\f<>]/g,__fest_jschars_test=/[\\'"\/\n\r\t\b\f<>]/,__fest_jshash={"\"":"\\\"","\\":"\\\\","/":"\\/","\n":"\\n","\r":"\\r","\t":"\\t","\b":"\\b","\f":"\\f","'":"\\'","<":"\\u003C",">":"\\u003E"},___fest_log_error;if(typeof __fest_error === "undefined"){___fest_log_error = (typeof console !== "undefined" && console.error) ? function(){return Function.prototype.apply.call(console.error, console, arguments)} : function(){};}else{___fest_log_error=__fest_error};function __fest_log_error(msg){___fest_log_error(msg+"\nin block \""+__fest_debug_block+"\" at line: "+__fest_debug_line+"\nfile: "+__fest_debug_file)}function __fest_replaceHTML(chr){return __fest_htmlhash[chr]}function __fest_replaceJS(chr){return __fest_jshash[chr]}function __fest_extend(dest, src){for(var i in src)if(src.hasOwnProperty(i))dest[i]=src[i];}function __fest_param(fn){fn.param=true;return fn}function __fest_call(fn, params,cp){if(cp)for(var i in params)if(typeof params[i]=="function"&&params[i].param)params[i]=params[i]();return fn.call(__fest_self,params)}function __fest_escapeJS(s){if (typeof s==="string") {if (__fest_jschars_test.test(s))return s.replace(__fest_jschars,__fest_replaceJS);} else if (typeof s==="undefined")return "";return s;}function __fest_escapeHTML(s){if (typeof s==="string") {if (__fest_htmlchars_test.test(s))return s.replace(__fest_htmlchars,__fest_replaceHTML);} else if (typeof s==="undefined")return "";return s;}var json=__fest_context;__fest_buf+=("<div class=\"content font_type\"><div class=\"content__title\">ARCANOID</div><div class=\"content__main win__game\"></div><div class=\"content__main\">Your Score:");try{__fest_buf+=(__fest_escapeHTML(json.score))}catch(e){__fest_log_error(e.message + "4");}__fest_buf+=("</div><form id=\"gameOverForm\"><input type=\"text\" class=\"scoreform \" id=\"username\"/><input type=\"submit\" class=\"content__button\"/></form><input class=\"content__button restart__game\" type=\"button\" value=\"Restart\"/></div>");__fest_to=__fest_chunks.length;if (__fest_to) {__fest_iterator = 0;for (;__fest_iterator<__fest_to;__fest_iterator++) {__fest_chunk=__fest_chunks[__fest_iterator];if (typeof __fest_chunk==="string") {__fest_html+=__fest_chunk;} else {__fest_fn=__fest_blocks[__fest_chunk.name];if (__fest_fn) __fest_html+=__fest_call(__fest_fn,__fest_chunk.params,__fest_chunk.cp);}}return __fest_html+__fest_buf;} else {return __fest_buf;}} ; });
+define('tmpl/game_over',[],function () {return function (__fest_context){var __fest_self=this,__fest_buf="",__fest_chunks=[],__fest_chunk,__fest_attrs=[],__fest_select,__fest_if,__fest_iterator,__fest_to,__fest_fn,__fest_html="",__fest_blocks={},__fest_params,__fest_element,__fest_debug_file="",__fest_debug_line="",__fest_debug_block="",__fest_htmlchars=/[&<>"]/g,__fest_htmlchars_test=/[&<>"]/,__fest_short_tags = {"area":true,"base":true,"br":true,"col":true,"command":true,"embed":true,"hr":true,"img":true,"input":true,"keygen":true,"link":true,"meta":true,"param":true,"source":true,"wbr":true},__fest_element_stack = [],__fest_htmlhash={"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"},__fest_jschars=/[\\'"\/\n\r\t\b\f<>]/g,__fest_jschars_test=/[\\'"\/\n\r\t\b\f<>]/,__fest_jshash={"\"":"\\\"","\\":"\\\\","/":"\\/","\n":"\\n","\r":"\\r","\t":"\\t","\b":"\\b","\f":"\\f","'":"\\'","<":"\\u003C",">":"\\u003E"},___fest_log_error;if(typeof __fest_error === "undefined"){___fest_log_error = (typeof console !== "undefined" && console.error) ? function(){return Function.prototype.apply.call(console.error, console, arguments)} : function(){};}else{___fest_log_error=__fest_error};function __fest_log_error(msg){___fest_log_error(msg+"\nin block \""+__fest_debug_block+"\" at line: "+__fest_debug_line+"\nfile: "+__fest_debug_file)}function __fest_replaceHTML(chr){return __fest_htmlhash[chr]}function __fest_replaceJS(chr){return __fest_jshash[chr]}function __fest_extend(dest, src){for(var i in src)if(src.hasOwnProperty(i))dest[i]=src[i];}function __fest_param(fn){fn.param=true;return fn}function __fest_call(fn, params,cp){if(cp)for(var i in params)if(typeof params[i]=="function"&&params[i].param)params[i]=params[i]();return fn.call(__fest_self,params)}function __fest_escapeJS(s){if (typeof s==="string") {if (__fest_jschars_test.test(s))return s.replace(__fest_jschars,__fest_replaceJS);} else if (typeof s==="undefined")return "";return s;}function __fest_escapeHTML(s){if (typeof s==="string") {if (__fest_htmlchars_test.test(s))return s.replace(__fest_htmlchars,__fest_replaceHTML);} else if (typeof s==="undefined")return "";return s;}var json=__fest_context;__fest_buf+=("<div class=\"content font_type\"><div class=\"content__title\">ARCANOID</div><div class=\"content__main win__game\"></div><div class=\"content__main\">Your Score:");try{__fest_buf+=(__fest_escapeHTML(json.score))}catch(e){__fest_log_error(e.message + "4");}__fest_buf+=("</div><form id=\"gameOverForm\"><input type=\"text\" class=\"scoreform \" id=\"username\"/><input type=\"submit\" class=\"content__button\"/></form><input class=\"content__button hide__gameover\" type=\"button\" value=\"Restart\"/><a class=\"content__button hide__gameover\" href=\"#main\">Menu</a></div>");__fest_to=__fest_chunks.length;if (__fest_to) {__fest_iterator = 0;for (;__fest_iterator<__fest_to;__fest_iterator++) {__fest_chunk=__fest_chunks[__fest_iterator];if (typeof __fest_chunk==="string") {__fest_html+=__fest_chunk;} else {__fest_fn=__fest_blocks[__fest_chunk.name];if (__fest_fn) __fest_html+=__fest_call(__fest_fn,__fest_chunk.params,__fest_chunk.cp);}}return __fest_html+__fest_buf;} else {return __fest_buf;}} ; });
 define('views/game_over',[
     'backbone',
     'tmpl/game_over',
@@ -14151,9 +14459,9 @@ define('views/game_over',[
 
             $(document).find('.win__game')[0].innerHTML = this.winGame ? "Затащил" : "Потрачено";
             $(document).find('#gameOverForm')[0].style.display = this.winGame ? "" : "none";
-            $(document).find('.restart__game')[0].style.display = this.winGame ? "none" : "";
+            $(document).find('.hide__gameover')[0].style.display = this.winGame ? "none" : "";
 
-            $('.restart__game', this.el).on('click', this.hide.bind(this));
+            $('.hide__gameover', this.el).on('click', this.hide.bind(this));
             $('#gameOverForm', this.el).on('submit', this.addResult.bind(this));
             return this;
         },
@@ -14189,6 +14497,7 @@ define('views/game_over',[
 });
 define('views/game',[
     'backbone',
+    'Connector',
     'tmpl/game',
     'models/game',
     'models/padding',
@@ -14198,7 +14507,7 @@ define('views/game',[
     'models/ball',
     'views/ball',
     'views/game_over'
-], function (Backbone, tmpl, Game, PaddingModel, PaddingView, BlocksModel, BlocksView, BallModel, BallView, GameOverView) {
+], function (Backbone, Connector, tmpl, Game, PaddingModel, PaddingView, BlocksModel, BlocksView, BallModel, BallView, GameOverView) {
 
     var View = Backbone.View.extend({
         template: tmpl,
@@ -14234,6 +14543,75 @@ define('views/game',[
         downKeyPressed: false,
 
         initialize: function() {
+
+            var self = this;
+            var start, init, reconnect;
+
+            // Создаем связь с сервером
+            var server = new Connector({
+                    server: ['getToken', 'bind'],
+                    remote: '/console'
+                }
+            );
+
+            // На подключении игрока стартуем игру
+            server.on('player-joined', function(data){
+                // Передаем id связки консоль-джостик
+                start(data.guid);
+            });
+
+            // Инициализация
+            init = function(){
+                // Если id нет
+                if (!localStorage.getItem('consoleguid')){
+                    // Получаем токен
+                    server.getToken(function(token){
+                        self.token = token;
+                        self.insertToken();
+                    });
+                } else { // иначе
+                    // переподключаемся к уже созданной связке
+                    reconnect();
+                }
+            };
+
+            // Переподключение
+            reconnect = function(){
+                // Используем сохранненный id связки
+                server.bind({guid: localStorage.getItem('consoleguid')}, function(data){
+                    // Если все ок
+                    if (data.status == 'success'){
+                        // Стартуем
+                        start(data.guid);
+                    // Если связки уже нет
+                    } else if (data.status == 'undefined guid'){
+                        // Начинаем все заново
+                        localStorage.removeItem('consoleguid');
+                        init();
+                    }
+                });
+            };
+
+            server.on('reconnect', reconnect);
+
+            // Старт игры
+            start = function(guid){
+                console.log('start console');
+                // Сохраняем id связки
+                localStorage.setItem('consoleguid', guid);
+            };
+
+            init();
+
+            // Обмен сообщениями
+            server.on('message', function(data, answer){
+                console.log('message', data);
+                answer('answer');
+            });
+
+            window.server = server;
+
+
             this.$el.html(this.template());
             $('.content_wrapper').append(this.$el);
             this.canvas = this.$el.find(".game__position")[0];
@@ -14270,8 +14648,8 @@ define('views/game',[
                 speed_y: 0,
                 max_speed_x: 150,                     // speed use when user press key
                 max_speed_y: 75,
-                acceleration_x: 175,
-                acceleration_y: 175,
+                acceleration_x: 200,
+                acceleration_y: 200,
                 friction_x: 50,
                 friction_y: 50,
                 width: this.basePaddingWidth,
@@ -14330,6 +14708,12 @@ define('views/game',[
             loader.style.display = 'none';
 
             this.lastFrapTime = (new Date()).getTime();
+        },
+
+        insertToken: function() {
+            var tokenItem = this.$el.find('.token-place')[0];
+            tokenItem.innerHTML = this.token;
+            console.log(tokenItem);
         },
         render: function() {
             this.context.beginPath();
@@ -14475,7 +14859,7 @@ require.config({
         backbone: "lib/backbone",
         Connector: "lib/Connector",
         FnQuery: "lib/FnQuery",
-        "socket.io": "/socket.io/socket.io"
+        "socket.io": "lib/socket.io"
     },
     shim: {
         'backbone': {

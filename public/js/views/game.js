@@ -108,7 +108,7 @@ define([
 
             // Обмен сообщениями
             server.on('message', function(data, answer){
-                console.log('message', data);
+                self.handleJoystick(data);
                 answer('answer');
             });
 
@@ -315,6 +315,29 @@ define([
             this.ballView.render();
 
             this.gameOverView.show(score, this.blocksModel.isWinGame());
+        },
+
+        handleJoystick: function(data) {
+            var stopped = this.game.get('stop');
+            var gamma;
+            var beta;
+
+            if (data.position.gamma < 0) {
+                this.leftKeyPressed = true;
+                this.rigthKeyPressed = false;
+            }
+            else {
+                this.leftKeyPressed = false;
+                this.rigthKeyPressed = true;
+            }
+
+            if (data.position.beta < 0) {
+                this.upKeyPressed = true;
+                this.downKeyPressed = false;
+            } else {
+                this.upKeyPressed = false;
+                this.downKeyPressed = true;
+            }
         }
     });
     return new View();
