@@ -343,7 +343,7 @@ define([
                     this.downKeyPressed = true;
                 }
             if (data.type == 'pause')
-                if (this.gameOverView.isHidden()) {
+                if (!this.gameOverView.isHidden()) {
                     if (stopped)
                         this.game.start();
                     else
