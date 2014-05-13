@@ -84,7 +84,7 @@ define([
             
             var delta_y = 50;
             var max_y = gameHeight - gameTopOffset - 6*gameBottomOffset;
-            var min_y   = gameHeight - gameTopOffset - 18*gameBottomOffset;
+            var min_y   = gameHeight - gameTopOffset - 12*gameBottomOffset;
 
             this.set('types_count', 4);
             this.set('hp_max', 3);
