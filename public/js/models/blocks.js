@@ -82,9 +82,9 @@ define([
             var min_x = -gameWidth / 2 + gameLeftOffset + 1.25*this.get('width');
             var max_x = gameWidth / 2 - gameRightOffset - this.get('width')/2;
             
-            var delta_y = 23;
+            var delta_y = 50;
             var max_y = gameHeight - gameTopOffset - 6*gameBottomOffset;
-            var min_y   = gameHeight - gameTopOffset - 12*gameBottomOffset;
+            var min_y   = gameHeight - gameTopOffset - 18*gameBottomOffset;
 
             this.set('types_count', 4);
             this.set('hp_max', 3);
