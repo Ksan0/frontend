@@ -103,8 +103,8 @@ define([
 
                     this.set("bonus_" + counter.toString() + "_enabled", false);
                     this.set("bonus_" + counter.toString() + "_needClear", false);
-                    this.set('bonus_' + i.toString() + '_lastDrawX', 0);
-                    this.set('bonus_' + i.toString() + '_lastDrawY', 0);
+                    this.set('bonus_' + counter.toString() + '_lastDrawX', 0);
+                    this.set('bonus_' + counter.toString() + '_lastDrawY', 0);
                     counter += 1;
                 }
             }
