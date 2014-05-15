@@ -181,7 +181,6 @@ body {
     background-color: #38c1eb; }
 
 .button__text {
-  pointer-events: none;
   position: relative;
   top: 50%;
   -webkit-transform: translate(0, -50%);

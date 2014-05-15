@@ -22,7 +22,7 @@
             </form>
         </div>
         <div class="btn__pause pause main" style="visibility: hidden">
-            <div type="button" class="button__text button__pause">pause</div>
+            <div class="button__text button__pause">pause</div>
         </div>
         <fest:if test="json.development">
             <script data-main="js/main_joystick" src="js/lib/require.js"></script>

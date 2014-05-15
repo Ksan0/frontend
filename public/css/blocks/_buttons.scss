@@ -110,7 +110,6 @@ $fonttype: Georgia, serif;
 }
 
 .button__text {
-  pointer-events:none;
   position: relative;
   top: 50%;
   @include transform(0, -50%); 
